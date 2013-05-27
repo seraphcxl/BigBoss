@@ -1,0 +1,309 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1BD33A371753A195004F4D78 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BD33A361753A195004F4D78 /* Cocoa.framework */; };
+		1BD33A411753A195004F4D78 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1BD33A3F1753A195004F4D78 /* InfoPlist.strings */; };
+		1BD33A431753A195004F4D78 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD33A421753A195004F4D78 /* main.m */; };
+		1BD33A471753A195004F4D78 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 1BD33A451753A195004F4D78 /* Credits.rtf */; };
+		1BD33A4A1753A195004F4D78 /* DCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD33A491753A195004F4D78 /* DCAppDelegate.m */; };
+		1BD33A4D1753A196004F4D78 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BD33A4B1753A196004F4D78 /* MainMenu.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1BD33A331753A195004F4D78 /* HOUND.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HOUND.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1BD33A361753A195004F4D78 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		1BD33A391753A195004F4D78 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		1BD33A3A1753A195004F4D78 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		1BD33A3B1753A195004F4D78 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1BD33A3E1753A195004F4D78 /* HOUND-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HOUND-Info.plist"; sourceTree = "<group>"; };
+		1BD33A401753A195004F4D78 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1BD33A421753A195004F4D78 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1BD33A441753A195004F4D78 /* HOUND-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HOUND-Prefix.pch"; sourceTree = "<group>"; };
+		1BD33A461753A195004F4D78 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		1BD33A481753A195004F4D78 /* DCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DCAppDelegate.h; sourceTree = "<group>"; };
+		1BD33A491753A195004F4D78 /* DCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DCAppDelegate.m; sourceTree = "<group>"; };
+		1BD33A4C1753A196004F4D78 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1BD33A301753A195004F4D78 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1BD33A371753A195004F4D78 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1BD33A2A1753A195004F4D78 = {
+			isa = PBXGroup;
+			children = (
+				1BD33A3C1753A195004F4D78 /* HOUND */,
+				1BD33A351753A195004F4D78 /* Frameworks */,
+				1BD33A341753A195004F4D78 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1BD33A341753A195004F4D78 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1BD33A331753A195004F4D78 /* HOUND.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1BD33A351753A195004F4D78 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1BD33A361753A195004F4D78 /* Cocoa.framework */,
+				1BD33A381753A195004F4D78 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1BD33A381753A195004F4D78 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1BD33A391753A195004F4D78 /* AppKit.framework */,
+				1BD33A3A1753A195004F4D78 /* CoreData.framework */,
+				1BD33A3B1753A195004F4D78 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		1BD33A3C1753A195004F4D78 /* HOUND */ = {
+			isa = PBXGroup;
+			children = (
+				1BD33A481753A195004F4D78 /* DCAppDelegate.h */,
+				1BD33A491753A195004F4D78 /* DCAppDelegate.m */,
+				1BD33A4B1753A196004F4D78 /* MainMenu.xib */,
+				1BD33A3D1753A195004F4D78 /* Supporting Files */,
+			);
+			path = HOUND;
+			sourceTree = "<group>";
+		};
+		1BD33A3D1753A195004F4D78 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1BD33A3E1753A195004F4D78 /* HOUND-Info.plist */,
+				1BD33A3F1753A195004F4D78 /* InfoPlist.strings */,
+				1BD33A421753A195004F4D78 /* main.m */,
+				1BD33A441753A195004F4D78 /* HOUND-Prefix.pch */,
+				1BD33A451753A195004F4D78 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1BD33A321753A195004F4D78 /* HOUND */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1BD33A501753A196004F4D78 /* Build configuration list for PBXNativeTarget "HOUND" */;
+			buildPhases = (
+				1BD33A2F1753A195004F4D78 /* Sources */,
+				1BD33A301753A195004F4D78 /* Frameworks */,
+				1BD33A311753A195004F4D78 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HOUND;
+			productName = HOUND;
+			productReference = 1BD33A331753A195004F4D78 /* HOUND.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1BD33A2B1753A195004F4D78 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = DC;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "CaptainSolid Studio";
+			};
+			buildConfigurationList = 1BD33A2E1753A195004F4D78 /* Build configuration list for PBXProject "HOUND" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 1BD33A2A1753A195004F4D78;
+			productRefGroup = 1BD33A341753A195004F4D78 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1BD33A321753A195004F4D78 /* HOUND */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1BD33A311753A195004F4D78 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1BD33A411753A195004F4D78 /* InfoPlist.strings in Resources */,
+				1BD33A471753A195004F4D78 /* Credits.rtf in Resources */,
+				1BD33A4D1753A196004F4D78 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1BD33A2F1753A195004F4D78 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1BD33A431753A195004F4D78 /* main.m in Sources */,
+				1BD33A4A1753A195004F4D78 /* DCAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		1BD33A3F1753A195004F4D78 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1BD33A401753A195004F4D78 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		1BD33A451753A195004F4D78 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1BD33A461753A195004F4D78 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		1BD33A4B1753A196004F4D78 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1BD33A4C1753A196004F4D78 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1BD33A4E1753A196004F4D78 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx10.7;
+			};
+			name = Debug;
+		};
+		1BD33A4F1753A196004F4D78 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx10.7;
+			};
+			name = Release;
+		};
+		1BD33A511753A196004F4D78 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HOUND/HOUND-Prefix.pch";
+				INFOPLIST_FILE = "HOUND/HOUND-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		1BD33A521753A196004F4D78 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HOUND/HOUND-Prefix.pch";
+				INFOPLIST_FILE = "HOUND/HOUND-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1BD33A2E1753A195004F4D78 /* Build configuration list for PBXProject "HOUND" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1BD33A4E1753A196004F4D78 /* Debug */,
+				1BD33A4F1753A196004F4D78 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1BD33A501753A196004F4D78 /* Build configuration list for PBXNativeTarget "HOUND" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1BD33A511753A196004F4D78 /* Debug */,
+				1BD33A521753A196004F4D78 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1BD33A2B1753A195004F4D78 /* Project object */;
+}
