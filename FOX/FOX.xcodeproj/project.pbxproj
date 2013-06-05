@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1BD33A0E1753A168004F4D78 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BD33A0D1753A168004F4D78 /* Cocoa.framework */; };
 		1BD33A181753A168004F4D78 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1BD33A161753A168004F4D78 /* InfoPlist.strings */; };
 		1BD33A1A1753A168004F4D78 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD33A191753A168004F4D78 /* main.m */; };
 		1BD33A1E1753A168004F4D78 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 1BD33A1C1753A168004F4D78 /* Credits.rtf */; };
@@ -16,14 +15,14 @@
 		1BE54D85175F56B500A34DD6 /* DCDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE54D80175F56B500A34DD6 /* DCDataStore.m */; };
 		1BE54D86175F56B500A34DD6 /* DCDataStoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE54D82175F56B500A34DD6 /* DCDataStoreManager.m */; };
 		1BE54D87175F56B500A34DD6 /* DCDataStoreOperator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE54D84175F56B500A34DD6 /* DCDataStoreOperator.m */; };
+		1BE54D89175F5A3C00A34DD6 /* libGenericSourceModule_ObjC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BE54D88175F5A3C00A34DD6 /* libGenericSourceModule_ObjC.a */; };
+		1BE54D8B175F5A6300A34DD6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BE54D8A175F5A6300A34DD6 /* Foundation.framework */; };
+		1BE54D8D175F5A6A00A34DD6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BE54D8C175F5A6A00A34DD6 /* CoreData.framework */; };
+		1BE54D8F175F5AA800A34DD6 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BE54D8E175F5AA800A34DD6 /* AppKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1BD33A0A1753A168004F4D78 /* FOX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FOX.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		1BD33A0D1753A168004F4D78 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		1BD33A101753A168004F4D78 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
-		1BD33A111753A168004F4D78 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		1BD33A121753A168004F4D78 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1BD33A151753A168004F4D78 /* FOX-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FOX-Info.plist"; sourceTree = "<group>"; };
 		1BD33A171753A168004F4D78 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1BD33A191753A168004F4D78 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -38,6 +37,10 @@
 		1BE54D82175F56B500A34DD6 /* DCDataStoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCDataStoreManager.m; sourceTree = "<group>"; };
 		1BE54D83175F56B500A34DD6 /* DCDataStoreOperator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCDataStoreOperator.h; sourceTree = "<group>"; };
 		1BE54D84175F56B500A34DD6 /* DCDataStoreOperator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCDataStoreOperator.m; sourceTree = "<group>"; };
+		1BE54D88175F5A3C00A34DD6 /* libGenericSourceModule_ObjC.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGenericSourceModule_ObjC.a; path = ../GenericSourceModule_ObjC/libGenericSourceModule_ObjC.a; sourceTree = "<group>"; };
+		1BE54D8A175F5A6300A34DD6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1BE54D8C175F5A6A00A34DD6 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		1BE54D8E175F5AA800A34DD6 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,7 +48,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1BD33A0E1753A168004F4D78 /* Cocoa.framework in Frameworks */,
+				1BE54D8F175F5AA800A34DD6 /* AppKit.framework in Frameworks */,
+				1BE54D8D175F5A6A00A34DD6 /* CoreData.framework in Frameworks */,
+				1BE54D8B175F5A6300A34DD6 /* Foundation.framework in Frameworks */,
+				1BE54D89175F5A3C00A34DD6 /* libGenericSourceModule_ObjC.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,20 +78,12 @@
 		1BD33A0C1753A168004F4D78 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1BD33A0D1753A168004F4D78 /* Cocoa.framework */,
-				1BD33A0F1753A168004F4D78 /* Other Frameworks */,
+				1BE54D8E175F5AA800A34DD6 /* AppKit.framework */,
+				1BE54D8C175F5A6A00A34DD6 /* CoreData.framework */,
+				1BE54D8A175F5A6300A34DD6 /* Foundation.framework */,
+				1BE54D88175F5A3C00A34DD6 /* libGenericSourceModule_ObjC.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		1BD33A0F1753A168004F4D78 /* Other Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				1BD33A101753A168004F4D78 /* AppKit.framework */,
-				1BD33A111753A168004F4D78 /* CoreData.framework */,
-				1BD33A121753A168004F4D78 /* Foundation.framework */,
-			);
-			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
 		1BD33A131753A168004F4D78 /* FOX */ = {
@@ -286,6 +284,10 @@
 				GCC_PREFIX_HEADER = "FOX/FOX-Prefix.pch";
 				HEADER_SEARCH_PATHS = ../GenericSourceModule_ObjC/;
 				INFOPLIST_FILE = "FOX/FOX-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					../GenericSourceModule_ObjC/,
+					"\"$(SRCROOT)/../GenericSourceModule_ObjC\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -300,6 +302,10 @@
 				GCC_PREFIX_HEADER = "FOX/FOX-Prefix.pch";
 				HEADER_SEARCH_PATHS = ../GenericSourceModule_ObjC/;
 				INFOPLIST_FILE = "FOX/FOX-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					../GenericSourceModule_ObjC/,
+					"\"$(SRCROOT)/../GenericSourceModule_ObjC\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
