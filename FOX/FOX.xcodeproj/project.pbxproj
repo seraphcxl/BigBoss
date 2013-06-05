@@ -13,6 +13,9 @@
 		1BD33A1E1753A168004F4D78 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 1BD33A1C1753A168004F4D78 /* Credits.rtf */; };
 		1BD33A211753A168004F4D78 /* DCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD33A201753A168004F4D78 /* DCAppDelegate.m */; };
 		1BD33A241753A168004F4D78 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BD33A221753A168004F4D78 /* MainMenu.xib */; };
+		1BE54D85175F56B500A34DD6 /* DCDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE54D80175F56B500A34DD6 /* DCDataStore.m */; };
+		1BE54D86175F56B500A34DD6 /* DCDataStoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE54D82175F56B500A34DD6 /* DCDataStoreManager.m */; };
+		1BE54D87175F56B500A34DD6 /* DCDataStoreOperator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE54D84175F56B500A34DD6 /* DCDataStoreOperator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +32,12 @@
 		1BD33A1F1753A168004F4D78 /* DCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DCAppDelegate.h; sourceTree = "<group>"; };
 		1BD33A201753A168004F4D78 /* DCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DCAppDelegate.m; sourceTree = "<group>"; };
 		1BD33A231753A168004F4D78 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		1BE54D7F175F56B500A34DD6 /* DCDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCDataStore.h; sourceTree = "<group>"; };
+		1BE54D80175F56B500A34DD6 /* DCDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCDataStore.m; sourceTree = "<group>"; };
+		1BE54D81175F56B500A34DD6 /* DCDataStoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCDataStoreManager.h; sourceTree = "<group>"; };
+		1BE54D82175F56B500A34DD6 /* DCDataStoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCDataStoreManager.m; sourceTree = "<group>"; };
+		1BE54D83175F56B500A34DD6 /* DCDataStoreOperator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCDataStoreOperator.h; sourceTree = "<group>"; };
+		1BE54D84175F56B500A34DD6 /* DCDataStoreOperator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCDataStoreOperator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +93,12 @@
 			children = (
 				1BD33A1F1753A168004F4D78 /* DCAppDelegate.h */,
 				1BD33A201753A168004F4D78 /* DCAppDelegate.m */,
+				1BE54D7F175F56B500A34DD6 /* DCDataStore.h */,
+				1BE54D80175F56B500A34DD6 /* DCDataStore.m */,
+				1BE54D81175F56B500A34DD6 /* DCDataStoreManager.h */,
+				1BE54D82175F56B500A34DD6 /* DCDataStoreManager.m */,
+				1BE54D83175F56B500A34DD6 /* DCDataStoreOperator.h */,
+				1BE54D84175F56B500A34DD6 /* DCDataStoreOperator.m */,
 				1BD33A221753A168004F4D78 /* MainMenu.xib */,
 				1BD33A141753A168004F4D78 /* Supporting Files */,
 			);
@@ -169,6 +184,9 @@
 			files = (
 				1BD33A1A1753A168004F4D78 /* main.m in Sources */,
 				1BD33A211753A168004F4D78 /* DCAppDelegate.m in Sources */,
+				1BE54D85175F56B500A34DD6 /* DCDataStore.m in Sources */,
+				1BE54D86175F56B500A34DD6 /* DCDataStoreManager.m in Sources */,
+				1BE54D87175F56B500A34DD6 /* DCDataStoreOperator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,9 +280,11 @@
 		1BD33A281753A168004F4D78 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FOX/FOX-Prefix.pch";
+				HEADER_SEARCH_PATHS = ../GenericSourceModule_ObjC/;
 				INFOPLIST_FILE = "FOX/FOX-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -274,9 +294,11 @@
 		1BD33A291753A168004F4D78 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FOX/FOX-Prefix.pch";
+				HEADER_SEARCH_PATHS = ../GenericSourceModule_ObjC/;
 				INFOPLIST_FILE = "FOX/FOX-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -302,6 +324,7 @@
 				1BD33A291753A168004F4D78 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
