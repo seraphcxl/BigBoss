@@ -2,9 +2,15 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:HOUND/HOUND.xcodeproj">
+      location = "group:HOUND_iOS/HOUND_iOS.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:FOX/FOX.xcodeproj">
+      location = "group:FOX_iOS/FOX_iOS.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:HOUND_MAC/HOUND_MAC.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:FOX_MAC/FOX_MAC.xcodeproj">
    </FileRef>
 </Workspace>
