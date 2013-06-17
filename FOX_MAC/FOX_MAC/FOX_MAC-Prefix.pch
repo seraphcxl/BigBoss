@@ -1,7 +1,0 @@
-//
-// Prefix header for all source files of the 'FOX_MAC' target in the 'FOX_MAC' project
-//
-
-#ifdef __OBJC__
-    #import <Cocoa/Cocoa.h>
-#endif

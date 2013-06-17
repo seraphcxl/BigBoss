@@ -7,10 +7,4 @@
    <FileRef
       location = "group:FOX_iOS/FOX_iOS.xcodeproj">
    </FileRef>
-   <FileRef
-      location = "group:HOUND_MAC/HOUND_MAC.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:FOX_MAC/FOX_MAC.xcodeproj">
-   </FileRef>
 </Workspace>
