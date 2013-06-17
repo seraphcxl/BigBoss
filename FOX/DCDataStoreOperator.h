@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SafeARC.h"
+#import "DCSafeARC.h"
 #import <CoreData/CoreData.h>
 
 @protocol DCDataStoreTaskDataSource <NSObject>
@@ -28,14 +28,15 @@
 @interface DCDataStoreOperator : NSObject {
     
 @private
-    id<DCDataStoreOperatorDataSource> _dataSource;
+
+    __unsafe_unretained id<DCDataStoreOperatorDataSource> _dataSource;
     NSManagedObjectContext *_context;
     BOOL _busy;
     
     dispatch_queue_t _queue;
 }
 
-@property (unsafe_unretained, readonly) id<DCDataStoreOperatorDataSource> dataSource;
+@property (atomic, unsafe_unretained, readonly) id<DCDataStoreOperatorDataSource> dataSource;
 @property (SAFE_ARC_PROP_STRONG, readonly) NSManagedObjectContext *context;
 @property (atomic, unsafe_unretained, readonly, getter = isBusy) BOOL busy;
 

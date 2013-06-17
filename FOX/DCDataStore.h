@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SafeARC.h"
+#import "DCSafeARC.h"
 #import <CoreData/CoreData.h>
 
 #define DATASTORE_FILENAME_DEFAULT @"DataStore.data"
@@ -25,7 +25,7 @@
 @interface DCDataStore : NSObject {
     
 @private
-    id<DCDataStoreDataSource> _dataSource;
+    __unsafe_unretained id<DCDataStoreDataSource> _dataSource;
     NSManagedObjectModel *_model;
     NSPersistentStoreCoordinator *_coordinator;
 }

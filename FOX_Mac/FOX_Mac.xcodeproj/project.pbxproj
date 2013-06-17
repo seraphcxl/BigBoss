@@ -14,6 +14,16 @@
 		1BE606F2176F493900C46A1B /* libFOX_Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BE606D8176F493800C46A1B /* libFOX_Mac.a */; };
 		1BE606F8176F493900C46A1B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1BE606F6176F493900C46A1B /* InfoPlist.strings */; };
 		1BE606FB176F493900C46A1B /* FOX_MacTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE606FA176F493900C46A1B /* FOX_MacTests.m */; };
+		1BE60773176F4AB600C46A1B /* DCDataStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 1BE6076D176F4AB600C46A1B /* DCDataStore.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1BE60774176F4AB600C46A1B /* DCDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE6076E176F4AB600C46A1B /* DCDataStore.m */; };
+		1BE60775176F4AB600C46A1B /* DCDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE6076E176F4AB600C46A1B /* DCDataStore.m */; };
+		1BE60776176F4AB600C46A1B /* DCDataStoreManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 1BE6076F176F4AB600C46A1B /* DCDataStoreManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1BE60777176F4AB600C46A1B /* DCDataStoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE60770176F4AB600C46A1B /* DCDataStoreManager.m */; };
+		1BE60778176F4AB600C46A1B /* DCDataStoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE60770176F4AB600C46A1B /* DCDataStoreManager.m */; };
+		1BE60779176F4AB600C46A1B /* DCDataStoreOperator.h in Headers */ = {isa = PBXBuildFile; fileRef = 1BE60771176F4AB600C46A1B /* DCDataStoreOperator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1BE6077A176F4AB600C46A1B /* DCDataStoreOperator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE60772176F4AB600C46A1B /* DCDataStoreOperator.m */; };
+		1BE6077B176F4AB600C46A1B /* DCDataStoreOperator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE60772176F4AB600C46A1B /* DCDataStoreOperator.m */; };
+		1BE60789176F4CED00C46A1B /* libCodeGear_ObjC_Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BE60788176F4CED00C46A1B /* libCodeGear_ObjC_Mac.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +51,13 @@
 		1BE606F7176F493900C46A1B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1BE606F9176F493900C46A1B /* FOX_MacTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FOX_MacTests.h; sourceTree = "<group>"; };
 		1BE606FA176F493900C46A1B /* FOX_MacTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FOX_MacTests.m; sourceTree = "<group>"; };
+		1BE6076D176F4AB600C46A1B /* DCDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DCDataStore.h; path = ../../FOX/DCDataStore.h; sourceTree = "<group>"; };
+		1BE6076E176F4AB600C46A1B /* DCDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DCDataStore.m; path = ../../FOX/DCDataStore.m; sourceTree = "<group>"; };
+		1BE6076F176F4AB600C46A1B /* DCDataStoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DCDataStoreManager.h; path = ../../FOX/DCDataStoreManager.h; sourceTree = "<group>"; };
+		1BE60770176F4AB600C46A1B /* DCDataStoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DCDataStoreManager.m; path = ../../FOX/DCDataStoreManager.m; sourceTree = "<group>"; };
+		1BE60771176F4AB600C46A1B /* DCDataStoreOperator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DCDataStoreOperator.h; path = ../../FOX/DCDataStoreOperator.h; sourceTree = "<group>"; };
+		1BE60772176F4AB600C46A1B /* DCDataStoreOperator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DCDataStoreOperator.m; path = ../../FOX/DCDataStoreOperator.m; sourceTree = "<group>"; };
+		1BE60788176F4CED00C46A1B /* libCodeGear_ObjC_Mac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCodeGear_ObjC_Mac.a; path = ../Res/Mac/CodeGear/libCodeGear_ObjC_Mac.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BE60789176F4CED00C46A1B /* libCodeGear_ObjC_Mac.a in Frameworks */,
 				1BE606DC176F493800C46A1B /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -87,6 +105,7 @@
 		1BE606DA176F493800C46A1B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1BE60788176F4CED00C46A1B /* libCodeGear_ObjC_Mac.a */,
 				1BE606DB176F493800C46A1B /* Cocoa.framework */,
 				1BE606ED176F493800C46A1B /* SenTestingKit.framework */,
 				1BE606DD176F493800C46A1B /* Other Frameworks */,
@@ -107,6 +126,12 @@
 		1BE606E1176F493800C46A1B /* FOX_Mac */ = {
 			isa = PBXGroup;
 			children = (
+				1BE6076D176F4AB600C46A1B /* DCDataStore.h */,
+				1BE6076E176F4AB600C46A1B /* DCDataStore.m */,
+				1BE6076F176F4AB600C46A1B /* DCDataStoreManager.h */,
+				1BE60770176F4AB600C46A1B /* DCDataStoreManager.m */,
+				1BE60771176F4AB600C46A1B /* DCDataStoreOperator.h */,
+				1BE60772176F4AB600C46A1B /* DCDataStoreOperator.m */,
 				1BE606E4176F493800C46A1B /* FOX_Mac.h */,
 				1BE606E5176F493800C46A1B /* FOX_Mac.m */,
 				1BE606E2176F493800C46A1B /* Supporting Files */,
@@ -148,6 +173,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BE60773176F4AB600C46A1B /* DCDataStore.h in Headers */,
+				1BE60776176F4AB600C46A1B /* DCDataStoreManager.h in Headers */,
+				1BE60779176F4AB600C46A1B /* DCDataStoreOperator.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,6 +278,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BE606E6176F493800C46A1B /* FOX_Mac.m in Sources */,
+				1BE60774176F4AB600C46A1B /* DCDataStore.m in Sources */,
+				1BE60777176F4AB600C46A1B /* DCDataStoreManager.m in Sources */,
+				1BE6077A176F4AB600C46A1B /* DCDataStoreOperator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +289,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BE606FB176F493900C46A1B /* FOX_MacTests.m in Sources */,
+				1BE60775176F4AB600C46A1B /* DCDataStore.m in Sources */,
+				1BE60778176F4AB600C46A1B /* DCDataStoreManager.m in Sources */,
+				1BE6077B176F4AB600C46A1B /* DCDataStoreOperator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,7 +346,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = macosx;
+				SDKROOT = macosx10.7;
 			};
 			name = Debug;
 		};
@@ -338,25 +372,41 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				SDKROOT = macosx;
+				SDKROOT = macosx10.7;
 			};
 			name = Release;
 		};
 		1BE606FF176F493900C46A1B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FOX_Mac/FOX_Mac-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../Res/Mac/\"/**";
+				LIBRARY_SEARCH_PATHS = (
+					"\"$(SRCROOT)/../Res/Mac/\"/**",
+					"\"$(SRCROOT)/../Res/Mac/CodeGear\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx10.7;
 			};
 			name = Debug;
 		};
 		1BE60700176F493900C46A1B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FOX_Mac/FOX_Mac-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../Res/Mac/\"/**";
+				LIBRARY_SEARCH_PATHS = (
+					"\"$(SRCROOT)/../Res/Mac/\"/**",
+					"\"$(SRCROOT)/../Res/Mac/CodeGear\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx10.7;
 			};
 			name = Release;
 		};
@@ -405,6 +455,7 @@
 				1BE60700176F493900C46A1B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1BE60701176F493900C46A1B /* Build configuration list for PBXNativeTarget "FOX_MacTests" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +464,7 @@
 				1BE60703176F493900C46A1B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
