@@ -14,6 +14,16 @@
 		1BE60727176F495400C46A1B /* libHOUND_Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BE6070D176F495400C46A1B /* libHOUND_Mac.a */; };
 		1BE6072D176F495400C46A1B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1BE6072B176F495400C46A1B /* InfoPlist.strings */; };
 		1BE60730176F495400C46A1B /* HOUND_MacTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE6072F176F495400C46A1B /* HOUND_MacTests.m */; };
+		8D8A96DC176FE17100DEC194 /* libCodeGear_ObjC_Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D8A96DB176FE17100DEC194 /* libCodeGear_ObjC_Mac.a */; };
+		8DFD728317700C1E001A37AD /* DCInMemStackCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DFD728117700C1E001A37AD /* DCInMemStackCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8DFD728417700C1E001A37AD /* DCInMemStackCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DFD728217700C1E001A37AD /* DCInMemStackCache.m */; };
+		8DFD728517700C1E001A37AD /* DCInMemStackCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DFD728217700C1E001A37AD /* DCInMemStackCache.m */; };
+		8DFD7293177025B4001A37AD /* FBCacheIndex.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DFD728F177025B4001A37AD /* FBCacheIndex.h */; };
+		8DFD7294177025B4001A37AD /* FBCacheIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DFD7290177025B4001A37AD /* FBCacheIndex.m */; };
+		8DFD7295177025B4001A37AD /* FBCacheIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DFD7290177025B4001A37AD /* FBCacheIndex.m */; };
+		8DFD7296177025B4001A37AD /* FBDataDiskCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DFD7291177025B4001A37AD /* FBDataDiskCache.h */; };
+		8DFD7297177025B4001A37AD /* FBDataDiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DFD7292177025B4001A37AD /* FBDataDiskCache.m */; };
+		8DFD7298177025B4001A37AD /* FBDataDiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DFD7292177025B4001A37AD /* FBDataDiskCache.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +51,13 @@
 		1BE6072C176F495400C46A1B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1BE6072E176F495400C46A1B /* HOUND_MacTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HOUND_MacTests.h; sourceTree = "<group>"; };
 		1BE6072F176F495400C46A1B /* HOUND_MacTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HOUND_MacTests.m; sourceTree = "<group>"; };
+		8D8A96DB176FE17100DEC194 /* libCodeGear_ObjC_Mac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCodeGear_ObjC_Mac.a; path = ../Res/Mac/CodeGear/libCodeGear_ObjC_Mac.a; sourceTree = "<group>"; };
+		8DFD728117700C1E001A37AD /* DCInMemStackCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DCInMemStackCache.h; path = ../../HOUND/DCInMemStackCache.h; sourceTree = "<group>"; };
+		8DFD728217700C1E001A37AD /* DCInMemStackCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DCInMemStackCache.m; path = ../../HOUND/DCInMemStackCache.m; sourceTree = "<group>"; };
+		8DFD728F177025B4001A37AD /* FBCacheIndex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FBCacheIndex.h; path = ../../HOUND/FBCacheIndex.h; sourceTree = "<group>"; };
+		8DFD7290177025B4001A37AD /* FBCacheIndex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FBCacheIndex.m; path = ../../HOUND/FBCacheIndex.m; sourceTree = "<group>"; };
+		8DFD7291177025B4001A37AD /* FBDataDiskCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FBDataDiskCache.h; path = ../../HOUND/FBDataDiskCache.h; sourceTree = "<group>"; };
+		8DFD7292177025B4001A37AD /* FBDataDiskCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FBDataDiskCache.m; path = ../../HOUND/FBDataDiskCache.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D8A96DC176FE17100DEC194 /* libCodeGear_ObjC_Mac.a in Frameworks */,
 				1BE60711176F495400C46A1B /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -87,6 +105,7 @@
 		1BE6070F176F495400C46A1B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8D8A96DB176FE17100DEC194 /* libCodeGear_ObjC_Mac.a */,
 				1BE60710176F495400C46A1B /* Cocoa.framework */,
 				1BE60722176F495400C46A1B /* SenTestingKit.framework */,
 				1BE60712176F495400C46A1B /* Other Frameworks */,
@@ -107,9 +126,15 @@
 		1BE60716176F495400C46A1B /* HOUND_Mac */ = {
 			isa = PBXGroup;
 			children = (
+				1BE60717176F495400C46A1B /* Supporting Files */,
+				8DFD728F177025B4001A37AD /* FBCacheIndex.h */,
+				8DFD7290177025B4001A37AD /* FBCacheIndex.m */,
+				8DFD7291177025B4001A37AD /* FBDataDiskCache.h */,
+				8DFD7292177025B4001A37AD /* FBDataDiskCache.m */,
 				1BE60719176F495400C46A1B /* HOUND_Mac.h */,
 				1BE6071A176F495400C46A1B /* HOUND_Mac.m */,
-				1BE60717176F495400C46A1B /* Supporting Files */,
+				8DFD728117700C1E001A37AD /* DCInMemStackCache.h */,
+				8DFD728217700C1E001A37AD /* DCInMemStackCache.m */,
 			);
 			path = HOUND_Mac;
 			sourceTree = "<group>";
@@ -148,6 +173,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DFD728317700C1E001A37AD /* DCInMemStackCache.h in Headers */,
+				8DFD7293177025B4001A37AD /* FBCacheIndex.h in Headers */,
+				8DFD7296177025B4001A37AD /* FBDataDiskCache.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,6 +278,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BE6071B176F495400C46A1B /* HOUND_Mac.m in Sources */,
+				8DFD728417700C1E001A37AD /* DCInMemStackCache.m in Sources */,
+				8DFD7294177025B4001A37AD /* FBCacheIndex.m in Sources */,
+				8DFD7297177025B4001A37AD /* FBDataDiskCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +289,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BE60730176F495400C46A1B /* HOUND_MacTests.m in Sources */,
+				8DFD728517700C1E001A37AD /* DCInMemStackCache.m in Sources */,
+				8DFD7295177025B4001A37AD /* FBCacheIndex.m in Sources */,
+				8DFD7298177025B4001A37AD /* FBDataDiskCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,8 +379,16 @@
 		1BE60734176F495400C46A1B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HOUND_Mac/HOUND_Mac-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../Res/Mac/\"/**";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../Res/Mac/CodeGear\"",
+					"\"$(SRCROOT)/../Res/Mac/\"/**",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx10.7;
 			};
@@ -355,8 +397,16 @@
 		1BE60735176F495400C46A1B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HOUND_Mac/HOUND_Mac-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../Res/Mac/\"/**";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../Res/Mac/CodeGear\"",
+					"\"$(SRCROOT)/../Res/Mac/\"/**",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx10.7;
 			};

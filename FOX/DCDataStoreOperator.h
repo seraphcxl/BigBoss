@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "DCSafeARC.h"
+#import "SafeARC.h"
 #import <CoreData/CoreData.h>
 
 @protocol DCDataStoreTaskDataSource <NSObject>
@@ -28,7 +28,6 @@
 @interface DCDataStoreOperator : NSObject {
     
 @private
-
     __unsafe_unretained id<DCDataStoreOperatorDataSource> _dataSource;
     NSManagedObjectContext *_context;
     BOOL _busy;
@@ -36,7 +35,7 @@
     dispatch_queue_t _queue;
 }
 
-@property (atomic, unsafe_unretained, readonly) id<DCDataStoreOperatorDataSource> dataSource;
+@property (unsafe_unretained, readonly) id<DCDataStoreOperatorDataSource> dataSource;
 @property (SAFE_ARC_PROP_STRONG, readonly) NSManagedObjectContext *context;
 @property (atomic, unsafe_unretained, readonly, getter = isBusy) BOOL busy;
 
@@ -44,6 +43,8 @@
 - (void)mergeContextChanges:(NSNotification *)aNotification;
 
 - (void)doTask:(void (^)(id<DCDataStoreTaskDataSource> taskDataSource))aBlock;
-- (BOOL)save:(NSError **)anError;
+
+- (BOOL)syncSave:(NSError **)anError;
+- (BOOL)asyncSave:(NSError **)anError;
 
 @end

@@ -7,9 +7,12 @@
 //
 
 #import "DCDataStoreOperator.h"
+#import <AvailabilityMacros.h>
 
 @interface DCDataStoreOperator () <DCDataStoreTaskDataSource> {
 }
+
+- (BOOL)save:(NSError **)anError synchronous:(BOOL)isSync;
 
 @end
 
@@ -19,6 +22,7 @@
 @synthesize context = _context;
 @synthesize busy = _busy;
 
+#pragma mark - DCDataStoreOperator - Public method
 - (id)initWithDataSource:(id<DCDataStoreOperatorDataSource>)aDataSource {
     @synchronized(self) {
         if (!aDataSource || ![aDataSource respondsToSelector:@selector(managedObjectModel)] || ![aDataSource respondsToSelector:@selector(persistentStoreCoordinator)]) {
@@ -49,7 +53,7 @@
     do {
         @synchronized(self) {
             NSError *err = nil;
-            [self save:&err];
+            [self syncSave:&err];
             
             if (_queue) {
                 SAFE_ARC_DISPATCHQUEUERELEASE(_queue);
@@ -65,9 +69,11 @@
         if (!aNotification || !self.context) {
             break;
         }
-        @synchronized(self) {
+        dispatch_async(_queue, ^() {
+            _busy = YES;
             [self.context mergeChangesFromContextDidSaveNotification:aNotification];
-        }
+            _busy = NO;
+        });
     } while (NO);
 }
 
@@ -83,24 +89,47 @@
     SAFE_ARC_RELEASE(self);
 }
 
-- (BOOL)save:(NSError **)anError {
+- (BOOL)syncSave:(NSError **)anError {
+    return [self save:anError synchronous:YES];
+}
+
+- (BOOL)asyncSave:(NSError **)anError {
+    return [self save:anError synchronous:NO];
+}
+
+#pragma mark - DCDataStoreOperator - Private method
+- (BOOL)save:(NSError **)anError synchronous:(BOOL)isSync {
     __block BOOL result = NO;
     do {
         if (!self.context || !anError) {
             break;
         }
-        dispatch_sync(_queue, ^() {
-            _busy = YES;
-            if ([self.context hasChanges]) {
-                result = [self.context save:anError];
-                if (*anError) {
-                    NSLog(@"DCDataStoreOperator save error: %@", [*anError localizedDescription]);
+        if (isSync) {
+            dispatch_sync(_queue, ^() {
+                _busy = YES;
+                if ([self.context hasChanges]) {
+                    result = [self.context save:anError];
+                    if (*anError) {
+                        NSLog(@"DCDataStoreOperator sync save error: %@", [*anError localizedDescription]);
+                    }
+                } else {
+                    result = YES;
                 }
-            } else {
-                result = YES;
-            }
-            _busy = NO;
-        });
+                _busy = NO;
+            });
+        } else {
+            dispatch_async(_queue, ^() {
+                _busy = YES;
+                if ([self.context hasChanges]) {
+                    [self.context save:anError];
+                    if (*anError) {
+                        NSLog(@"DCDataStoreOperator async save error: %@", [*anError localizedDescription]);
+                    }
+                }
+                _busy = NO;
+            });
+            result = YES;
+        }
     } while (NO);
     return result;
 }

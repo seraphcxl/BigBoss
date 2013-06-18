@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "DCSafeARC.h"
+#import "SafeARC.h"
 #import "DCSingletonTemplate.h"
 #import <CoreData/CoreData.h>
 

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1BD215E4176F2EBB00147CC4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BD215E3176F2EBB00147CC4 /* Foundation.framework */; };
-		1BD215E9176F2EBB00147CC4 /* HOUND_iOS.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1BD215E8176F2EBB00147CC4 /* HOUND_iOS.h */; };
 		1BD215EB176F2EBB00147CC4 /* HOUND_iOS.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD215EA176F2EBB00147CC4 /* HOUND_iOS.m */; };
 		1BD215F3176F2EBB00147CC4 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BD215F2176F2EBB00147CC4 /* SenTestingKit.framework */; };
 		1BD215F5176F2EBB00147CC4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BD215F4176F2EBB00147CC4 /* UIKit.framework */; };
@@ -16,6 +15,10 @@
 		1BD215F9176F2EBB00147CC4 /* libHOUND_iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BD215E0176F2EBB00147CC4 /* libHOUND_iOS.a */; };
 		1BD215FF176F2EBB00147CC4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1BD215FD176F2EBB00147CC4 /* InfoPlist.strings */; };
 		1BD21602176F2EBB00147CC4 /* HOUND_iOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD21601176F2EBB00147CC4 /* HOUND_iOSTests.m */; };
+		8DFD728817700ECC001A37AD /* DCInMemStackCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DFD728717700ECC001A37AD /* DCInMemStackCache.m */; };
+		8DFD728917700ECC001A37AD /* DCInMemStackCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DFD728717700ECC001A37AD /* DCInMemStackCache.m */; };
+		8DFD728B17700EDE001A37AD /* libCodeGear_ObjC_iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DFD728A17700EDE001A37AD /* libCodeGear_ObjC_iOS.a */; };
+		8DFD728C17700F1B001A37AD /* DCInMemStackCache.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8DFD728617700ECC001A37AD /* DCInMemStackCache.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +38,7 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
-				1BD215E9176F2EBB00147CC4 /* HOUND_iOS.h in CopyFiles */,
+				8DFD728C17700F1B001A37AD /* DCInMemStackCache.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +57,9 @@
 		1BD215FE176F2EBB00147CC4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1BD21600176F2EBB00147CC4 /* HOUND_iOSTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HOUND_iOSTests.h; sourceTree = "<group>"; };
 		1BD21601176F2EBB00147CC4 /* HOUND_iOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HOUND_iOSTests.m; sourceTree = "<group>"; };
+		8DFD728617700ECC001A37AD /* DCInMemStackCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DCInMemStackCache.h; path = ../../HOUND/DCInMemStackCache.h; sourceTree = "<group>"; };
+		8DFD728717700ECC001A37AD /* DCInMemStackCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DCInMemStackCache.m; path = ../../HOUND/DCInMemStackCache.m; sourceTree = "<group>"; };
+		8DFD728A17700EDE001A37AD /* libCodeGear_ObjC_iOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCodeGear_ObjC_iOS.a; path = ../Res/iOS/CodeGear/libCodeGear_ObjC_iOS.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DFD728B17700EDE001A37AD /* libCodeGear_ObjC_iOS.a in Frameworks */,
 				1BD215E4176F2EBB00147CC4 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -101,6 +108,7 @@
 		1BD215E2176F2EBB00147CC4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8DFD728A17700EDE001A37AD /* libCodeGear_ObjC_iOS.a */,
 				1BD215E3176F2EBB00147CC4 /* Foundation.framework */,
 				1BD215F2176F2EBB00147CC4 /* SenTestingKit.framework */,
 				1BD215F4176F2EBB00147CC4 /* UIKit.framework */,
@@ -111,6 +119,8 @@
 		1BD215E5176F2EBB00147CC4 /* HOUND_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				8DFD728617700ECC001A37AD /* DCInMemStackCache.h */,
+				8DFD728717700ECC001A37AD /* DCInMemStackCache.m */,
 				1BD215E8176F2EBB00147CC4 /* HOUND_iOS.h */,
 				1BD215EA176F2EBB00147CC4 /* HOUND_iOS.m */,
 				1BD215E6176F2EBB00147CC4 /* Supporting Files */,
@@ -244,6 +254,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BD215EB176F2EBB00147CC4 /* HOUND_iOS.m in Sources */,
+				8DFD728817700ECC001A37AD /* DCInMemStackCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BD21602176F2EBB00147CC4 /* HOUND_iOSTests.m in Sources */,
+				8DFD728917700ECC001A37AD /* DCInMemStackCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,9 +345,16 @@
 		1BD21606176F2EBB00147CC4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				DSTROOT = /tmp/HOUND_iOS.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HOUND_iOS/HOUND_iOS-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../Res/iOS/\"/**";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../Res/iOS/CodeGear\"",
+					"\"$(SRCROOT)/../Res/iOS/\"/**",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -345,9 +364,16 @@
 		1BD21607176F2EBB00147CC4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				DSTROOT = /tmp/HOUND_iOS.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HOUND_iOS/HOUND_iOS-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../Res/iOS/\"/**";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../Res/iOS/CodeGear\"",
+					"\"$(SRCROOT)/../Res/iOS/\"/**",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -403,6 +429,7 @@
 				1BD21607176F2EBB00147CC4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1BD21608176F2EBB00147CC4 /* Build configuration list for PBXNativeTarget "HOUND_iOSTests" */ = {
 			isa = XCConfigurationList;
@@ -411,6 +438,7 @@
 				1BD2160A176F2EBB00147CC4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

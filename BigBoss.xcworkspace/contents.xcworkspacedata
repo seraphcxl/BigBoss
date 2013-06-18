@@ -5,10 +5,10 @@
       location = "group:HOUND_Mac/HOUND_Mac.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:FOX_Mac/FOX_Mac.xcodeproj">
+      location = "group:HOUND_iOS/HOUND_iOS.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:HOUND_iOS/HOUND_iOS.xcodeproj">
+      location = "group:FOX_Mac/FOX_Mac.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:FOX_iOS/FOX_iOS.xcodeproj">

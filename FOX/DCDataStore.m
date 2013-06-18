@@ -14,6 +14,7 @@
 
 @property (SAFE_ARC_PROP_STRONG) NSMutableArray *operatorPool;
 @property (atomic, unsafe_unretained) NSUInteger lastUsingOperatorIndex;
+@property (nonatomic, SAFE_ARC_PROP_STRONG, readonly) DCDataStoreOperator *mainThreadOperator;
 
 + (NSString *)archivePath;
 
@@ -25,6 +26,9 @@
 - (void)increaseOperatorPoolTo:(NSUInteger)anOperatorCount;
 - (void)decreaseOperatorPoolTo:(NSUInteger)anOperatorCount;
 
+- (BOOL)saveMainThreadOperatorSynchronous:(BOOL)isSync;
+- (BOOL)saveAllOperatorInPoolSynchronous:(BOOL)isSync;
+
 @end
 
 @implementation DCDataStore
@@ -34,6 +38,7 @@
 @synthesize coordinator = _coordinator;
 @synthesize operatorPool = _operatorPool;
 @synthesize lastUsingOperatorIndex = _lastUsingOperatorIndex;
+@synthesize mainThreadOperator = _mainThreadOperator;
 
 #pragma mark - DCDataStore - Public method
 + (NSString *)defaultUUID {
@@ -65,6 +70,8 @@
             
             [self initDataStore];
             
+            _mainThreadOperator = [[DCDataStoreOperator alloc] initWithDataSource:self];
+            
             [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(mergeContextChanges:) name:NSManagedObjectContextDidSaveNotification object:nil];
         }
         return self;
@@ -77,6 +84,11 @@
             [[NSNotificationCenter defaultCenter] removeObserver:self name:NSManagedObjectContextDidSaveNotification object:nil];
             
             [self cleanOperatorPool];
+            
+            if (_mainThreadOperator) {
+                [self saveMainThreadOperatorSynchronous:YES];
+                SAFE_ARC_SAFERELEASE(_mainThreadOperator);
+            }
             
             SAFE_ARC_SAFERELEASE(_coordinator);
             SAFE_ARC_SAFERELEASE(_model);
@@ -145,11 +157,22 @@
             break;
         }
         @synchronized(self) {
-            if ([self.operatorPool count] == 0) {
+            if (!self.mainThreadOperator && [self.operatorPool count] == 0) {
                 break;
             }
             
             BOOL find = NO;
+            
+            if ([[NSThread currentThread] isMainThread]) {
+                if (!self.mainThreadOperator.busy) {
+                    result = self.mainThreadOperator;
+                    find = YES;
+                }
+                
+                if (find) {
+                    break;
+                }
+            }
             
             for (DCDataStoreOperator *operator in self.operatorPool) {
                 if (!operator.busy) {
@@ -163,26 +186,45 @@
                 break;
             }
             
-            ++self.lastUsingOperatorIndex;
-            NSUInteger idx = self.lastUsingOperatorIndex < [self.operatorPool count] ? self.lastUsingOperatorIndex : 0;
-            result = [self.operatorPool objectAtIndex:idx];
-            self.lastUsingOperatorIndex = idx;
+            if ([self.operatorPool count] != 0) {
+                ++self.lastUsingOperatorIndex;
+                NSUInteger idx = self.lastUsingOperatorIndex < [self.operatorPool count] ? self.lastUsingOperatorIndex : 0;
+                result = [self.operatorPool objectAtIndex:idx];
+                find = YES;
+                self.lastUsingOperatorIndex = idx;
+            } else if (self.mainThreadOperator) {
+                result = self.mainThreadOperator;
+                find = YES;
+            }
+            
+            if (find) {
+                break;
+            }
         }
     } while (NO);
     return result;
 }
 
-- (BOOL)saveAllOperator {
+- (BOOL)syncSaveAllOperator {
     BOOL result = YES;
     do {
         @synchronized(self) {
-            if (self.operatorPool) {
-                for (DCDataStoreOperator *operator in self.operatorPool) {
-                    NSError *err = nil;
-                    if (![operator save:&err]) {
-                        result = NO;
-                    }
-                }
+            result = [self saveMainThreadOperatorSynchronous:NO];
+            if (result) {
+                result = [self saveAllOperatorInPoolSynchronous:NO];
+            }
+        }
+    } while (NO);
+    return result;
+}
+
+- (BOOL)asyncSaveAllOperator {
+    BOOL result = YES;
+    do {
+        @synchronized(self) {
+            result = [self saveMainThreadOperatorSynchronous:YES];
+            if (result) {
+                result = [self saveAllOperatorInPoolSynchronous:YES];
             }
         }
     } while (NO);
@@ -214,7 +256,7 @@
     do {
         @synchronized(self) {
             if (self.operatorPool) {
-                [self saveAllOperator];
+                [self saveAllOperatorInPoolSynchronous:YES];
                 
                 [self.operatorPool removeAllObjects];
                 self.operatorPool = nil;
@@ -231,10 +273,20 @@
             break;
         }
         @synchronized(self) {
+            BOOL allowMerge = NO;
             NSManagedObjectContext *context = (NSManagedObjectContext *)aNotification.object;
             for (DCDataStoreOperator *operator in self.operatorPool) {
-                if (![context isEqual:operator.context]) {
-                    [operator mergeContextChanges:aNotification];
+                if ([context isEqual:operator.context]) {
+                    allowMerge = YES;
+                    break;
+                }
+            }
+            
+            if (allowMerge) {
+                for (DCDataStoreOperator *operator in self.operatorPool) {
+                    if (![context isEqual:operator.context]) {
+                        [operator mergeContextChanges:aNotification];
+                    }
                 }
             }
         }
@@ -272,6 +324,51 @@
             }
         }
     } while (NO);
+}
+
+- (BOOL)saveMainThreadOperatorSynchronous:(BOOL)isSync {
+    BOOL result = YES;
+    do {
+        if (!self.mainThreadOperator) {
+            break;
+        }
+        @synchronized(self) {
+            NSError *err = nil;
+            if (isSync) {
+                if (![self.mainThreadOperator syncSave:&err]) {
+                    result = NO;
+                }
+            } else {
+                if (![self.mainThreadOperator asyncSave:&err]) {
+                    result = NO;
+                }
+            }
+        }
+    } while (NO);
+    return result;
+}
+
+- (BOOL)saveAllOperatorInPoolSynchronous:(BOOL)isSync {
+    BOOL result = YES;
+    do {
+        @synchronized(self) {
+            if (self.operatorPool) {
+                for (DCDataStoreOperator *operator in self.operatorPool) {
+                    NSError *err = nil;
+                    if (isSync) {
+                        if (![operator syncSave:&err]) {
+                            result = NO;
+                        }
+                    } else {
+                        if (![operator asyncSave:&err]) {
+                            result = NO;
+                        }
+                    }
+                }
+            }
+        }
+    } while (NO);
+    return result;
 }
 
 #pragma mark - DCDataStore - DCDataStoreOperatorDataSource

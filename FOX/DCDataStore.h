@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "DCSafeARC.h"
+#import "SafeARC.h"
 #import <CoreData/CoreData.h>
 
 #define DATASTORE_FILENAME_DEFAULT @"DataStore.data"
@@ -42,6 +42,8 @@
 - (void)setOperatorCount:(NSUInteger)anOperatorCount;
 
 - (DCDataStoreOperator *)queryOperator;
-- (BOOL)saveAllOperator;
+
+- (BOOL)syncSaveAllOperator;
+- (BOOL)asyncSaveAllOperator;
 
 @end
