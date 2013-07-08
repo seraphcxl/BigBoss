@@ -37,7 +37,6 @@
             
             _context = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
             [_context setPersistentStoreCoordinator:[self.dataSource persistentStoreCoordinator]];
-            [_context setUndoManager:nil];
             [_context setStalenessInterval:0.0];
             [_context setMergePolicy:NSOverwriteMergePolicy];
             
@@ -69,7 +68,7 @@
         if (!aNotification || !self.context) {
             break;
         }
-        dispatch_async(_queue, ^() {
+        dispatch_sync(_queue, ^() {
             _busy = YES;
             [self.context mergeChangesFromContextDidSaveNotification:aNotification];
             _busy = NO;
@@ -110,7 +109,7 @@
                 if ([self.context hasChanges]) {
                     result = [self.context save:anError];
                     if (*anError) {
-                        NSLog(@"DCDataStoreOperator sync save error: %@", [*anError localizedDescription]);
+                        DCLog_Error(@"DCDataStoreOperator sync save error: %@", [*anError localizedDescription]);
                     }
                 } else {
                     result = YES;
@@ -123,7 +122,7 @@
                 if ([self.context hasChanges]) {
                     [self.context save:anError];
                     if (*anError) {
-                        NSLog(@"DCDataStoreOperator async save error: %@", [*anError localizedDescription]);
+                        DCLog_Error(@"DCDataStoreOperator async save error: %@", [*anError localizedDescription]);
                     }
                 }
                 _busy = NO;

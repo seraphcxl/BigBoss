@@ -25,11 +25,11 @@
 static className *shared##className = nil; \
 \
 + (className *)shared##className { \
-static dispatch_once_t onceToken; \
-dispatch_once(&onceToken, ^{ \
-shared##className = [[self alloc] init]; \
-}); \
-return shared##className; \
+    static dispatch_once_t onceToken; \
+    dispatch_once(&onceToken, ^{ \
+        shared##className = [[self alloc] init]; \
+    }); \
+    return shared##className; \
 } \
 \
 + (void)staticRelease {}
@@ -41,31 +41,31 @@ return shared##className; \
 static className *shared##className = nil; \
 \
 + (className *)shared##className { \
-@synchronized(self) { \
-if (shared##className == nil) { \
-[[self alloc] init]; \
-} \
-} \
-return shared##className; \
+    @synchronized(self) { \
+        if (shared##className == nil) { \
+            [[self alloc] init]; \
+        } \
+    } \
+    return shared##className; \
 } \
 \
 + (void)staticRelease { \
-@synchronized(self) { \
-if (shared##className) { \
-[shared##className dealloc]; \
-shared##className = nil; \
-} \
-} \
+    @synchronized(self) { \
+        if (shared##className) { \
+            [shared##className dealloc]; \
+            shared##className = nil; \
+        } \
+    } \
 } \
 \
 + (id)allocWithZone:(NSZone *)zone { \
-@synchronized(self) { \
-if (shared##className == nil) { \
-shared##className = [super allocWithZone:zone]; \
-return shared##className; \
-} \
-} \
-return nil; \
+    @synchronized(self) { \
+        if (shared##className == nil) { \
+            shared##className = [super allocWithZone:zone]; \
+            return shared##className; \
+        } \
+    } \
+    return nil; \
 } \
 \
 - (id)copyWithZone:(NSZone *)zone { return self; } \

@@ -7,27 +7,32 @@
 //
 
 #import "DCDataStore.h"
-#import "DCDataStoreOperator.h"
+#import "DCDataStoreReader.h"
+#import "DCDataStoreWriter.h"
 
 @interface DCDataStore () <DCDataStoreOperatorDataSource> {
+    NSMutableArray *_threadReaderPool;
+    NSUInteger _lastUsingThreadReaderIndex;
+    DCDataStoreReader *_mainThreadReader;
+    DCDataStoreWriter *_writer;
 }
 
-@property (SAFE_ARC_PROP_STRONG) NSMutableArray *operatorPool;
-@property (atomic, unsafe_unretained) NSUInteger lastUsingOperatorIndex;
-@property (nonatomic, SAFE_ARC_PROP_STRONG, readonly) DCDataStoreOperator *mainThreadOperator;
+@property (nonatomic, SAFE_ARC_PROP_STRONG) NSMutableArray *threadReaderPool;
+@property (atomic, assign) NSUInteger lastUsingThreadReaderIndex;
+@property (nonatomic, SAFE_ARC_PROP_STRONG, readonly) DCDataStoreReader *mainThreadReader;
+@property (nonatomic, SAFE_ARC_PROP_STRONG, readonly) DCDataStoreWriter *writer;
 
 + (NSString *)archivePath;
 
 - (BOOL)initDataStore;
 - (NSURL *)url;
-- (void)cleanOperatorPool;
+- (void)cleanThreadReaderPool;
 - (void)mergeContextChanges:(NSNotification *)aNotification;
 
-- (void)increaseOperatorPoolTo:(NSUInteger)anOperatorCount;
-- (void)decreaseOperatorPoolTo:(NSUInteger)anOperatorCount;
+- (void)increaseThreadReaderPoolTo:(NSUInteger)anThreadReaderCount;
+- (void)decreaseThreadReaderPoolTo:(NSUInteger)anThreadReaderCount;
 
-- (BOOL)saveMainThreadOperatorSynchronous:(BOOL)isSync;
-- (BOOL)saveAllOperatorInPoolSynchronous:(BOOL)isSync;
+- (BOOL)saveWriterSynchronous:(BOOL)isSync;
 
 @end
 
@@ -36,9 +41,10 @@
 @synthesize dataSource = _dataSource;
 @synthesize model = _model;
 @synthesize coordinator = _coordinator;
-@synthesize operatorPool = _operatorPool;
-@synthesize lastUsingOperatorIndex = _lastUsingOperatorIndex;
-@synthesize mainThreadOperator = _mainThreadOperator;
+@synthesize threadReaderPool = _threadReaderPool;
+@synthesize lastUsingThreadReaderIndex = _lastUsingThreadReaderIndex;
+@synthesize mainThreadReader = _mainThreadReader;
+@synthesize writer = _writer;
 
 #pragma mark - DCDataStore - Public method
 + (NSString *)defaultUUID {
@@ -65,14 +71,19 @@
         if (self) {
             _dataSource = aDataSource;
             
-            [self cleanOperatorPool];
-            self.operatorPool = [NSMutableArray array];
-            
-            [self initDataStore];
-            
-            _mainThreadOperator = [[DCDataStoreOperator alloc] initWithDataSource:self];
-            
-            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(mergeContextChanges:) name:NSManagedObjectContextDidSaveNotification object:nil];
+            if ([self initDataStore]) {
+                [self cleanThreadReaderPool];
+                self.threadReaderPool = [NSMutableArray array];
+                
+                _mainThreadReader = [[DCDataStoreReader alloc] initWithDataSource:self];
+                
+                _writer = [[DCDataStoreWriter alloc] initWithDataSource:self];
+                
+                [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(mergeContextChanges:) name:NSManagedObjectContextDidSaveNotification object:nil];
+            } else {
+                _dataSource = nil;
+                DCLog_Error(@"DCDataStore init error");
+            }
         }
         return self;
     }
@@ -83,12 +94,14 @@
         @synchronized(self) {
             [[NSNotificationCenter defaultCenter] removeObserver:self name:NSManagedObjectContextDidSaveNotification object:nil];
             
-            [self cleanOperatorPool];
+            [self cleanThreadReaderPool];
             
-            if (_mainThreadOperator) {
-                [self saveMainThreadOperatorSynchronous:YES];
-                SAFE_ARC_SAFERELEASE(_mainThreadOperator);
+            SAFE_ARC_SAFERELEASE(_mainThreadReader);
+            
+            if (_writer) {
+                [self saveWriterSynchronous:YES];
             }
+            SAFE_ARC_SAFERELEASE(_writer);
             
             SAFE_ARC_SAFERELEASE(_coordinator);
             SAFE_ARC_SAFERELEASE(_model);
@@ -105,7 +118,7 @@
         
         _model = [NSManagedObjectModel mergedModelFromBundles:nil];
         SAFE_ARC_RETAIN(_model);
-        if (self.dataSource && [self.dataSource respondsToSelector:@selector(dataStoreManager:initModel:)]) {
+        if (self.dataSource && [self.dataSource respondsToSelector:@selector(dataStore:initModel:)]) {
             [self.dataSource dataStore:self initModel:self.model];
         }
         
@@ -120,52 +133,50 @@
     return result;
 }
 
-- (NSUInteger)operatorCount {
+- (NSUInteger)threadReaderCount {
     NSUInteger result = 0;
     do {
-        if (!self.operatorPool) {
+        if (!self.threadReaderPool) {
             break;
         }
         @synchronized(self) {
-            result = [self.operatorPool count];
+            result = [self.threadReaderPool count];
         }
     } while (NO);
     return result;
 }
 
-- (void)setOperatorCount:(NSUInteger)anOperatorCount {
+- (void)setThreadReaderCount:(NSUInteger)anThreadReaderCount {
     do {
-        if (anOperatorCount == 0) {
+        if (anThreadReaderCount == 0) {
             break;
         }
         @synchronized(self) {
-            if ([self.operatorPool count] > anOperatorCount) {
-                [self decreaseOperatorPoolTo:anOperatorCount];
+            if ([self.threadReaderPool count] > anThreadReaderCount) {
+                [self decreaseThreadReaderPoolTo:anThreadReaderCount];
                 
-                self.lastUsingOperatorIndex = [self.operatorPool count];
-            } else if ([self.operatorPool count] < anOperatorCount) {
-                [self increaseOperatorPoolTo:anOperatorCount];
+                self.lastUsingThreadReaderIndex = [self.threadReaderPool count];
+            } else if ([self.threadReaderPool count] < anThreadReaderCount) {
+                [self increaseThreadReaderPoolTo:anThreadReaderCount];
             }
         }
     } while (NO);
 }
 
-- (DCDataStoreOperator *)queryOperator {
-    DCDataStoreOperator *result = nil;
+- (DCDataStoreReader *)queryReader {
+    DCDataStoreReader *result = nil;
     do {
-        if (!self.operatorPool) {
-            break;
-        }
         @synchronized(self) {
-            if (!self.mainThreadOperator && [self.operatorPool count] == 0) {
+            if (!self.mainThreadReader) {
                 break;
             }
             
             BOOL find = NO;
+            BOOL isMainThread = [[NSThread currentThread] isMainThread];
             
-            if ([[NSThread currentThread] isMainThread]) {
-                if (!self.mainThreadOperator.busy) {
-                    result = self.mainThreadOperator;
+            if (isMainThread) {
+                if (!self.mainThreadReader.busy) {
+                    result = self.mainThreadReader;
                     find = YES;
                 }
                 
@@ -174,9 +185,13 @@
                 }
             }
             
-            for (DCDataStoreOperator *operator in self.operatorPool) {
-                if (!operator.busy) {
-                    result = operator;
+            if (!self.threadReaderPool || [self.threadReaderPool count] == 0) {
+                break;
+            }
+            
+            for (DCDataStoreReader *reader in self.threadReaderPool) {
+                if (!reader.busy) {
+                    result = reader;
                     find = YES;
                     break;
                 }
@@ -186,14 +201,14 @@
                 break;
             }
             
-            if ([self.operatorPool count] != 0) {
-                ++self.lastUsingOperatorIndex;
-                NSUInteger idx = self.lastUsingOperatorIndex < [self.operatorPool count] ? self.lastUsingOperatorIndex : 0;
-                result = [self.operatorPool objectAtIndex:idx];
+            if ([self.threadReaderPool count] != 0) {
+                ++self.lastUsingThreadReaderIndex;
+                NSUInteger idx = self.lastUsingThreadReaderIndex < [self.threadReaderPool count] ? self.lastUsingThreadReaderIndex : 0;
+                result = [self.threadReaderPool objectAtIndex:idx];
                 find = YES;
-                self.lastUsingOperatorIndex = idx;
-            } else if (self.mainThreadOperator) {
-                result = self.mainThreadOperator;
+                self.lastUsingThreadReaderIndex = idx;
+            } else if (self.mainThreadReader) {
+                result = self.mainThreadReader;
                 find = YES;
             }
             
@@ -205,27 +220,35 @@
     return result;
 }
 
-- (BOOL)syncSaveAllOperator {
-    BOOL result = YES;
+- (DCDataStoreWriter *)queryWriter {
+    DCDataStoreWriter *result = nil;
     do {
         @synchronized(self) {
-            result = [self saveMainThreadOperatorSynchronous:NO];
-            if (result) {
-                result = [self saveAllOperatorInPoolSynchronous:NO];
+            if (!self.writer) {
+                break;
             }
+            
+            result = self.writer;
         }
     } while (NO);
     return result;
 }
 
-- (BOOL)asyncSaveAllOperator {
+- (BOOL)syncSave {
     BOOL result = YES;
     do {
         @synchronized(self) {
-            result = [self saveMainThreadOperatorSynchronous:YES];
-            if (result) {
-                result = [self saveAllOperatorInPoolSynchronous:YES];
-            }
+            result = [self saveWriterSynchronous:NO];
+        }
+    } while (NO);
+    return result;
+}
+
+- (BOOL)asyncSave {
+    BOOL result = YES;
+    do {
+        @synchronized(self) {
+            result = [self saveWriterSynchronous:YES];
         }
     } while (NO);
     return result;
@@ -243,7 +266,7 @@
 - (NSURL *)url {
     NSURL *result = nil;
     do {
-        if (self.dataSource && [self.dataSource respondsToSelector:@selector(urlForDataStoreManager:)]) {
+        if (self.dataSource && [self.dataSource respondsToSelector:@selector(urlForDataStore:)]) {
             result = [self.dataSource urlForDataStore:self];
         } else {
             result = [NSURL fileURLWithPath:[DCDataStore archivePath]];
@@ -252,71 +275,68 @@
     return result;
 }
 
-- (void)cleanOperatorPool {
+- (void)cleanThreadReaderPool {
     do {
         @synchronized(self) {
-            if (self.operatorPool) {
-                [self saveAllOperatorInPoolSynchronous:YES];
-                
-                [self.operatorPool removeAllObjects];
-                self.operatorPool = nil;
+            if (self.threadReaderPool) {                
+                [self.threadReaderPool removeAllObjects];
+                self.threadReaderPool = nil;
             }
             
-            self.lastUsingOperatorIndex = 0;
+            self.lastUsingThreadReaderIndex = 0;
         }
     } while (NO);
 }
 
 - (void)mergeContextChanges:(NSNotification *)aNotification {
     do {
-        if (!aNotification || !self.operatorPool) {
+        if (!aNotification) {
             break;
         }
+        
         @synchronized(self) {
             BOOL allowMerge = NO;
             NSManagedObjectContext *context = (NSManagedObjectContext *)aNotification.object;
-            for (DCDataStoreOperator *operator in self.operatorPool) {
-                if ([context isEqual:operator.context]) {
-                    allowMerge = YES;
-                    break;
-                }
+            if ([context isEqual:self.writer.context]) {
+                allowMerge = YES;
+                break;
             }
             
             if (allowMerge) {
-                for (DCDataStoreOperator *operator in self.operatorPool) {
-                    if (![context isEqual:operator.context]) {
-                        [operator mergeContextChanges:aNotification];
-                    }
+                [self.mainThreadReader mergeContextChanges:aNotification];
+                
+                for (DCDataStoreReader *reader in self.threadReaderPool) {
+                    [reader mergeContextChanges:aNotification];
                 }
             }
         }
     } while (NO);
 }
 
-- (void)increaseOperatorPoolTo:(NSUInteger)anOperatorCount {
+- (void)increaseThreadReaderPoolTo:(NSUInteger)anThreadReaderCount {
     do {
         @synchronized(self) {
-            NSUInteger diff = anOperatorCount - [self.operatorPool count];
+            NSUInteger diff = anThreadReaderCount - [self.threadReaderPool count];
             for (; diff > 0; --diff) {
-                DCDataStoreOperator *operator = [[DCDataStoreOperator alloc] initWithDataSource:self];
-                SAFE_ARC_AUTORELEASE(operator);
+                DCDataStoreReader *reader = [[DCDataStoreReader alloc] initWithDataSource:self];
+                SAFE_ARC_AUTORELEASE(reader);
                 
-                [self.operatorPool addObject:operator];
+                [self.threadReaderPool addObject:reader];
             }
         }
     } while (NO);
 }
 
-- (void)decreaseOperatorPoolTo:(NSUInteger)anOperatorCount {
+- (void)decreaseThreadReaderPoolTo:(NSUInteger)anThreadReaderCount {
     do {
         @synchronized(self) {
-            NSUInteger diff = [self.operatorPool count] - anOperatorCount;
+            NSUInteger diff = [self.threadReaderPool count] - anThreadReaderCount;
             NSUInteger decreaseCount = 0;
             NSUInteger idx = 0;
-            while (idx < [self.operatorPool count] && decreaseCount < diff) {
-                DCDataStoreOperator *operator = [self.operatorPool objectAtIndex:idx];
-                if (!operator.busy) {
-                    [self.operatorPool removeObjectAtIndex:idx];
+            while (idx < [self.threadReaderPool count] && decreaseCount < diff) {
+                DCDataStoreReader *reader = [self.threadReaderPool objectAtIndex:idx];
+                if (!reader.busy) {
+                    [self.threadReaderPool removeObjectAtIndex:idx];
                     ++decreaseCount;
                 } else {
                     ++idx;
@@ -326,44 +346,21 @@
     } while (NO);
 }
 
-- (BOOL)saveMainThreadOperatorSynchronous:(BOOL)isSync {
+- (BOOL)saveWriterSynchronous:(BOOL)isSync {
     BOOL result = YES;
     do {
-        if (!self.mainThreadOperator) {
+        if (!self.writer) {
             break;
         }
         @synchronized(self) {
             NSError *err = nil;
             if (isSync) {
-                if (![self.mainThreadOperator syncSave:&err]) {
+                if (![self.writer syncSave:&err]) {
                     result = NO;
                 }
             } else {
-                if (![self.mainThreadOperator asyncSave:&err]) {
+                if (![self.writer asyncSave:&err]) {
                     result = NO;
-                }
-            }
-        }
-    } while (NO);
-    return result;
-}
-
-- (BOOL)saveAllOperatorInPoolSynchronous:(BOOL)isSync {
-    BOOL result = YES;
-    do {
-        @synchronized(self) {
-            if (self.operatorPool) {
-                for (DCDataStoreOperator *operator in self.operatorPool) {
-                    NSError *err = nil;
-                    if (isSync) {
-                        if (![operator syncSave:&err]) {
-                            result = NO;
-                        }
-                    } else {
-                        if (![operator asyncSave:&err]) {
-                            result = NO;
-                        }
-                    }
                 }
             }
         }

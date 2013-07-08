@@ -8,6 +8,10 @@
 
 #import "HOUND_MacTests.h"
 
+#import "DCInMemStackCache.h"
+#import "DCCoreDataDiskCache.h"
+#import "DCDiskCache.h"
+
 @implementation HOUND_MacTests
 
 - (void)setUp
@@ -24,9 +28,25 @@
     [super tearDown];
 }
 
-- (void)testExample
-{
-    STFail(@"Unit tests are not implemented yet in HOUND_MacTests");
+- (void)testForCreateInMemStackCreate {
+    STAssertNotNil([DCInMemStackCache sharedDCInMemStackCache], @"Error create DCInMemStackCache.");
+}
+
+- (void)testForCreateDCCoreDataDiskCache {
+    STAssertNotNil([DCCoreDataDiskCache sharedDCCoreDataDiskCache], @"Error create DCCoreDataDiskCache.");
+    [[DCCoreDataDiskCache sharedDCCoreDataDiskCache] initWithCachePath:nil];
+    STAssertTrue([DCCoreDataDiskCache sharedDCCoreDataDiskCache].isReady, @"Error DCCoreDataDiskCache not ready");
+}
+
+- (void)testForCreateDCDiskCache {
+    STAssertNotNil([DCDiskCache sharedDCDiskCache], @"Error create DCDiskCache.");
+    [[DCDiskCache sharedDCDiskCache] initWithCachePath:nil];
+    STAssertTrue([DCDiskCache sharedDCDiskCache].isReady, @"Error DCDiskCache not ready");
+}
+
+- (void)testForUseingDCCoreDataDiskCache {
+    STAssertNotNil([DCCoreDataDiskCache sharedDCCoreDataDiskCache], @"Error create DCCoreDataDiskCache.");
+    [[DCCoreDataDiskCache sharedDCCoreDataDiskCache] initWithCachePath:nil];
 }
 
 @end

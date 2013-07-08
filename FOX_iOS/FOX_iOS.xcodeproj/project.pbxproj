@@ -24,7 +24,13 @@
 		1BE6078B176F535900C46A1B /* libCodeGear_ObjC_iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BE6078A176F535900C46A1B /* libCodeGear_ObjC_iOS.a */; };
 		1BE6078C176F53AB00C46A1B /* DCDataStore.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1BE6077C176F4AC300C46A1B /* DCDataStore.h */; };
 		1BE6078D176F53AB00C46A1B /* DCDataStoreManager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1BE6077E176F4AC300C46A1B /* DCDataStoreManager.h */; };
-		1BE6078E176F53AB00C46A1B /* DCDataStoreOperator.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1BE60780176F4AC300C46A1B /* DCDataStoreOperator.h */; };
+		8D29A6661782A9100035A007 /* DCDataStoreReader.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8D945415177C12AC005EFB5F /* DCDataStoreReader.h */; };
+		8D29A6671782A9100035A007 /* DCDataStoreWriter.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8D945417177C12AC005EFB5F /* DCDataStoreWriter.h */; };
+		8D7037BC1783EFE6001F7C1A /* DCDataStoreOperator.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1BE60780176F4AC300C46A1B /* DCDataStoreOperator.h */; };
+		8D945419177C12AC005EFB5F /* DCDataStoreReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D945416177C12AC005EFB5F /* DCDataStoreReader.m */; };
+		8D94541A177C12AC005EFB5F /* DCDataStoreReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D945416177C12AC005EFB5F /* DCDataStoreReader.m */; };
+		8D94541B177C12AC005EFB5F /* DCDataStoreWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D945418177C12AC005EFB5F /* DCDataStoreWriter.m */; };
+		8D94541C177C12AC005EFB5F /* DCDataStoreWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D945418177C12AC005EFB5F /* DCDataStoreWriter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,9 +50,11 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				8D7037BC1783EFE6001F7C1A /* DCDataStoreOperator.h in CopyFiles */,
+				8D29A6661782A9100035A007 /* DCDataStoreReader.h in CopyFiles */,
+				8D29A6671782A9100035A007 /* DCDataStoreWriter.h in CopyFiles */,
 				1BE6078C176F53AB00C46A1B /* DCDataStore.h in CopyFiles */,
 				1BE6078D176F53AB00C46A1B /* DCDataStoreManager.h in CopyFiles */,
-				1BE6078E176F53AB00C46A1B /* DCDataStoreOperator.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +80,19 @@
 		1BE60780176F4AC300C46A1B /* DCDataStoreOperator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DCDataStoreOperator.h; path = ../../FOX/DCDataStoreOperator.h; sourceTree = "<group>"; };
 		1BE60781176F4AC300C46A1B /* DCDataStoreOperator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DCDataStoreOperator.m; path = ../../FOX/DCDataStoreOperator.m; sourceTree = "<group>"; };
 		1BE6078A176F535900C46A1B /* libCodeGear_ObjC_iOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCodeGear_ObjC_iOS.a; path = ../Res/iOS/CodeGear/libCodeGear_ObjC_iOS.a; sourceTree = "<group>"; };
+		8D29A6C81782AD0E0035A007 /* CodeGear_ObjC_iOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodeGear_ObjC_iOS.h; sourceTree = "<group>"; };
+		8D29A6C91782AD0E0035A007 /* DCCommonConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCCommonConstants.h; sourceTree = "<group>"; };
+		8D29A6CA1782AD0E0035A007 /* DCCommonUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCCommonUtility.h; sourceTree = "<group>"; };
+		8D29A6CB1782AD0E0035A007 /* DCImageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCImageHelper.h; sourceTree = "<group>"; };
+		8D29A6CC1782AD0E0035A007 /* DCSafeARC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCSafeARC.h; sourceTree = "<group>"; };
+		8D29A6CD1782AD0E0035A007 /* DCSingletonTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCSingletonTemplate.h; sourceTree = "<group>"; };
+		8D29A6CE1782AD0E0035A007 /* DCWebUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCWebUtility.h; sourceTree = "<group>"; };
+		8D29A6CF1782AD0E0035A007 /* NSString+URLCoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLCoding.h"; sourceTree = "<group>"; };
+		8D29A6D01782AD0E0035A007 /* DCLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCLogger.h; sourceTree = "<group>"; };
+		8D945415177C12AC005EFB5F /* DCDataStoreReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DCDataStoreReader.h; path = ../../FOX/DCDataStoreReader.h; sourceTree = "<group>"; };
+		8D945416177C12AC005EFB5F /* DCDataStoreReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DCDataStoreReader.m; path = ../../FOX/DCDataStoreReader.m; sourceTree = "<group>"; };
+		8D945417177C12AC005EFB5F /* DCDataStoreWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DCDataStoreWriter.h; path = ../../FOX/DCDataStoreWriter.h; sourceTree = "<group>"; };
+		8D945418177C12AC005EFB5F /* DCDataStoreWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DCDataStoreWriter.m; path = ../../FOX/DCDataStoreWriter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,7 +141,7 @@
 		1BD215AE176F2EA700147CC4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1BE6078A176F535900C46A1B /* libCodeGear_ObjC_iOS.a */,
+				8D29A65C1782A8D10035A007 /* libCodeGear */,
 				1BD215AF176F2EA700147CC4 /* Foundation.framework */,
 				1BD215BE176F2EA700147CC4 /* SenTestingKit.framework */,
 				1BD215C0176F2EA700147CC4 /* UIKit.framework */,
@@ -131,15 +152,19 @@
 		1BD215B1176F2EA700147CC4 /* FOX_iOS */ = {
 			isa = PBXGroup;
 			children = (
-				1BE6077C176F4AC300C46A1B /* DCDataStore.h */,
-				1BE6077D176F4AC300C46A1B /* DCDataStore.m */,
-				1BE6077E176F4AC300C46A1B /* DCDataStoreManager.h */,
-				1BE6077F176F4AC300C46A1B /* DCDataStoreManager.m */,
-				1BE60780176F4AC300C46A1B /* DCDataStoreOperator.h */,
-				1BE60781176F4AC300C46A1B /* DCDataStoreOperator.m */,
+				1BD215B2176F2EA700147CC4 /* Supporting Files */,
 				1BD215B4176F2EA700147CC4 /* FOX_iOS.h */,
 				1BD215B6176F2EA700147CC4 /* FOX_iOS.m */,
-				1BD215B2176F2EA700147CC4 /* Supporting Files */,
+				1BE6077E176F4AC300C46A1B /* DCDataStoreManager.h */,
+				1BE6077F176F4AC300C46A1B /* DCDataStoreManager.m */,
+				1BE6077C176F4AC300C46A1B /* DCDataStore.h */,
+				1BE6077D176F4AC300C46A1B /* DCDataStore.m */,
+				1BE60780176F4AC300C46A1B /* DCDataStoreOperator.h */,
+				1BE60781176F4AC300C46A1B /* DCDataStoreOperator.m */,
+				8D945415177C12AC005EFB5F /* DCDataStoreReader.h */,
+				8D945416177C12AC005EFB5F /* DCDataStoreReader.m */,
+				8D945417177C12AC005EFB5F /* DCDataStoreWriter.h */,
+				8D945418177C12AC005EFB5F /* DCDataStoreWriter.m */,
 			);
 			path = FOX_iOS;
 			sourceTree = "<group>";
@@ -169,6 +194,32 @@
 				1BD215C9176F2EA700147CC4 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8D29A65C1782A8D10035A007 /* libCodeGear */ = {
+			isa = PBXGroup;
+			children = (
+				8D29A6C71782AD0E0035A007 /* include */,
+				1BE6078A176F535900C46A1B /* libCodeGear_ObjC_iOS.a */,
+			);
+			name = libCodeGear;
+			sourceTree = "<group>";
+		};
+		8D29A6C71782AD0E0035A007 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				8D29A6C81782AD0E0035A007 /* CodeGear_ObjC_iOS.h */,
+				8D29A6C91782AD0E0035A007 /* DCCommonConstants.h */,
+				8D29A6CA1782AD0E0035A007 /* DCCommonUtility.h */,
+				8D29A6CB1782AD0E0035A007 /* DCImageHelper.h */,
+				8D29A6CC1782AD0E0035A007 /* DCSafeARC.h */,
+				8D29A6CD1782AD0E0035A007 /* DCSingletonTemplate.h */,
+				8D29A6CE1782AD0E0035A007 /* DCWebUtility.h */,
+				8D29A6CF1782AD0E0035A007 /* NSString+URLCoding.h */,
+				8D29A6D01782AD0E0035A007 /* DCLogger.h */,
+			);
+			name = include;
+			path = ../Res/iOS/CodeGear/include;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,6 +324,8 @@
 				1BE60782176F4AC300C46A1B /* DCDataStore.m in Sources */,
 				1BE60784176F4AC300C46A1B /* DCDataStoreManager.m in Sources */,
 				1BE60786176F4AC300C46A1B /* DCDataStoreOperator.m in Sources */,
+				8D945419177C12AC005EFB5F /* DCDataStoreReader.m in Sources */,
+				8D94541B177C12AC005EFB5F /* DCDataStoreWriter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +337,8 @@
 				1BE60783176F4AC300C46A1B /* DCDataStore.m in Sources */,
 				1BE60785176F4AC300C46A1B /* DCDataStoreManager.m in Sources */,
 				1BE60787176F4AC300C46A1B /* DCDataStoreOperator.m in Sources */,
+				8D94541A177C12AC005EFB5F /* DCDataStoreReader.m in Sources */,
+				8D94541C177C12AC005EFB5F /* DCDataStoreWriter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,7 +367,7 @@
 		1BD215CF176F2EA700147CC4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -333,16 +388,18 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../Res/iOS/\"/**";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
+				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/../Res/iOS/\"/**";
+				ONLY_ACTIVE_ARCH = NO;
+				SDKROOT = iphoneos6.1;
 			};
 			name = Debug;
 		};
 		1BD215D0176F2EA700147CC4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -356,8 +413,10 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../Res/iOS/\"/**";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
-				SDKROOT = iphoneos;
+				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/../Res/iOS/\"/**";
+				SDKROOT = iphoneos6.1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -365,16 +424,9 @@
 		1BD215D2176F2EA700147CC4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
 				DSTROOT = /tmp/FOX_iOS.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FOX_iOS/FOX_iOS-Prefix.pch";
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../Res/iOS/\"/**";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../Res/iOS/CodeGear\"",
-					"\"$(SRCROOT)/../Res/iOS/\"/**",
-				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -384,16 +436,9 @@
 		1BD215D3176F2EA700147CC4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
 				DSTROOT = /tmp/FOX_iOS.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FOX_iOS/FOX_iOS-Prefix.pch";
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../Res/iOS/\"/**";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../Res/iOS/CodeGear\"",
-					"\"$(SRCROOT)/../Res/iOS/\"/**",
-				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

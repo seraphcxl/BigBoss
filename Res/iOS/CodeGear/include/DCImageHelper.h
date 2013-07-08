@@ -7,7 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+
+#if TARGET_OS_IPHONE
 #import <ImageIO/ImageIO.h>
+#else
+#endif
 
 #import "DCSafeARC.h"
 #import "DCCommonConstants.h"

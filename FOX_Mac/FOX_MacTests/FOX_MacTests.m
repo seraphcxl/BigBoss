@@ -2,8 +2,8 @@
 //  FOX_MacTests.m
 //  FOX_MacTests
 //
-//  Created by Chen XiaoLiang on 6/17/13.
-//  Copyright (c) 2013 CaptainSolid Studio. All rights reserved.
+//  Created by Derek Chen on 13-7-8.
+//  Copyright (c) 2013年 CaptainSolid Studio. All rights reserved.
 //
 
 #import "FOX_MacTests.h"

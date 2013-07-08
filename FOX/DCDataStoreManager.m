@@ -21,7 +21,7 @@
 @synthesize dataStorePool = _dataStorePool;
 
 #pragma mark - DCDataStoreManager - Public method
-DEFINE_SINGLETON_FOR_CLASS(DCDataStoreManager);
+DEFINE_SINGLETON_FOR_CLASS(DCDataStoreManager)
 
 - (id)init {
     @synchronized(self) {
@@ -73,6 +73,8 @@ DEFINE_SINGLETON_FOR_CLASS(DCDataStoreManager);
             break;
         }
         @synchronized(self) {
+            [self syncSaveAllDataStores];
+            
             [self.dataStorePool removeAllObjects];
         }
     } while (NO);
@@ -89,6 +91,34 @@ DEFINE_SINGLETON_FOR_CLASS(DCDataStoreManager);
         }
     } while (NO);
     return result;
+}
+
+- (void)syncSaveAllDataStores {
+    do {
+        if (!self.dataStorePool) {
+            break;
+        }
+        @synchronized(self) {
+            NSArray *allDataStores = [self.dataStorePool allValues];
+            for (DCDataStore *dataStore in allDataStores) {
+                [dataStore syncSave];
+            }
+        }
+    } while (NO);
+}
+
+- (void)asyncSaveAllDataStores {
+    do {
+        if (!self.dataStorePool) {
+            break;
+        }
+        @synchronized(self) {
+            NSArray *allDataStores = [self.dataStorePool allValues];
+            for (DCDataStore *dataStore in allDataStores) {
+                [dataStore asyncSave];
+            }
+        }
+    } while (NO);
 }
 
 #pragma mark - DCDataStoreManager - Private method

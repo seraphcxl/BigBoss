@@ -10,13 +10,6 @@
 #define CodeGear_ObjC_DCCommonConstants_h
 
 /**** **** **** **** **** **** **** ****/
-#ifdef DEBUG
-#define DC_DEBUG_NSLog(format, ...) NSLog(format, ## __VA_ARGS__)
-#else
-#define DC_DEBUG_NSLog(format, ...)
-#endif
-
-/**** **** **** **** **** **** **** ****/
 //
 // For Mac OS && iOS
 //
@@ -68,4 +61,8 @@
 #endif
 
 /**** **** **** **** **** **** **** ****/
+#define DC_MEMSIZE_KB(n) ((NSUInteger)(n * 1024))
+#define DC_MEMSIZE_MB(n) ((NSUInteger)(DC_MEMSIZE_KB(n) * 1024))
+#define DC_MEMSIZE_GB(n) ((NSUInteger)(DC_MEMSIZE_MB(n) * 1024))
+
 #endif

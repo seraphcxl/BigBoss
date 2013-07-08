@@ -14,16 +14,47 @@
 		1BE60727176F495400C46A1B /* libHOUND_Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BE6070D176F495400C46A1B /* libHOUND_Mac.a */; };
 		1BE6072D176F495400C46A1B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1BE6072B176F495400C46A1B /* InfoPlist.strings */; };
 		1BE60730176F495400C46A1B /* HOUND_MacTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE6072F176F495400C46A1B /* HOUND_MacTests.m */; };
+		8D29A70B1782AE760035A007 /* libFOX_Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D29A70A1782AE760035A007 /* libFOX_Mac.a */; };
+		8D7037C31783F023001F7C1A /* DCDataStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D7037BE1783F023001F7C1A /* DCDataStore.h */; };
+		8D7037C41783F023001F7C1A /* DCDataStoreManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D7037BF1783F023001F7C1A /* DCDataStoreManager.h */; };
+		8D7037C51783F023001F7C1A /* DCDataStoreReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D7037C01783F023001F7C1A /* DCDataStoreReader.h */; };
+		8D7037C61783F023001F7C1A /* DCDataStoreWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D7037C11783F023001F7C1A /* DCDataStoreWriter.h */; };
+		8D7037C71783F023001F7C1A /* DCDataStoreOperator.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D7037C21783F023001F7C1A /* DCDataStoreOperator.h */; };
 		8D8A96DC176FE17100DEC194 /* libCodeGear_ObjC_Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D8A96DB176FE17100DEC194 /* libCodeGear_ObjC_Mac.a */; };
+		8DA5F63F178A53E200956E94 /* DCCommonConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DA5F636178A53E200956E94 /* DCCommonConstants.h */; };
+		8DA5F640178A53E200956E94 /* DCCommonUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DA5F637178A53E200956E94 /* DCCommonUtility.h */; };
+		8DA5F641178A53E200956E94 /* DCImageHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DA5F638178A53E200956E94 /* DCImageHelper.h */; };
+		8DA5F642178A53E200956E94 /* DCLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DA5F639178A53E200956E94 /* DCLogger.h */; };
+		8DA5F643178A53E200956E94 /* DCSafeARC.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DA5F63A178A53E200956E94 /* DCSafeARC.h */; };
+		8DA5F644178A53E200956E94 /* DCSingletonTemplate.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DA5F63B178A53E200956E94 /* DCSingletonTemplate.h */; };
+		8DA5F645178A53E200956E94 /* DCWebUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DA5F63C178A53E200956E94 /* DCWebUtility.h */; };
+		8DA5F646178A53E200956E94 /* NSString+URLCoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DA5F63D178A53E200956E94 /* NSString+URLCoding.h */; };
+		8DA5F647178A53E200956E94 /* CodeGear_ObjC_Mac.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DA5F63E178A53E200956E94 /* CodeGear_ObjC_Mac.h */; };
+		8DBF871817851A2C0091A4A3 /* DCCoreDataDiskCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DBF871617851A2C0091A4A3 /* DCCoreDataDiskCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8DBF871917851A2C0091A4A3 /* DCCoreDataDiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBF871717851A2C0091A4A3 /* DCCoreDataDiskCache.m */; };
+		8DBF871A17851A2C0091A4A3 /* DCCoreDataDiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBF871717851A2C0091A4A3 /* DCCoreDataDiskCache.m */; };
+		8DBF871E17851A5D0091A4A3 /* DCCoreDataDiskCacheIndex.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DBF871C17851A5D0091A4A3 /* DCCoreDataDiskCacheIndex.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8DBF871F17851A5D0091A4A3 /* DCCoreDataDiskCacheIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBF871D17851A5D0091A4A3 /* DCCoreDataDiskCacheIndex.m */; };
+		8DBF872017851A5D0091A4A3 /* DCCoreDataDiskCacheIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBF871D17851A5D0091A4A3 /* DCCoreDataDiskCacheIndex.m */; };
+		8DBF872317851A800091A4A3 /* DCCoreDataDiskCache.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8DBF872117851A800091A4A3 /* DCCoreDataDiskCache.xcdatamodeld */; };
+		8DBF872417851A800091A4A3 /* DCCoreDataDiskCache.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8DBF872117851A800091A4A3 /* DCCoreDataDiskCache.xcdatamodeld */; };
+		8DBF872717851AA10091A4A3 /* DCCoreDataDiskCacheEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DBF872517851AA10091A4A3 /* DCCoreDataDiskCacheEntity.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8DBF872817851AA10091A4A3 /* DCCoreDataDiskCacheEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBF872617851AA10091A4A3 /* DCCoreDataDiskCacheEntity.m */; };
+		8DBF872917851AA10091A4A3 /* DCCoreDataDiskCacheEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBF872617851AA10091A4A3 /* DCCoreDataDiskCacheEntity.m */; };
+		8DBF872D17851BA90091A4A3 /* DCDiskCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DBF872B17851BA90091A4A3 /* DCDiskCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8DBF872E17851BA90091A4A3 /* DCDiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBF872C17851BA90091A4A3 /* DCDiskCache.m */; };
+		8DBF872F17851BA90091A4A3 /* DCDiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBF872C17851BA90091A4A3 /* DCDiskCache.m */; };
+		8DBF873217851BBC0091A4A3 /* DCDiskCacheIndex.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DBF873017851BBC0091A4A3 /* DCDiskCacheIndex.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8DBF873317851BBC0091A4A3 /* DCDiskCacheIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBF873117851BBC0091A4A3 /* DCDiskCacheIndex.m */; };
+		8DBF873417851BBC0091A4A3 /* DCDiskCacheIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBF873117851BBC0091A4A3 /* DCDiskCacheIndex.m */; };
+		8DBF873717851BD70091A4A3 /* DCDiskCacheEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DBF873517851BD70091A4A3 /* DCDiskCacheEntity.h */; };
+		8DBF873817851BD70091A4A3 /* DCDiskCacheEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBF873617851BD70091A4A3 /* DCDiskCacheEntity.m */; };
+		8DBF873917851BD70091A4A3 /* DCDiskCacheEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBF873617851BD70091A4A3 /* DCDiskCacheEntity.m */; };
+		8DBF873C178523520091A4A3 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DBF873B178523520091A4A3 /* libsqlite3.dylib */; };
 		8DFD728317700C1E001A37AD /* DCInMemStackCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DFD728117700C1E001A37AD /* DCInMemStackCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8DFD728417700C1E001A37AD /* DCInMemStackCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DFD728217700C1E001A37AD /* DCInMemStackCache.m */; };
 		8DFD728517700C1E001A37AD /* DCInMemStackCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DFD728217700C1E001A37AD /* DCInMemStackCache.m */; };
-		8DFD7293177025B4001A37AD /* FBCacheIndex.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DFD728F177025B4001A37AD /* FBCacheIndex.h */; };
-		8DFD7294177025B4001A37AD /* FBCacheIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DFD7290177025B4001A37AD /* FBCacheIndex.m */; };
-		8DFD7295177025B4001A37AD /* FBCacheIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DFD7290177025B4001A37AD /* FBCacheIndex.m */; };
-		8DFD7296177025B4001A37AD /* FBDataDiskCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DFD7291177025B4001A37AD /* FBDataDiskCache.h */; };
-		8DFD7297177025B4001A37AD /* FBDataDiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DFD7292177025B4001A37AD /* FBDataDiskCache.m */; };
-		8DFD7298177025B4001A37AD /* FBDataDiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DFD7292177025B4001A37AD /* FBDataDiskCache.m */; };
+		8DFE2CD717865CEA009855DB /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DBF873B178523520091A4A3 /* libsqlite3.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,13 +82,38 @@
 		1BE6072C176F495400C46A1B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1BE6072E176F495400C46A1B /* HOUND_MacTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HOUND_MacTests.h; sourceTree = "<group>"; };
 		1BE6072F176F495400C46A1B /* HOUND_MacTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HOUND_MacTests.m; sourceTree = "<group>"; };
+		8D29A70A1782AE760035A007 /* libFOX_Mac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFOX_Mac.a; path = ../Res/Mac/FOX/libFOX_Mac.a; sourceTree = "<group>"; };
+		8D7037BE1783F023001F7C1A /* DCDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCDataStore.h; sourceTree = "<group>"; };
+		8D7037BF1783F023001F7C1A /* DCDataStoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCDataStoreManager.h; sourceTree = "<group>"; };
+		8D7037C01783F023001F7C1A /* DCDataStoreReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCDataStoreReader.h; sourceTree = "<group>"; };
+		8D7037C11783F023001F7C1A /* DCDataStoreWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCDataStoreWriter.h; sourceTree = "<group>"; };
+		8D7037C21783F023001F7C1A /* DCDataStoreOperator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCDataStoreOperator.h; sourceTree = "<group>"; };
 		8D8A96DB176FE17100DEC194 /* libCodeGear_ObjC_Mac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCodeGear_ObjC_Mac.a; path = ../Res/Mac/CodeGear/libCodeGear_ObjC_Mac.a; sourceTree = "<group>"; };
+		8DA5F636178A53E200956E94 /* DCCommonConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCCommonConstants.h; sourceTree = "<group>"; };
+		8DA5F637178A53E200956E94 /* DCCommonUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCCommonUtility.h; sourceTree = "<group>"; };
+		8DA5F638178A53E200956E94 /* DCImageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCImageHelper.h; sourceTree = "<group>"; };
+		8DA5F639178A53E200956E94 /* DCLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCLogger.h; sourceTree = "<group>"; };
+		8DA5F63A178A53E200956E94 /* DCSafeARC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCSafeARC.h; sourceTree = "<group>"; };
+		8DA5F63B178A53E200956E94 /* DCSingletonTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCSingletonTemplate.h; sourceTree = "<group>"; };
+		8DA5F63C178A53E200956E94 /* DCWebUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCWebUtility.h; sourceTree = "<group>"; };
+		8DA5F63D178A53E200956E94 /* NSString+URLCoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLCoding.h"; sourceTree = "<group>"; };
+		8DA5F63E178A53E200956E94 /* CodeGear_ObjC_Mac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodeGear_ObjC_Mac.h; sourceTree = "<group>"; };
+		8DBF871617851A2C0091A4A3 /* DCCoreDataDiskCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DCCoreDataDiskCache.h; path = ../../HOUND/DCCoreDataDiskCache.h; sourceTree = "<group>"; };
+		8DBF871717851A2C0091A4A3 /* DCCoreDataDiskCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DCCoreDataDiskCache.m; path = ../../HOUND/DCCoreDataDiskCache.m; sourceTree = "<group>"; };
+		8DBF871C17851A5D0091A4A3 /* DCCoreDataDiskCacheIndex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DCCoreDataDiskCacheIndex.h; path = ../../HOUND/DCCoreDataDiskCacheIndex.h; sourceTree = "<group>"; };
+		8DBF871D17851A5D0091A4A3 /* DCCoreDataDiskCacheIndex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DCCoreDataDiskCacheIndex.m; path = ../../HOUND/DCCoreDataDiskCacheIndex.m; sourceTree = "<group>"; };
+		8DBF872217851A800091A4A3 /* DCCoreDataDiskCache.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DCCoreDataDiskCache.xcdatamodel; sourceTree = "<group>"; };
+		8DBF872517851AA10091A4A3 /* DCCoreDataDiskCacheEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DCCoreDataDiskCacheEntity.h; path = ../../HOUND/DCCoreDataDiskCacheEntity.h; sourceTree = "<group>"; };
+		8DBF872617851AA10091A4A3 /* DCCoreDataDiskCacheEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DCCoreDataDiskCacheEntity.m; path = ../../HOUND/DCCoreDataDiskCacheEntity.m; sourceTree = "<group>"; };
+		8DBF872B17851BA90091A4A3 /* DCDiskCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DCDiskCache.h; path = ../../HOUND/DCDiskCache.h; sourceTree = "<group>"; };
+		8DBF872C17851BA90091A4A3 /* DCDiskCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DCDiskCache.m; path = ../../HOUND/DCDiskCache.m; sourceTree = "<group>"; };
+		8DBF873017851BBC0091A4A3 /* DCDiskCacheIndex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DCDiskCacheIndex.h; path = ../../HOUND/DCDiskCacheIndex.h; sourceTree = "<group>"; };
+		8DBF873117851BBC0091A4A3 /* DCDiskCacheIndex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DCDiskCacheIndex.m; path = ../../HOUND/DCDiskCacheIndex.m; sourceTree = "<group>"; };
+		8DBF873517851BD70091A4A3 /* DCDiskCacheEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DCDiskCacheEntity.h; path = ../../HOUND/DCDiskCacheEntity.h; sourceTree = "<group>"; };
+		8DBF873617851BD70091A4A3 /* DCDiskCacheEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DCDiskCacheEntity.m; path = ../../HOUND/DCDiskCacheEntity.m; sourceTree = "<group>"; };
+		8DBF873B178523520091A4A3 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		8DFD728117700C1E001A37AD /* DCInMemStackCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DCInMemStackCache.h; path = ../../HOUND/DCInMemStackCache.h; sourceTree = "<group>"; };
 		8DFD728217700C1E001A37AD /* DCInMemStackCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DCInMemStackCache.m; path = ../../HOUND/DCInMemStackCache.m; sourceTree = "<group>"; };
-		8DFD728F177025B4001A37AD /* FBCacheIndex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FBCacheIndex.h; path = ../../HOUND/FBCacheIndex.h; sourceTree = "<group>"; };
-		8DFD7290177025B4001A37AD /* FBCacheIndex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FBCacheIndex.m; path = ../../HOUND/FBCacheIndex.m; sourceTree = "<group>"; };
-		8DFD7291177025B4001A37AD /* FBDataDiskCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FBDataDiskCache.h; path = ../../HOUND/FBDataDiskCache.h; sourceTree = "<group>"; };
-		8DFD7292177025B4001A37AD /* FBDataDiskCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FBDataDiskCache.m; path = ../../HOUND/FBDataDiskCache.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +121,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DBF873C178523520091A4A3 /* libsqlite3.dylib in Frameworks */,
+				8D29A70B1782AE760035A007 /* libFOX_Mac.a in Frameworks */,
 				8D8A96DC176FE17100DEC194 /* libCodeGear_ObjC_Mac.a in Frameworks */,
 				1BE60711176F495400C46A1B /* Cocoa.framework in Frameworks */,
 			);
@@ -74,6 +132,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DFE2CD717865CEA009855DB /* libsqlite3.dylib in Frameworks */,
 				1BE60723176F495400C46A1B /* SenTestingKit.framework in Frameworks */,
 				1BE60724176F495400C46A1B /* Cocoa.framework in Frameworks */,
 				1BE60727176F495400C46A1B /* libHOUND_Mac.a in Frameworks */,
@@ -105,7 +164,9 @@
 		1BE6070F176F495400C46A1B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8D8A96DB176FE17100DEC194 /* libCodeGear_ObjC_Mac.a */,
+				8DBF873B178523520091A4A3 /* libsqlite3.dylib */,
+				8D29A7001782AE3F0035A007 /* libFOX */,
+				8D29A6681782ABE70035A007 /* libCodeGear */,
 				1BE60710176F495400C46A1B /* Cocoa.framework */,
 				1BE60722176F495400C46A1B /* SenTestingKit.framework */,
 				1BE60712176F495400C46A1B /* Other Frameworks */,
@@ -126,15 +187,12 @@
 		1BE60716176F495400C46A1B /* HOUND_Mac */ = {
 			isa = PBXGroup;
 			children = (
-				1BE60717176F495400C46A1B /* Supporting Files */,
-				8DFD728F177025B4001A37AD /* FBCacheIndex.h */,
-				8DFD7290177025B4001A37AD /* FBCacheIndex.m */,
-				8DFD7291177025B4001A37AD /* FBDataDiskCache.h */,
-				8DFD7292177025B4001A37AD /* FBDataDiskCache.m */,
+				8DBF873A17851BE50091A4A3 /* InMemStack */,
+				8DBF872A17851B8A0091A4A3 /* SQLite */,
+				8DBF871B17851A350091A4A3 /* CoreData */,
 				1BE60719176F495400C46A1B /* HOUND_Mac.h */,
 				1BE6071A176F495400C46A1B /* HOUND_Mac.m */,
-				8DFD728117700C1E001A37AD /* DCInMemStackCache.h */,
-				8DFD728217700C1E001A37AD /* DCInMemStackCache.m */,
+				1BE60717176F495400C46A1B /* Supporting Files */,
 			);
 			path = HOUND_Mac;
 			sourceTree = "<group>";
@@ -166,6 +224,90 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		8D29A6681782ABE70035A007 /* libCodeGear */ = {
+			isa = PBXGroup;
+			children = (
+				8DA5F635178A53E200956E94 /* include */,
+				8D8A96DB176FE17100DEC194 /* libCodeGear_ObjC_Mac.a */,
+			);
+			name = libCodeGear;
+			sourceTree = "<group>";
+		};
+		8D29A7001782AE3F0035A007 /* libFOX */ = {
+			isa = PBXGroup;
+			children = (
+				8D7037BD1783F023001F7C1A /* include */,
+				8D29A70A1782AE760035A007 /* libFOX_Mac.a */,
+			);
+			name = libFOX;
+			sourceTree = "<group>";
+		};
+		8D7037BD1783F023001F7C1A /* include */ = {
+			isa = PBXGroup;
+			children = (
+				8D7037BE1783F023001F7C1A /* DCDataStore.h */,
+				8D7037BF1783F023001F7C1A /* DCDataStoreManager.h */,
+				8D7037C01783F023001F7C1A /* DCDataStoreReader.h */,
+				8D7037C11783F023001F7C1A /* DCDataStoreWriter.h */,
+				8D7037C21783F023001F7C1A /* DCDataStoreOperator.h */,
+			);
+			name = include;
+			path = ../Res/Mac/FOX/include;
+			sourceTree = "<group>";
+		};
+		8DA5F635178A53E200956E94 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				8DA5F636178A53E200956E94 /* DCCommonConstants.h */,
+				8DA5F637178A53E200956E94 /* DCCommonUtility.h */,
+				8DA5F638178A53E200956E94 /* DCImageHelper.h */,
+				8DA5F639178A53E200956E94 /* DCLogger.h */,
+				8DA5F63A178A53E200956E94 /* DCSafeARC.h */,
+				8DA5F63B178A53E200956E94 /* DCSingletonTemplate.h */,
+				8DA5F63C178A53E200956E94 /* DCWebUtility.h */,
+				8DA5F63D178A53E200956E94 /* NSString+URLCoding.h */,
+				8DA5F63E178A53E200956E94 /* CodeGear_ObjC_Mac.h */,
+			);
+			name = include;
+			path = ../Res/Mac/CodeGear/include;
+			sourceTree = "<group>";
+		};
+		8DBF871B17851A350091A4A3 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				8DBF871617851A2C0091A4A3 /* DCCoreDataDiskCache.h */,
+				8DBF871717851A2C0091A4A3 /* DCCoreDataDiskCache.m */,
+				8DBF871C17851A5D0091A4A3 /* DCCoreDataDiskCacheIndex.h */,
+				8DBF871D17851A5D0091A4A3 /* DCCoreDataDiskCacheIndex.m */,
+				8DBF872117851A800091A4A3 /* DCCoreDataDiskCache.xcdatamodeld */,
+				8DBF872517851AA10091A4A3 /* DCCoreDataDiskCacheEntity.h */,
+				8DBF872617851AA10091A4A3 /* DCCoreDataDiskCacheEntity.m */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
+		8DBF872A17851B8A0091A4A3 /* SQLite */ = {
+			isa = PBXGroup;
+			children = (
+				8DBF872B17851BA90091A4A3 /* DCDiskCache.h */,
+				8DBF872C17851BA90091A4A3 /* DCDiskCache.m */,
+				8DBF873017851BBC0091A4A3 /* DCDiskCacheIndex.h */,
+				8DBF873117851BBC0091A4A3 /* DCDiskCacheIndex.m */,
+				8DBF873517851BD70091A4A3 /* DCDiskCacheEntity.h */,
+				8DBF873617851BD70091A4A3 /* DCDiskCacheEntity.m */,
+			);
+			name = SQLite;
+			sourceTree = "<group>";
+		};
+		8DBF873A17851BE50091A4A3 /* InMemStack */ = {
+			isa = PBXGroup;
+			children = (
+				8DFD728117700C1E001A37AD /* DCInMemStackCache.h */,
+				8DFD728217700C1E001A37AD /* DCInMemStackCache.m */,
+			);
+			name = InMemStack;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -174,8 +316,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				8DFD728317700C1E001A37AD /* DCInMemStackCache.h in Headers */,
-				8DFD7293177025B4001A37AD /* FBCacheIndex.h in Headers */,
-				8DFD7296177025B4001A37AD /* FBDataDiskCache.h in Headers */,
+				8DBF872D17851BA90091A4A3 /* DCDiskCache.h in Headers */,
+				8DBF873217851BBC0091A4A3 /* DCDiskCacheIndex.h in Headers */,
+				8DBF871817851A2C0091A4A3 /* DCCoreDataDiskCache.h in Headers */,
+				8DBF871E17851A5D0091A4A3 /* DCCoreDataDiskCacheIndex.h in Headers */,
+				8DBF872717851AA10091A4A3 /* DCCoreDataDiskCacheEntity.h in Headers */,
+				8D7037C31783F023001F7C1A /* DCDataStore.h in Headers */,
+				8D7037C41783F023001F7C1A /* DCDataStoreManager.h in Headers */,
+				8D7037C51783F023001F7C1A /* DCDataStoreReader.h in Headers */,
+				8D7037C61783F023001F7C1A /* DCDataStoreWriter.h in Headers */,
+				8D7037C71783F023001F7C1A /* DCDataStoreOperator.h in Headers */,
+				8DBF873717851BD70091A4A3 /* DCDiskCacheEntity.h in Headers */,
+				8DA5F63F178A53E200956E94 /* DCCommonConstants.h in Headers */,
+				8DA5F640178A53E200956E94 /* DCCommonUtility.h in Headers */,
+				8DA5F641178A53E200956E94 /* DCImageHelper.h in Headers */,
+				8DA5F642178A53E200956E94 /* DCLogger.h in Headers */,
+				8DA5F643178A53E200956E94 /* DCSafeARC.h in Headers */,
+				8DA5F644178A53E200956E94 /* DCSingletonTemplate.h in Headers */,
+				8DA5F645178A53E200956E94 /* DCWebUtility.h in Headers */,
+				8DA5F646178A53E200956E94 /* NSString+URLCoding.h in Headers */,
+				8DA5F647178A53E200956E94 /* CodeGear_ObjC_Mac.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,8 +439,13 @@
 			files = (
 				1BE6071B176F495400C46A1B /* HOUND_Mac.m in Sources */,
 				8DFD728417700C1E001A37AD /* DCInMemStackCache.m in Sources */,
-				8DFD7294177025B4001A37AD /* FBCacheIndex.m in Sources */,
-				8DFD7297177025B4001A37AD /* FBDataDiskCache.m in Sources */,
+				8DBF871917851A2C0091A4A3 /* DCCoreDataDiskCache.m in Sources */,
+				8DBF871F17851A5D0091A4A3 /* DCCoreDataDiskCacheIndex.m in Sources */,
+				8DBF872317851A800091A4A3 /* DCCoreDataDiskCache.xcdatamodeld in Sources */,
+				8DBF872817851AA10091A4A3 /* DCCoreDataDiskCacheEntity.m in Sources */,
+				8DBF872E17851BA90091A4A3 /* DCDiskCache.m in Sources */,
+				8DBF873317851BBC0091A4A3 /* DCDiskCacheIndex.m in Sources */,
+				8DBF873817851BD70091A4A3 /* DCDiskCacheEntity.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,8 +455,13 @@
 			files = (
 				1BE60730176F495400C46A1B /* HOUND_MacTests.m in Sources */,
 				8DFD728517700C1E001A37AD /* DCInMemStackCache.m in Sources */,
-				8DFD7295177025B4001A37AD /* FBCacheIndex.m in Sources */,
-				8DFD7298177025B4001A37AD /* FBDataDiskCache.m in Sources */,
+				8DBF871A17851A2C0091A4A3 /* DCCoreDataDiskCache.m in Sources */,
+				8DBF872017851A5D0091A4A3 /* DCCoreDataDiskCacheIndex.m in Sources */,
+				8DBF872417851A800091A4A3 /* DCCoreDataDiskCache.xcdatamodeld in Sources */,
+				8DBF872917851AA10091A4A3 /* DCCoreDataDiskCacheEntity.m in Sources */,
+				8DBF872F17851BA90091A4A3 /* DCDiskCache.m in Sources */,
+				8DBF873417851BBC0091A4A3 /* DCDiskCacheIndex.m in Sources */,
+				8DBF873917851BD70091A4A3 /* DCDiskCacheEntity.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,7 +490,7 @@
 		1BE60731176F495400C46A1B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -344,8 +514,10 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../Res/Mac/\"/**";
+				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/../Res/Mac/\"/**";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = macosx10.7;
 			};
 			name = Debug;
@@ -353,7 +525,7 @@
 		1BE60732176F495400C46A1B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -371,6 +543,8 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../Res/Mac/\"/**";
+				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/../Res/Mac/\"/**";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				SDKROOT = macosx10.7;
 			};
@@ -380,17 +554,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HOUND_Mac/HOUND_Mac-Prefix.pch";
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../Res/Mac/\"/**";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../Res/Mac/CodeGear\"",
-					"\"$(SRCROOT)/../Res/Mac/\"/**",
-				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx10.7;
 			};
 			name = Debug;
 		};
@@ -398,17 +565,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HOUND_Mac/HOUND_Mac-Prefix.pch";
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../Res/Mac/\"/**";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../Res/Mac/CodeGear\"",
-					"\"$(SRCROOT)/../Res/Mac/\"/**",
-				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx10.7;
 			};
 			name = Release;
 		};
@@ -469,6 +629,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8DBF872117851A800091A4A3 /* DCCoreDataDiskCache.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8DBF872217851A800091A4A3 /* DCCoreDataDiskCache.xcdatamodel */,
+			);
+			currentVersion = 8DBF872217851A800091A4A3 /* DCCoreDataDiskCache.xcdatamodel */;
+			name = DCCoreDataDiskCache.xcdatamodeld;
+			path = ../../HOUND/DCCoreDataDiskCache.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 1BE60705176F495400C46A1B /* Project object */;
 }
