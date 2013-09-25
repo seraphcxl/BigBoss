@@ -7,6 +7,8 @@
 //
 
 #import "FOX_MacTests.h"
+#import "DCSafeARC.h"
+#import "DCCoreDataStore.h"
 
 @implementation FOX_MacTests
 
@@ -24,9 +26,26 @@
     [super tearDown];
 }
 
-- (void)testExample
-{
-    STFail(@"Unit tests are not implemented yet in FOX_MacTests");
+- (void)testCoreDataStore {
+    do {
+        DCCoreDataStore *dataStore = [[DCCoreDataStore alloc] initWithQueryPSCURLBlock:^NSURL *{
+            NSURL *result = nil;
+            do {
+                NSArray *documentDirectories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+                NSString *documentDirectory = [documentDirectories objectAtIndex:0];
+                result = [NSURL fileURLWithPath:[documentDirectory stringByAppendingPathComponent:@"DCCDS.data"]];
+            } while (NO);
+            return result;
+        } andConfigureEntityBlock:^(NSManagedObjectModel *aModel) {
+            do {
+                if (!aModel) {
+                    break;
+                }
+            } while (NO);
+        }];
+        SAFE_ARC_AUTORELEASE(dataStore);
+        NSLog(@"%@", dataStore.mainManagedObjectContext);
+    } while (NO);
 }
 
 @end

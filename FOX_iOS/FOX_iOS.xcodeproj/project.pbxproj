@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B2D05B117F2F88E00D77748 /* DCCoreDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B2D05AE17F2F88E00D77748 /* DCCoreDataStore.m */; };
+		1B2D05B217F2F88E00D77748 /* DCCoreDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B2D05AE17F2F88E00D77748 /* DCCoreDataStore.m */; };
+		1B2D05B317F2F88E00D77748 /* DCCoreDataStoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B2D05B017F2F88E00D77748 /* DCCoreDataStoreManager.m */; };
+		1B2D05B417F2F88E00D77748 /* DCCoreDataStoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B2D05B017F2F88E00D77748 /* DCCoreDataStoreManager.m */; };
 		1BD215B0176F2EA700147CC4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BD215AF176F2EA700147CC4 /* Foundation.framework */; };
 		1BD215B7176F2EA700147CC4 /* FOX_iOS.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD215B6176F2EA700147CC4 /* FOX_iOS.m */; };
 		1BD215BF176F2EA700147CC4 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BD215BE176F2EA700147CC4 /* SenTestingKit.framework */; };
@@ -61,6 +65,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1B2D05AD17F2F88D00D77748 /* DCCoreDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DCCoreDataStore.h; path = ../../FOX/DCCoreDataStore.h; sourceTree = "<group>"; };
+		1B2D05AE17F2F88E00D77748 /* DCCoreDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DCCoreDataStore.m; path = ../../FOX/DCCoreDataStore.m; sourceTree = "<group>"; };
+		1B2D05AF17F2F88E00D77748 /* DCCoreDataStoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DCCoreDataStoreManager.h; path = ../../FOX/DCCoreDataStoreManager.h; sourceTree = "<group>"; };
+		1B2D05B017F2F88E00D77748 /* DCCoreDataStoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DCCoreDataStoreManager.m; path = ../../FOX/DCCoreDataStoreManager.m; sourceTree = "<group>"; };
 		1BD215AC176F2EA700147CC4 /* libFOX_iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFOX_iOS.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BD215AF176F2EA700147CC4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1BD215B3176F2EA700147CC4 /* FOX_iOS-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FOX_iOS-Prefix.pch"; sourceTree = "<group>"; };
@@ -165,6 +173,10 @@
 				8D945416177C12AC005EFB5F /* DCDataStoreReader.m */,
 				8D945417177C12AC005EFB5F /* DCDataStoreWriter.h */,
 				8D945418177C12AC005EFB5F /* DCDataStoreWriter.m */,
+				1B2D05AD17F2F88D00D77748 /* DCCoreDataStore.h */,
+				1B2D05AE17F2F88E00D77748 /* DCCoreDataStore.m */,
+				1B2D05AF17F2F88E00D77748 /* DCCoreDataStoreManager.h */,
+				1B2D05B017F2F88E00D77748 /* DCCoreDataStoreManager.m */,
 			);
 			path = FOX_iOS;
 			sourceTree = "<group>";
@@ -326,6 +338,8 @@
 				1BE60786176F4AC300C46A1B /* DCDataStoreOperator.m in Sources */,
 				8D945419177C12AC005EFB5F /* DCDataStoreReader.m in Sources */,
 				8D94541B177C12AC005EFB5F /* DCDataStoreWriter.m in Sources */,
+				1B2D05B117F2F88E00D77748 /* DCCoreDataStore.m in Sources */,
+				1B2D05B317F2F88E00D77748 /* DCCoreDataStoreManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +353,8 @@
 				1BE60787176F4AC300C46A1B /* DCDataStoreOperator.m in Sources */,
 				8D94541A177C12AC005EFB5F /* DCDataStoreReader.m in Sources */,
 				8D94541C177C12AC005EFB5F /* DCDataStoreWriter.m in Sources */,
+				1B2D05B217F2F88E00D77748 /* DCCoreDataStore.m in Sources */,
+				1B2D05B417F2F88E00D77748 /* DCCoreDataStoreManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
