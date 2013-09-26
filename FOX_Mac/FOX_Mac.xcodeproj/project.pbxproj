@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1B2D05B917F2F8A600D77748 /* DCCoreDataStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B2D05B517F2F8A600D77748 /* DCCoreDataStore.h */; };
+		1B2D05B917F2F8A600D77748 /* DCCoreDataStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B2D05B517F2F8A600D77748 /* DCCoreDataStore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1B2D05BA17F2F8A600D77748 /* DCCoreDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B2D05B617F2F8A600D77748 /* DCCoreDataStore.m */; };
 		1B2D05BB17F2F8A600D77748 /* DCCoreDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B2D05B617F2F8A600D77748 /* DCCoreDataStore.m */; };
-		1B2D05BC17F2F8A600D77748 /* DCCoreDataStoreManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B2D05B717F2F8A600D77748 /* DCCoreDataStoreManager.h */; };
+		1B2D05BC17F2F8A600D77748 /* DCCoreDataStoreManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B2D05B717F2F8A600D77748 /* DCCoreDataStoreManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1B2D05BD17F2F8A600D77748 /* DCCoreDataStoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B2D05B817F2F8A600D77748 /* DCCoreDataStoreManager.m */; };
 		1B2D05BE17F2F8A600D77748 /* DCCoreDataStoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B2D05B817F2F8A600D77748 /* DCCoreDataStoreManager.m */; };
 		8DA5F5E7178A4F6300956E94 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DA5F5E6178A4F6300956E94 /* Cocoa.framework */; };

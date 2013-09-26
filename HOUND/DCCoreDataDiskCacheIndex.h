@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "DCSafeARC.h"
 #import "DCLogger.h"
-#import "DCDataStore.h"
 
 extern const float DCCoreDataDiskCacheIndexTrimLevel_Low;
 extern const float DCCoreDataDiskCacheIndexTrimLevel_Middle;
@@ -25,7 +24,7 @@ extern const float DCCoreDataDiskCacheIndexTrimLevel_High;
 
 @end
 
-@interface DCCoreDataDiskCacheIndex : NSObject <DCDataStoreDataSource> {
+@interface DCCoreDataDiskCacheIndex : NSObject {
 }
 
 @property (unsafe_unretained, readonly) id<DCCoreDataDiskCacheIndexFileDelegate> fileDelegate;
@@ -37,7 +36,11 @@ extern const float DCCoreDataDiskCacheIndexTrimLevel_High;
 - (id)initWithDataStoreUUID:(NSString *)dataStoreUUID andFileDelegate:(id<DCCoreDataDiskCacheIndexFileDelegate>)fileDelegate;
 
 - (NSString *)dataUUIDForKey:(NSString *)key;
+
 - (NSString *)storeData:(NSData *)data forKey:(NSString *)key;
+- (NSArray *)storeDataArray:(NSArray *)dataArray forKeyArray:(NSArray *)keyArray;
+
 - (void)removeEntryForKey:(NSString *)key;
+- (void)removeEntryForKeyArray:(NSArray *)keyArray;
 
 @end

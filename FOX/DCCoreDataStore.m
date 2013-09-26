@@ -105,7 +105,7 @@
         }
         [moc performBlockAndWait:^{
             @autoreleasepool {
-                aMOCActionBlock(moc, &stop);
+                aMOCActionBlock(self.managedObjectModel, moc, &stop);
             }
         }];
         if (stop) {
@@ -132,7 +132,7 @@
         }
         [moc performBlock:^{
             @autoreleasepool {
-                aMOCActionBlock(moc, &stop);
+                aMOCActionBlock(self.managedObjectModel, moc, &stop);
             }
         }];
         if (stop) {

@@ -84,6 +84,8 @@
 		1BD215FE176F2EBB00147CC4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1BD21600176F2EBB00147CC4 /* HOUND_iOSTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HOUND_iOSTests.h; sourceTree = "<group>"; };
 		1BD21601176F2EBB00147CC4 /* HOUND_iOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HOUND_iOSTests.m; sourceTree = "<group>"; };
+		8D14BFB717F3D88E0059BC16 /* DCCoreDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCCoreDataStore.h; sourceTree = "<group>"; };
+		8D14BFB817F3D88E0059BC16 /* DCCoreDataStoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCCoreDataStoreManager.h; sourceTree = "<group>"; };
 		8D29A6F51782AD460035A007 /* CodeGear_ObjC_iOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodeGear_ObjC_iOS.h; sourceTree = "<group>"; };
 		8D29A6F61782AD460035A007 /* DCCommonConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCCommonConstants.h; sourceTree = "<group>"; };
 		8D29A6F71782AD460035A007 /* DCCommonUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCCommonUtility.h; sourceTree = "<group>"; };
@@ -255,6 +257,8 @@
 		8D7037C81783F035001F7C1A /* include */ = {
 			isa = PBXGroup;
 			children = (
+				8D14BFB717F3D88E0059BC16 /* DCCoreDataStore.h */,
+				8D14BFB817F3D88E0059BC16 /* DCCoreDataStoreManager.h */,
 				8D7037C91783F035001F7C1A /* DCDataStore.h */,
 				8D7037CA1783F035001F7C1A /* DCDataStoreManager.h */,
 				8D7037CB1783F035001F7C1A /* DCDataStoreReader.h */,

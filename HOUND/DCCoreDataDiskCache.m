@@ -200,6 +200,54 @@ DEFINE_SINGLETON_FOR_CLASS(DCCoreDataDiskCache)
     return result;
 }
 
+- (void)setData:(NSData *)data forURL:(NSURL *)url {
+    do {
+        if (!data || !url) {
+            break;
+        }
+        @synchronized(self) {
+            // TODO: Synchronize this across threads
+            @try {
+                NSString *uuid = [self.cacheIndex storeData:data forKey:url.absoluteString];
+                DCLog_Debug(@"DCCoreDataDiskCache setData:forURL: uuid:%@", uuid);
+                
+                [_inMemoryCache setObject:data forKey:url cost:data.length];
+            } @catch (NSException *exception) {
+                DCLog_Error(@"DCCoreDataDiskCache error: %@", exception.reason);
+            }
+        }
+    } while (NO);
+}
+
+- (void)setDataArray:(NSArray *)dataArray forURLArray:(NSArray *)urlArray {
+    do {
+        if (!dataArray || !urlArray || [dataArray count] != [urlArray count] || [urlArray count] == 0) {
+            break;
+        }
+        @synchronized(self) {
+            // TODO: Synchronize this across threads
+            @try {
+                NSMutableArray *urlStrAry = [NSMutableArray array];
+                for (NSURL *url in urlArray) {
+                    [urlStrAry addObject:url.absoluteString];
+                }
+                NSArray *uuidAry = [self.cacheIndex storeDataArray:dataArray forKeyArray:urlStrAry];
+                DCLog_Debug(@"DCCoreDataDiskCache storeDataArray:forKeyArray: uuidAry:%@", uuidAry);
+                
+                NSUInteger count = [urlArray count];
+                for (NSUInteger idx = 0; idx < count; ++idx) {
+                    NSData *data = [dataArray objectAtIndex:idx];
+                    NSURL *url = [urlArray objectAtIndex:idx];
+                    
+                    [_inMemoryCache setObject:data forKey:url cost:data.length];
+                }
+            } @catch (NSException *exception) {
+                DCLog_Error(@"DCCoreDataDiskCache error: %@", exception.reason);
+            }
+        }
+    } while (NO);
+}
+
 - (void)removeDataForUrl:(NSURL *)url {
     do {
         if (!url) {
@@ -217,17 +265,21 @@ DEFINE_SINGLETON_FOR_CLASS(DCCoreDataDiskCache)
     } while (NO);
 }
 
-- (void)setData:(NSData *)data forURL:(NSURL *)url {
+- (void)removeDataForURLArray:(NSArray *)urlArray {
     do {
-        if (!data || !url) {
+        if (!urlArray || [urlArray count] == 0) {
             break;
         }
         @synchronized(self) {
             // TODO: Synchronize this across threads
             @try {
-                [self.cacheIndex storeData:data forKey:url.absoluteString];
+                NSMutableArray *urlStrAry = [NSMutableArray array];
+                for (NSURL *url in urlArray) {
+                    [_inMemoryCache removeObjectForKey:url];
+                    [urlStrAry addObject:url.absoluteString];
+                }
                 
-                [_inMemoryCache setObject:data forKey:url cost:data.length];
+                [self.cacheIndex removeEntryForKeyArray:urlStrAry];
             } @catch (NSException *exception) {
                 DCLog_Error(@"DCCoreDataDiskCache error: %@", exception.reason);
             }

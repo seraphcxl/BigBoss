@@ -27,8 +27,13 @@
 DEFINE_SINGLETON_FOR_HEADER(DCCoreDataDiskCache)
 
 - (void)initWithCachePath:(NSString *)cachePath;
+
 - (NSData *)dataForURL:(NSURL *)dataURL;
+
 - (void)setData:(NSData *)data forURL:(NSURL *)url;
+- (void)setDataArray:(NSArray *)dataArray forURLArray:(NSArray *)urlArray;
+
 - (void)removeDataForUrl:(NSURL *)url;
+- (void)removeDataForURLArray:(NSArray *)urlArray;
 
 @end
