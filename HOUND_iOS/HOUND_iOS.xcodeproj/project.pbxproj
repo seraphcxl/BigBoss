@@ -96,11 +96,6 @@
 		8D29A6FC1782AD470035A007 /* NSString+URLCoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLCoding.h"; sourceTree = "<group>"; };
 		8D29A6FD1782AD470035A007 /* DCLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCLogger.h; sourceTree = "<group>"; };
 		8D29A70D1782AE980035A007 /* libFOX_iOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFOX_iOS.a; path = ../Res/iOS/FOX/libFOX_iOS.a; sourceTree = "<group>"; };
-		8D7037C91783F035001F7C1A /* DCDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCDataStore.h; sourceTree = "<group>"; };
-		8D7037CA1783F035001F7C1A /* DCDataStoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCDataStoreManager.h; sourceTree = "<group>"; };
-		8D7037CB1783F035001F7C1A /* DCDataStoreReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCDataStoreReader.h; sourceTree = "<group>"; };
-		8D7037CC1783F035001F7C1A /* DCDataStoreWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCDataStoreWriter.h; sourceTree = "<group>"; };
-		8D7037CD1783F035001F7C1A /* DCDataStoreOperator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCDataStoreOperator.h; sourceTree = "<group>"; };
 		8DFD728617700ECC001A37AD /* DCInMemStackCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DCInMemStackCache.h; path = ../../HOUND/DCInMemStackCache.h; sourceTree = "<group>"; };
 		8DFD728717700ECC001A37AD /* DCInMemStackCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DCInMemStackCache.m; path = ../../HOUND/DCInMemStackCache.m; sourceTree = "<group>"; };
 		8DFD728A17700EDE001A37AD /* libCodeGear_ObjC_iOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCodeGear_ObjC_iOS.a; path = ../Res/iOS/CodeGear/libCodeGear_ObjC_iOS.a; sourceTree = "<group>"; };
@@ -259,11 +254,6 @@
 			children = (
 				8D14BFB717F3D88E0059BC16 /* DCCoreDataStore.h */,
 				8D14BFB817F3D88E0059BC16 /* DCCoreDataStoreManager.h */,
-				8D7037C91783F035001F7C1A /* DCDataStore.h */,
-				8D7037CA1783F035001F7C1A /* DCDataStoreManager.h */,
-				8D7037CB1783F035001F7C1A /* DCDataStoreReader.h */,
-				8D7037CC1783F035001F7C1A /* DCDataStoreWriter.h */,
-				8D7037CD1783F035001F7C1A /* DCDataStoreOperator.h */,
 			);
 			name = include;
 			path = ../Res/iOS/FOX/include;

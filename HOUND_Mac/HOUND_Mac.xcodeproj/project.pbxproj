@@ -17,11 +17,6 @@
 		8D14BF9917F3CA480059BC16 /* DCCoreDataStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D14BF9717F3CA480059BC16 /* DCCoreDataStore.h */; };
 		8D14BF9A17F3CA480059BC16 /* DCCoreDataStoreManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D14BF9817F3CA480059BC16 /* DCCoreDataStoreManager.h */; };
 		8D29A70B1782AE760035A007 /* libFOX_Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D29A70A1782AE760035A007 /* libFOX_Mac.a */; };
-		8D7037C31783F023001F7C1A /* DCDataStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D7037BE1783F023001F7C1A /* DCDataStore.h */; };
-		8D7037C41783F023001F7C1A /* DCDataStoreManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D7037BF1783F023001F7C1A /* DCDataStoreManager.h */; };
-		8D7037C51783F023001F7C1A /* DCDataStoreReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D7037C01783F023001F7C1A /* DCDataStoreReader.h */; };
-		8D7037C61783F023001F7C1A /* DCDataStoreWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D7037C11783F023001F7C1A /* DCDataStoreWriter.h */; };
-		8D7037C71783F023001F7C1A /* DCDataStoreOperator.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D7037C21783F023001F7C1A /* DCDataStoreOperator.h */; };
 		8D8A96DC176FE17100DEC194 /* libCodeGear_ObjC_Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D8A96DB176FE17100DEC194 /* libCodeGear_ObjC_Mac.a */; };
 		8DA5F63F178A53E200956E94 /* DCCommonConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DA5F636178A53E200956E94 /* DCCommonConstants.h */; };
 		8DA5F640178A53E200956E94 /* DCCommonUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DA5F637178A53E200956E94 /* DCCommonUtility.h */; };
@@ -87,11 +82,6 @@
 		8D14BF9717F3CA480059BC16 /* DCCoreDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCCoreDataStore.h; sourceTree = "<group>"; };
 		8D14BF9817F3CA480059BC16 /* DCCoreDataStoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCCoreDataStoreManager.h; sourceTree = "<group>"; };
 		8D29A70A1782AE760035A007 /* libFOX_Mac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFOX_Mac.a; path = ../Res/Mac/FOX/libFOX_Mac.a; sourceTree = "<group>"; };
-		8D7037BE1783F023001F7C1A /* DCDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCDataStore.h; sourceTree = "<group>"; };
-		8D7037BF1783F023001F7C1A /* DCDataStoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCDataStoreManager.h; sourceTree = "<group>"; };
-		8D7037C01783F023001F7C1A /* DCDataStoreReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCDataStoreReader.h; sourceTree = "<group>"; };
-		8D7037C11783F023001F7C1A /* DCDataStoreWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCDataStoreWriter.h; sourceTree = "<group>"; };
-		8D7037C21783F023001F7C1A /* DCDataStoreOperator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCDataStoreOperator.h; sourceTree = "<group>"; };
 		8D8A96DB176FE17100DEC194 /* libCodeGear_ObjC_Mac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCodeGear_ObjC_Mac.a; path = ../Res/Mac/CodeGear/libCodeGear_ObjC_Mac.a; sourceTree = "<group>"; };
 		8DA5F636178A53E200956E94 /* DCCommonConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCCommonConstants.h; sourceTree = "<group>"; };
 		8DA5F637178A53E200956E94 /* DCCommonUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCCommonUtility.h; sourceTree = "<group>"; };
@@ -251,11 +241,6 @@
 			children = (
 				8D14BF9717F3CA480059BC16 /* DCCoreDataStore.h */,
 				8D14BF9817F3CA480059BC16 /* DCCoreDataStoreManager.h */,
-				8D7037BE1783F023001F7C1A /* DCDataStore.h */,
-				8D7037BF1783F023001F7C1A /* DCDataStoreManager.h */,
-				8D7037C01783F023001F7C1A /* DCDataStoreReader.h */,
-				8D7037C11783F023001F7C1A /* DCDataStoreWriter.h */,
-				8D7037C21783F023001F7C1A /* DCDataStoreOperator.h */,
 			);
 			name = include;
 			path = ../Res/Mac/FOX/include;
@@ -327,11 +312,6 @@
 				8DBF871817851A2C0091A4A3 /* DCCoreDataDiskCache.h in Headers */,
 				8DBF871E17851A5D0091A4A3 /* DCCoreDataDiskCacheIndex.h in Headers */,
 				8DBF872717851AA10091A4A3 /* DCCoreDataDiskCacheEntity.h in Headers */,
-				8D7037C31783F023001F7C1A /* DCDataStore.h in Headers */,
-				8D7037C41783F023001F7C1A /* DCDataStoreManager.h in Headers */,
-				8D7037C51783F023001F7C1A /* DCDataStoreReader.h in Headers */,
-				8D7037C61783F023001F7C1A /* DCDataStoreWriter.h in Headers */,
-				8D7037C71783F023001F7C1A /* DCDataStoreOperator.h in Headers */,
 				8DBF873717851BD70091A4A3 /* DCDiskCacheEntity.h in Headers */,
 				8D14BF9917F3CA480059BC16 /* DCCoreDataStore.h in Headers */,
 				8DA5F63F178A53E200956E94 /* DCCommonConstants.h in Headers */,
