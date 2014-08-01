@@ -9,15 +9,12 @@
 /* Begin PBXBuildFile section */
 		8920A471198B81D800B9D7F7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8920A470198B81D800B9D7F7 /* Cocoa.framework */; };
 		8920A47B198B81D800B9D7F7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8920A479198B81D800B9D7F7 /* InfoPlist.strings */; };
-		8920A47F198B81D800B9D7F7 /* HOUND.m in Sources */ = {isa = PBXBuildFile; fileRef = 8920A47E198B81D800B9D7F7 /* HOUND.m */; };
 		8920A486198B81D800B9D7F7 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8920A485198B81D800B9D7F7 /* XCTest.framework */; };
 		8920A487198B81D800B9D7F7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8920A470198B81D800B9D7F7 /* Cocoa.framework */; };
 		8920A48A198B81D800B9D7F7 /* HOUND.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8920A46D198B81D800B9D7F7 /* HOUND.framework */; };
 		8920A490198B81D800B9D7F7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8920A48E198B81D800B9D7F7 /* InfoPlist.strings */; };
 		8920A492198B81D800B9D7F7 /* HOUNDTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8920A491198B81D800B9D7F7 /* HOUNDTests.m */; };
 		8920A4A1198B81F700B9D7F7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8920A4A0198B81F700B9D7F7 /* Foundation.framework */; };
-		8920A4A6198B81F700B9D7F7 /* HOUND_iOS.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8920A4A5198B81F700B9D7F7 /* HOUND_iOS.h */; };
-		8920A4A8198B81F700B9D7F7 /* HOUND_iOS.m in Sources */ = {isa = PBXBuildFile; fileRef = 8920A4A7198B81F700B9D7F7 /* HOUND_iOS.m */; };
 		8920A4AE198B81F700B9D7F7 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8920A485198B81D800B9D7F7 /* XCTest.framework */; };
 		8920A4AF198B81F700B9D7F7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8920A4A0198B81F700B9D7F7 /* Foundation.framework */; };
 		8920A4B1198B81F700B9D7F7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8920A4B0198B81F700B9D7F7 /* UIKit.framework */; };
@@ -28,6 +25,51 @@
 		8920A4FF198B82B300B9D7F7 /* libTourbillon-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8920A4FE198B82B300B9D7F7 /* libTourbillon-iOS.a */; };
 		8920A501198B82BB00B9D7F7 /* Tourbillon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8920A500198B82BB00B9D7F7 /* Tourbillon.framework */; };
 		8920A502198B82BF00B9D7F7 /* FOX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8920A4F2198B829A00B9D7F7 /* FOX.framework */; };
+		8920A50A198B87B100B9D7F7 /* DCHound.h in Headers */ = {isa = PBXBuildFile; fileRef = 8920A509198B87B100B9D7F7 /* DCHound.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8920A538198B886900B9D7F7 /* DCCoreDataDiskCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 8920A52A198B886900B9D7F7 /* DCCoreDataDiskCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8920A539198B886900B9D7F7 /* DCCoreDataDiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8920A52B198B886900B9D7F7 /* DCCoreDataDiskCache.m */; };
+		8920A53A198B886900B9D7F7 /* DCCoreDataDiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8920A52B198B886900B9D7F7 /* DCCoreDataDiskCache.m */; };
+		8920A53B198B886900B9D7F7 /* DCCoreDataDiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8920A52B198B886900B9D7F7 /* DCCoreDataDiskCache.m */; };
+		8920A53C198B886900B9D7F7 /* DCCoreDataDiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8920A52B198B886900B9D7F7 /* DCCoreDataDiskCache.m */; };
+		8920A53D198B886900B9D7F7 /* DCCoreDataDiskCache.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8920A52C198B886900B9D7F7 /* DCCoreDataDiskCache.xcdatamodeld */; };
+		8920A53E198B886900B9D7F7 /* DCCoreDataDiskCache.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8920A52C198B886900B9D7F7 /* DCCoreDataDiskCache.xcdatamodeld */; };
+		8920A53F198B886900B9D7F7 /* DCCoreDataDiskCache.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8920A52C198B886900B9D7F7 /* DCCoreDataDiskCache.xcdatamodeld */; };
+		8920A540198B886900B9D7F7 /* DCCoreDataDiskCache.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8920A52C198B886900B9D7F7 /* DCCoreDataDiskCache.xcdatamodeld */; };
+		8920A541198B886900B9D7F7 /* DCCoreDataDiskCacheEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = 8920A52E198B886900B9D7F7 /* DCCoreDataDiskCacheEntity.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8920A542198B886900B9D7F7 /* DCCoreDataDiskCacheEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 8920A52F198B886900B9D7F7 /* DCCoreDataDiskCacheEntity.m */; };
+		8920A543198B886900B9D7F7 /* DCCoreDataDiskCacheEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 8920A52F198B886900B9D7F7 /* DCCoreDataDiskCacheEntity.m */; };
+		8920A544198B886900B9D7F7 /* DCCoreDataDiskCacheEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 8920A52F198B886900B9D7F7 /* DCCoreDataDiskCacheEntity.m */; };
+		8920A545198B886900B9D7F7 /* DCCoreDataDiskCacheEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 8920A52F198B886900B9D7F7 /* DCCoreDataDiskCacheEntity.m */; };
+		8920A546198B886900B9D7F7 /* DCCoreDataDiskCacheIndex.h in Headers */ = {isa = PBXBuildFile; fileRef = 8920A530198B886900B9D7F7 /* DCCoreDataDiskCacheIndex.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8920A547198B886900B9D7F7 /* DCCoreDataDiskCacheIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = 8920A531198B886900B9D7F7 /* DCCoreDataDiskCacheIndex.m */; };
+		8920A548198B886900B9D7F7 /* DCCoreDataDiskCacheIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = 8920A531198B886900B9D7F7 /* DCCoreDataDiskCacheIndex.m */; };
+		8920A549198B886900B9D7F7 /* DCCoreDataDiskCacheIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = 8920A531198B886900B9D7F7 /* DCCoreDataDiskCacheIndex.m */; };
+		8920A54A198B886900B9D7F7 /* DCCoreDataDiskCacheIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = 8920A531198B886900B9D7F7 /* DCCoreDataDiskCacheIndex.m */; };
+		8920A54B198B886900B9D7F7 /* DCDiskCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 8920A532198B886900B9D7F7 /* DCDiskCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8920A54C198B886900B9D7F7 /* DCDiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8920A533198B886900B9D7F7 /* DCDiskCache.m */; };
+		8920A54D198B886900B9D7F7 /* DCDiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8920A533198B886900B9D7F7 /* DCDiskCache.m */; };
+		8920A54E198B886900B9D7F7 /* DCDiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8920A533198B886900B9D7F7 /* DCDiskCache.m */; };
+		8920A54F198B886900B9D7F7 /* DCDiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8920A533198B886900B9D7F7 /* DCDiskCache.m */; };
+		8920A550198B886900B9D7F7 /* DCDiskCacheEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = 8920A534198B886900B9D7F7 /* DCDiskCacheEntity.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8920A551198B886900B9D7F7 /* DCDiskCacheEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 8920A535198B886900B9D7F7 /* DCDiskCacheEntity.m */; };
+		8920A552198B886900B9D7F7 /* DCDiskCacheEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 8920A535198B886900B9D7F7 /* DCDiskCacheEntity.m */; };
+		8920A553198B886900B9D7F7 /* DCDiskCacheEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 8920A535198B886900B9D7F7 /* DCDiskCacheEntity.m */; };
+		8920A554198B886900B9D7F7 /* DCDiskCacheEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 8920A535198B886900B9D7F7 /* DCDiskCacheEntity.m */; };
+		8920A555198B886900B9D7F7 /* DCDiskCacheIndex.h in Headers */ = {isa = PBXBuildFile; fileRef = 8920A536198B886900B9D7F7 /* DCDiskCacheIndex.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8920A556198B886900B9D7F7 /* DCDiskCacheIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = 8920A537198B886900B9D7F7 /* DCDiskCacheIndex.m */; };
+		8920A557198B886900B9D7F7 /* DCDiskCacheIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = 8920A537198B886900B9D7F7 /* DCDiskCacheIndex.m */; };
+		8920A558198B886900B9D7F7 /* DCDiskCacheIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = 8920A537198B886900B9D7F7 /* DCDiskCacheIndex.m */; };
+		8920A559198B886900B9D7F7 /* DCDiskCacheIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = 8920A537198B886900B9D7F7 /* DCDiskCacheIndex.m */; };
+		89F15067198BB45D003C5BDF /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 89F15066198BB45D003C5BDF /* libsqlite3.dylib */; };
+		89F1506A198BB4AE003C5BDF /* DCCoreDataDiskCache.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 8920A52C198B886900B9D7F7 /* DCCoreDataDiskCache.xcdatamodeld */; };
+		89F1506D198BB547003C5BDF /* DCCoreDataDiskCache.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8920A52A198B886900B9D7F7 /* DCCoreDataDiskCache.h */; };
+		89F1506E198BB547003C5BDF /* DCCoreDataDiskCacheEntity.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8920A52E198B886900B9D7F7 /* DCCoreDataDiskCacheEntity.h */; };
+		89F1506F198BB547003C5BDF /* DCCoreDataDiskCacheIndex.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8920A530198B886900B9D7F7 /* DCCoreDataDiskCacheIndex.h */; };
+		89F15070198BB547003C5BDF /* DCDiskCache.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8920A532198B886900B9D7F7 /* DCDiskCache.h */; };
+		89F15071198BB547003C5BDF /* DCDiskCacheEntity.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8920A534198B886900B9D7F7 /* DCDiskCacheEntity.h */; };
+		89F15072198BB547003C5BDF /* DCDiskCacheIndex.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8920A536198B886900B9D7F7 /* DCDiskCacheIndex.h */; };
+		89F15073198BB547003C5BDF /* DCHound.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8920A509198B87B100B9D7F7 /* DCHound.h */; };
+		89F15075198BBC64003C5BDF /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 89F15074198BBC64003C5BDF /* libsqlite3.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,7 +138,13 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				8920A4A6198B81F700B9D7F7 /* HOUND_iOS.h in CopyFiles */,
+				89F1506D198BB547003C5BDF /* DCCoreDataDiskCache.h in CopyFiles */,
+				89F1506E198BB547003C5BDF /* DCCoreDataDiskCacheEntity.h in CopyFiles */,
+				89F1506F198BB547003C5BDF /* DCCoreDataDiskCacheIndex.h in CopyFiles */,
+				89F15070198BB547003C5BDF /* DCDiskCache.h in CopyFiles */,
+				89F15071198BB547003C5BDF /* DCDiskCacheEntity.h in CopyFiles */,
+				89F15072198BB547003C5BDF /* DCDiskCacheIndex.h in CopyFiles */,
+				89F15073198BB547003C5BDF /* DCHound.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,8 +159,6 @@
 		8920A478198B81D800B9D7F7 /* HOUND-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HOUND-Info.plist"; sourceTree = "<group>"; };
 		8920A47A198B81D800B9D7F7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8920A47C198B81D800B9D7F7 /* HOUND-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HOUND-Prefix.pch"; sourceTree = "<group>"; };
-		8920A47D198B81D800B9D7F7 /* HOUND.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HOUND.h; sourceTree = "<group>"; };
-		8920A47E198B81D800B9D7F7 /* HOUND.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HOUND.m; sourceTree = "<group>"; };
 		8920A484198B81D800B9D7F7 /* HOUNDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HOUNDTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8920A485198B81D800B9D7F7 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		8920A48D198B81D800B9D7F7 /* HOUNDTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HOUNDTests-Info.plist"; sourceTree = "<group>"; };
@@ -121,8 +167,6 @@
 		8920A49F198B81F700B9D7F7 /* libHOUND-iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libHOUND-iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8920A4A0198B81F700B9D7F7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8920A4A4198B81F700B9D7F7 /* HOUND-iOS-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HOUND-iOS-Prefix.pch"; sourceTree = "<group>"; };
-		8920A4A5198B81F700B9D7F7 /* HOUND_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HOUND_iOS.h; sourceTree = "<group>"; };
-		8920A4A7198B81F700B9D7F7 /* HOUND_iOS.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HOUND_iOS.m; sourceTree = "<group>"; };
 		8920A4AD198B81F700B9D7F7 /* HOUND-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "HOUND-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8920A4B0198B81F700B9D7F7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		8920A4B7198B81F700B9D7F7 /* HOUND-iOSTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HOUND-iOSTests-Info.plist"; sourceTree = "<group>"; };
@@ -131,6 +175,22 @@
 		8920A4EA198B829A00B9D7F7 /* FOX.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FOX.xcodeproj; path = ../FOX/FOX.xcodeproj; sourceTree = "<group>"; };
 		8920A4FE198B82B300B9D7F7 /* libTourbillon-iOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libTourbillon-iOS.a"; path = "../../Tourbillon/build/Debug-iphoneos/libTourbillon-iOS.a"; sourceTree = "<group>"; };
 		8920A500198B82BB00B9D7F7 /* Tourbillon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Tourbillon.framework; path = "../../../../../../Users/chenxiaoliang/Library/Developer/Xcode/DerivedData/BigBoss-byefwqemzxfcifbrahfhzlucdnzz/Build/Products/Debug/Tourbillon.framework"; sourceTree = "<group>"; };
+		8920A509198B87B100B9D7F7 /* DCHound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCHound.h; sourceTree = "<group>"; };
+		8920A52A198B886900B9D7F7 /* DCCoreDataDiskCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCCoreDataDiskCache.h; sourceTree = "<group>"; };
+		8920A52B198B886900B9D7F7 /* DCCoreDataDiskCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCCoreDataDiskCache.m; sourceTree = "<group>"; };
+		8920A52D198B886900B9D7F7 /* DCCoreDataDiskCache.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DCCoreDataDiskCache.xcdatamodel; sourceTree = "<group>"; };
+		8920A52E198B886900B9D7F7 /* DCCoreDataDiskCacheEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCCoreDataDiskCacheEntity.h; sourceTree = "<group>"; };
+		8920A52F198B886900B9D7F7 /* DCCoreDataDiskCacheEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCCoreDataDiskCacheEntity.m; sourceTree = "<group>"; };
+		8920A530198B886900B9D7F7 /* DCCoreDataDiskCacheIndex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCCoreDataDiskCacheIndex.h; sourceTree = "<group>"; };
+		8920A531198B886900B9D7F7 /* DCCoreDataDiskCacheIndex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCCoreDataDiskCacheIndex.m; sourceTree = "<group>"; };
+		8920A532198B886900B9D7F7 /* DCDiskCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCDiskCache.h; sourceTree = "<group>"; };
+		8920A533198B886900B9D7F7 /* DCDiskCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCDiskCache.m; sourceTree = "<group>"; };
+		8920A534198B886900B9D7F7 /* DCDiskCacheEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCDiskCacheEntity.h; sourceTree = "<group>"; };
+		8920A535198B886900B9D7F7 /* DCDiskCacheEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCDiskCacheEntity.m; sourceTree = "<group>"; };
+		8920A536198B886900B9D7F7 /* DCDiskCacheIndex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCDiskCacheIndex.h; sourceTree = "<group>"; };
+		8920A537198B886900B9D7F7 /* DCDiskCacheIndex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCDiskCacheIndex.m; sourceTree = "<group>"; };
+		89F15066198BB45D003C5BDF /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		89F15074198BBC64003C5BDF /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/libsqlite3.dylib; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +198,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89F15067198BB45D003C5BDF /* libsqlite3.dylib in Frameworks */,
 				8920A502198B82BF00B9D7F7 /* FOX.framework in Frameworks */,
 				8920A501198B82BB00B9D7F7 /* Tourbillon.framework in Frameworks */,
 				8920A471198B81D800B9D7F7 /* Cocoa.framework in Frameworks */,
@@ -158,6 +219,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89F15075198BBC64003C5BDF /* libsqlite3.dylib in Frameworks */,
 				8920A4FD198B82AE00B9D7F7 /* libFOX-iOS.a in Frameworks */,
 				8920A4FF198B82B300B9D7F7 /* libTourbillon-iOS.a in Frameworks */,
 				8920A4A1198B81F700B9D7F7 /* Foundation.framework in Frameworks */,
@@ -181,6 +243,9 @@
 		8920A463198B81D800B9D7F7 = {
 			isa = PBXGroup;
 			children = (
+				8920A55A198B887200B9D7F7 /* CoreData */,
+				8920A55B198B887E00B9D7F7 /* SQLite */,
+				8920A509198B87B100B9D7F7 /* DCHound.h */,
 				8920A4EA198B829A00B9D7F7 /* FOX.xcodeproj */,
 				8920A476198B81D800B9D7F7 /* HOUND */,
 				8920A48B198B81D800B9D7F7 /* HOUNDTests */,
@@ -205,6 +270,8 @@
 		8920A46F198B81D800B9D7F7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				89F15074198BBC64003C5BDF /* libsqlite3.dylib */,
+				89F15066198BB45D003C5BDF /* libsqlite3.dylib */,
 				8920A500198B82BB00B9D7F7 /* Tourbillon.framework */,
 				8920A4FE198B82B300B9D7F7 /* libTourbillon-iOS.a */,
 				8920A470198B81D800B9D7F7 /* Cocoa.framework */,
@@ -229,8 +296,6 @@
 		8920A476198B81D800B9D7F7 /* HOUND */ = {
 			isa = PBXGroup;
 			children = (
-				8920A47D198B81D800B9D7F7 /* HOUND.h */,
-				8920A47E198B81D800B9D7F7 /* HOUND.m */,
 				8920A477198B81D800B9D7F7 /* Supporting Files */,
 			);
 			path = HOUND;
@@ -267,8 +332,6 @@
 		8920A4A2198B81F700B9D7F7 /* HOUND-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				8920A4A5198B81F700B9D7F7 /* HOUND_iOS.h */,
-				8920A4A7198B81F700B9D7F7 /* HOUND_iOS.m */,
 				8920A4A3198B81F700B9D7F7 /* Supporting Files */,
 			);
 			path = "HOUND-iOS";
@@ -311,6 +374,33 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		8920A55A198B887200B9D7F7 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				8920A52A198B886900B9D7F7 /* DCCoreDataDiskCache.h */,
+				8920A52B198B886900B9D7F7 /* DCCoreDataDiskCache.m */,
+				8920A52C198B886900B9D7F7 /* DCCoreDataDiskCache.xcdatamodeld */,
+				8920A52E198B886900B9D7F7 /* DCCoreDataDiskCacheEntity.h */,
+				8920A52F198B886900B9D7F7 /* DCCoreDataDiskCacheEntity.m */,
+				8920A530198B886900B9D7F7 /* DCCoreDataDiskCacheIndex.h */,
+				8920A531198B886900B9D7F7 /* DCCoreDataDiskCacheIndex.m */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
+		8920A55B198B887E00B9D7F7 /* SQLite */ = {
+			isa = PBXGroup;
+			children = (
+				8920A532198B886900B9D7F7 /* DCDiskCache.h */,
+				8920A533198B886900B9D7F7 /* DCDiskCache.m */,
+				8920A534198B886900B9D7F7 /* DCDiskCacheEntity.h */,
+				8920A535198B886900B9D7F7 /* DCDiskCacheEntity.m */,
+				8920A536198B886900B9D7F7 /* DCDiskCacheIndex.h */,
+				8920A537198B886900B9D7F7 /* DCDiskCacheIndex.m */,
+			);
+			name = SQLite;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -318,6 +408,13 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8920A550198B886900B9D7F7 /* DCDiskCacheEntity.h in Headers */,
+				8920A541198B886900B9D7F7 /* DCCoreDataDiskCacheEntity.h in Headers */,
+				8920A54B198B886900B9D7F7 /* DCDiskCache.h in Headers */,
+				8920A555198B886900B9D7F7 /* DCDiskCacheIndex.h in Headers */,
+				8920A546198B886900B9D7F7 /* DCCoreDataDiskCacheIndex.h in Headers */,
+				8920A538198B886900B9D7F7 /* DCCoreDataDiskCache.h in Headers */,
+				8920A50A198B87B100B9D7F7 /* DCHound.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,6 +573,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89F1506A198BB4AE003C5BDF /* DCCoreDataDiskCache.xcdatamodeld in Resources */,
 				8920A47B198B81D800B9D7F7 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -503,7 +601,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8920A47F198B81D800B9D7F7 /* HOUND.m in Sources */,
+				8920A542198B886900B9D7F7 /* DCCoreDataDiskCacheEntity.m in Sources */,
+				8920A54C198B886900B9D7F7 /* DCDiskCache.m in Sources */,
+				8920A53D198B886900B9D7F7 /* DCCoreDataDiskCache.xcdatamodeld in Sources */,
+				8920A551198B886900B9D7F7 /* DCDiskCacheEntity.m in Sources */,
+				8920A547198B886900B9D7F7 /* DCCoreDataDiskCacheIndex.m in Sources */,
+				8920A539198B886900B9D7F7 /* DCCoreDataDiskCache.m in Sources */,
+				8920A556198B886900B9D7F7 /* DCDiskCacheIndex.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -511,7 +615,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8920A548198B886900B9D7F7 /* DCCoreDataDiskCacheIndex.m in Sources */,
+				8920A543198B886900B9D7F7 /* DCCoreDataDiskCacheEntity.m in Sources */,
+				8920A552198B886900B9D7F7 /* DCDiskCacheEntity.m in Sources */,
+				8920A557198B886900B9D7F7 /* DCDiskCacheIndex.m in Sources */,
 				8920A492198B81D800B9D7F7 /* HOUNDTests.m in Sources */,
+				8920A53E198B886900B9D7F7 /* DCCoreDataDiskCache.xcdatamodeld in Sources */,
+				8920A54D198B886900B9D7F7 /* DCDiskCache.m in Sources */,
+				8920A53A198B886900B9D7F7 /* DCCoreDataDiskCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -519,7 +630,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8920A4A8198B81F700B9D7F7 /* HOUND_iOS.m in Sources */,
+				8920A544198B886900B9D7F7 /* DCCoreDataDiskCacheEntity.m in Sources */,
+				8920A54E198B886900B9D7F7 /* DCDiskCache.m in Sources */,
+				8920A53F198B886900B9D7F7 /* DCCoreDataDiskCache.xcdatamodeld in Sources */,
+				8920A553198B886900B9D7F7 /* DCDiskCacheEntity.m in Sources */,
+				8920A549198B886900B9D7F7 /* DCCoreDataDiskCacheIndex.m in Sources */,
+				8920A53B198B886900B9D7F7 /* DCCoreDataDiskCache.m in Sources */,
+				8920A558198B886900B9D7F7 /* DCDiskCacheIndex.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -527,7 +644,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8920A54A198B886900B9D7F7 /* DCCoreDataDiskCacheIndex.m in Sources */,
+				8920A545198B886900B9D7F7 /* DCCoreDataDiskCacheEntity.m in Sources */,
+				8920A554198B886900B9D7F7 /* DCDiskCacheEntity.m in Sources */,
+				8920A559198B886900B9D7F7 /* DCDiskCacheIndex.m in Sources */,
 				8920A4BC198B81F700B9D7F7 /* HOUND_iOSTests.m in Sources */,
+				8920A540198B886900B9D7F7 /* DCCoreDataDiskCache.xcdatamodeld in Sources */,
+				8920A54F198B886900B9D7F7 /* DCDiskCache.m in Sources */,
+				8920A53C198B886900B9D7F7 /* DCCoreDataDiskCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -735,6 +859,7 @@
 		8920A4BE198B81F800B9D7F7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				DSTROOT = /tmp/HOUND_iOS.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HOUND-iOS/HOUND-iOS-Prefix.pch";
@@ -742,33 +867,40 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				LIBRARY_SEARCH_PATHS = (
+				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Volumes/Data/Workspace/GitHub/Tourbillon/build/Debug-iphoneos",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(BUILT_PRODUCTS_DIR)/include/**",
 				);
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LIBRARY_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
 		8920A4BF198B81F800B9D7F7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				DSTROOT = /tmp/HOUND_iOS.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HOUND-iOS/HOUND-iOS-Prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				LIBRARY_SEARCH_PATHS = (
+				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Volumes/Data/Workspace/GitHub/Tourbillon/build/Debug-iphoneos",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(BUILT_PRODUCTS_DIR)/include/**",
 				);
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LIBRARY_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				USER_HEADER_SEARCH_PATHS = "";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -837,6 +969,7 @@
 				8920A497198B81D800B9D7F7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8920A498198B81D800B9D7F7 /* Build configuration list for PBXNativeTarget "HOUNDTests" */ = {
 			isa = XCConfigurationList;
@@ -845,6 +978,7 @@
 				8920A49A198B81D800B9D7F7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8920A4BD198B81F800B9D7F7 /* Build configuration list for PBXNativeTarget "HOUND-iOS" */ = {
 			isa = XCConfigurationList;
@@ -853,6 +987,7 @@
 				8920A4BF198B81F800B9D7F7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8920A4C0198B81F800B9D7F7 /* Build configuration list for PBXNativeTarget "HOUND-iOSTests" */ = {
 			isa = XCConfigurationList;
@@ -861,8 +996,22 @@
 				8920A4C2198B81F800B9D7F7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8920A52C198B886900B9D7F7 /* DCCoreDataDiskCache.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8920A52D198B886900B9D7F7 /* DCCoreDataDiskCache.xcdatamodel */,
+			);
+			currentVersion = 8920A52D198B886900B9D7F7 /* DCCoreDataDiskCache.xcdatamodel */;
+			path = DCCoreDataDiskCache.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 8920A464198B81D800B9D7F7 /* Project object */;
 }

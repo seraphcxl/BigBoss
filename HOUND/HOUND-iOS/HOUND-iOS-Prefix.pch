@@ -6,4 +6,6 @@
 
 #ifdef __OBJC__
     #import <Foundation/Foundation.h>
+    #import "DCTourbillon.h"
+    #import "DCFox.h"
 #endif

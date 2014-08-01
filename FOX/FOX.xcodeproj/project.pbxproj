@@ -9,15 +9,12 @@
 /* Begin PBXBuildFile section */
 		8920A3F7198B7C1C00B9D7F7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8920A3F6198B7C1C00B9D7F7 /* Cocoa.framework */; };
 		8920A401198B7C1C00B9D7F7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8920A3FF198B7C1C00B9D7F7 /* InfoPlist.strings */; };
-		8920A405198B7C1C00B9D7F7 /* FOX.m in Sources */ = {isa = PBXBuildFile; fileRef = 8920A404198B7C1C00B9D7F7 /* FOX.m */; };
 		8920A40C198B7C1C00B9D7F7 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8920A40B198B7C1C00B9D7F7 /* XCTest.framework */; };
 		8920A40D198B7C1C00B9D7F7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8920A3F6198B7C1C00B9D7F7 /* Cocoa.framework */; };
 		8920A410198B7C1C00B9D7F7 /* FOX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8920A3F3198B7C1C00B9D7F7 /* FOX.framework */; };
 		8920A416198B7C1C00B9D7F7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8920A414198B7C1C00B9D7F7 /* InfoPlist.strings */; };
 		8920A418198B7C1C00B9D7F7 /* FOXTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8920A417198B7C1C00B9D7F7 /* FOXTests.m */; };
 		8920A427198B7C3300B9D7F7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8920A426198B7C3300B9D7F7 /* Foundation.framework */; };
-		8920A42C198B7C3300B9D7F7 /* FOX_iOS.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8920A42B198B7C3300B9D7F7 /* FOX_iOS.h */; };
-		8920A42E198B7C3300B9D7F7 /* FOX_iOS.m in Sources */ = {isa = PBXBuildFile; fileRef = 8920A42D198B7C3300B9D7F7 /* FOX_iOS.m */; };
 		8920A434198B7C3300B9D7F7 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8920A40B198B7C1C00B9D7F7 /* XCTest.framework */; };
 		8920A435198B7C3300B9D7F7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8920A426198B7C3300B9D7F7 /* Foundation.framework */; };
 		8920A437198B7C3300B9D7F7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8920A436198B7C3300B9D7F7 /* UIKit.framework */; };
@@ -26,6 +23,20 @@
 		8920A442198B7C3300B9D7F7 /* FOX_iOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8920A441198B7C3300B9D7F7 /* FOX_iOSTests.m */; };
 		8920A4E3198B823C00B9D7F7 /* libTourbillon-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8920A4DE198B822E00B9D7F7 /* libTourbillon-iOS.a */; };
 		8920A4E6198B825000B9D7F7 /* Tourbillon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8920A4DA198B822E00B9D7F7 /* Tourbillon.framework */; };
+		8920A50D198B87DD00B9D7F7 /* DCFox.h in Headers */ = {isa = PBXBuildFile; fileRef = 8920A50C198B87DD00B9D7F7 /* DCFox.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8920A520198B881900B9D7F7 /* DCCoreDataStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 8920A51C198B881900B9D7F7 /* DCCoreDataStore.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8920A521198B881900B9D7F7 /* DCCoreDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 8920A51D198B881900B9D7F7 /* DCCoreDataStore.m */; };
+		8920A522198B881900B9D7F7 /* DCCoreDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 8920A51D198B881900B9D7F7 /* DCCoreDataStore.m */; };
+		8920A523198B881900B9D7F7 /* DCCoreDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 8920A51D198B881900B9D7F7 /* DCCoreDataStore.m */; };
+		8920A524198B881900B9D7F7 /* DCCoreDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 8920A51D198B881900B9D7F7 /* DCCoreDataStore.m */; };
+		8920A525198B881900B9D7F7 /* DCCoreDataStoreManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 8920A51E198B881900B9D7F7 /* DCCoreDataStoreManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8920A526198B881900B9D7F7 /* DCCoreDataStoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8920A51F198B881900B9D7F7 /* DCCoreDataStoreManager.m */; };
+		8920A527198B881900B9D7F7 /* DCCoreDataStoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8920A51F198B881900B9D7F7 /* DCCoreDataStoreManager.m */; };
+		8920A528198B881900B9D7F7 /* DCCoreDataStoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8920A51F198B881900B9D7F7 /* DCCoreDataStoreManager.m */; };
+		8920A529198B881900B9D7F7 /* DCCoreDataStoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8920A51F198B881900B9D7F7 /* DCCoreDataStoreManager.m */; };
+		89F1505F198BB264003C5BDF /* DCCoreDataStore.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8920A51C198B881900B9D7F7 /* DCCoreDataStore.h */; };
+		89F15060198BB264003C5BDF /* DCCoreDataStoreManager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8920A51E198B881900B9D7F7 /* DCCoreDataStoreManager.h */; };
+		89F15061198BB264003C5BDF /* DCFox.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8920A50C198B87DD00B9D7F7 /* DCFox.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,7 +105,9 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				8920A42C198B7C3300B9D7F7 /* FOX_iOS.h in CopyFiles */,
+				89F1505F198BB264003C5BDF /* DCCoreDataStore.h in CopyFiles */,
+				89F15060198BB264003C5BDF /* DCCoreDataStoreManager.h in CopyFiles */,
+				89F15061198BB264003C5BDF /* DCFox.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,8 +122,6 @@
 		8920A3FE198B7C1C00B9D7F7 /* FOX-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FOX-Info.plist"; sourceTree = "<group>"; };
 		8920A400198B7C1C00B9D7F7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8920A402198B7C1C00B9D7F7 /* FOX-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FOX-Prefix.pch"; sourceTree = "<group>"; };
-		8920A403198B7C1C00B9D7F7 /* FOX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FOX.h; sourceTree = "<group>"; };
-		8920A404198B7C1C00B9D7F7 /* FOX.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FOX.m; sourceTree = "<group>"; };
 		8920A40A198B7C1C00B9D7F7 /* FOXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FOXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8920A40B198B7C1C00B9D7F7 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		8920A413198B7C1C00B9D7F7 /* FOXTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FOXTests-Info.plist"; sourceTree = "<group>"; };
@@ -119,14 +130,17 @@
 		8920A425198B7C3300B9D7F7 /* libFOX-iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libFOX-iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8920A426198B7C3300B9D7F7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8920A42A198B7C3300B9D7F7 /* FOX-iOS-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FOX-iOS-Prefix.pch"; sourceTree = "<group>"; };
-		8920A42B198B7C3300B9D7F7 /* FOX_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FOX_iOS.h; sourceTree = "<group>"; };
-		8920A42D198B7C3300B9D7F7 /* FOX_iOS.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FOX_iOS.m; sourceTree = "<group>"; };
 		8920A433198B7C3300B9D7F7 /* FOX-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FOX-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8920A436198B7C3300B9D7F7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		8920A43D198B7C3300B9D7F7 /* FOX-iOSTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FOX-iOSTests-Info.plist"; sourceTree = "<group>"; };
 		8920A43F198B7C3300B9D7F7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8920A441198B7C3300B9D7F7 /* FOX_iOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FOX_iOSTests.m; sourceTree = "<group>"; };
 		8920A4D2198B822D00B9D7F7 /* Tourbillon.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Tourbillon.xcodeproj; path = /Volumes/Data/Workspace/GitHub/BigBoss/FOX/../../Tourbillon/Tourbillon.xcodeproj; sourceTree = "<absolute>"; };
+		8920A50C198B87DD00B9D7F7 /* DCFox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCFox.h; sourceTree = "<group>"; };
+		8920A51C198B881900B9D7F7 /* DCCoreDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCCoreDataStore.h; sourceTree = "<group>"; };
+		8920A51D198B881900B9D7F7 /* DCCoreDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCCoreDataStore.m; sourceTree = "<group>"; };
+		8920A51E198B881900B9D7F7 /* DCCoreDataStoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCCoreDataStoreManager.h; sourceTree = "<group>"; };
+		8920A51F198B881900B9D7F7 /* DCCoreDataStoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCCoreDataStoreManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +189,11 @@
 		8920A3E9198B7C1C00B9D7F7 = {
 			isa = PBXGroup;
 			children = (
+				8920A51C198B881900B9D7F7 /* DCCoreDataStore.h */,
+				8920A51D198B881900B9D7F7 /* DCCoreDataStore.m */,
+				8920A51E198B881900B9D7F7 /* DCCoreDataStoreManager.h */,
+				8920A51F198B881900B9D7F7 /* DCCoreDataStoreManager.m */,
+				8920A50C198B87DD00B9D7F7 /* DCFox.h */,
 				8920A4D2198B822D00B9D7F7 /* Tourbillon.xcodeproj */,
 				8920A3FC198B7C1C00B9D7F7 /* FOX */,
 				8920A411198B7C1C00B9D7F7 /* FOXTests */,
@@ -221,8 +240,6 @@
 		8920A3FC198B7C1C00B9D7F7 /* FOX */ = {
 			isa = PBXGroup;
 			children = (
-				8920A403198B7C1C00B9D7F7 /* FOX.h */,
-				8920A404198B7C1C00B9D7F7 /* FOX.m */,
 				8920A3FD198B7C1C00B9D7F7 /* Supporting Files */,
 			);
 			path = FOX;
@@ -259,8 +276,6 @@
 		8920A428198B7C3300B9D7F7 /* FOX-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				8920A42B198B7C3300B9D7F7 /* FOX_iOS.h */,
-				8920A42D198B7C3300B9D7F7 /* FOX_iOS.m */,
 				8920A429198B7C3300B9D7F7 /* Supporting Files */,
 			);
 			path = "FOX-iOS";
@@ -310,6 +325,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8920A520198B881900B9D7F7 /* DCCoreDataStore.h in Headers */,
+				8920A50D198B87DD00B9D7F7 /* DCFox.h in Headers */,
+				8920A525198B881900B9D7F7 /* DCCoreDataStoreManager.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -495,7 +513,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8920A405198B7C1C00B9D7F7 /* FOX.m in Sources */,
+				8920A521198B881900B9D7F7 /* DCCoreDataStore.m in Sources */,
+				8920A526198B881900B9D7F7 /* DCCoreDataStoreManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -503,7 +522,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8920A527198B881900B9D7F7 /* DCCoreDataStoreManager.m in Sources */,
 				8920A418198B7C1C00B9D7F7 /* FOXTests.m in Sources */,
+				8920A522198B881900B9D7F7 /* DCCoreDataStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -511,7 +532,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8920A42E198B7C3300B9D7F7 /* FOX_iOS.m in Sources */,
+				8920A523198B881900B9D7F7 /* DCCoreDataStore.m in Sources */,
+				8920A528198B881900B9D7F7 /* DCCoreDataStoreManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -519,7 +541,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8920A529198B881900B9D7F7 /* DCCoreDataStoreManager.m in Sources */,
 				8920A442198B7C3300B9D7F7 /* FOX_iOSTests.m in Sources */,
+				8920A524198B881900B9D7F7 /* DCCoreDataStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -719,6 +743,7 @@
 		8920A444198B7C3300B9D7F7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				DSTROOT = /tmp/FOX_iOS.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FOX-iOS/FOX-iOS-Prefix.pch";
@@ -726,25 +751,40 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(BUILT_PRODUCTS_DIR)/include/**",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LIBRARY_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
 		8920A445198B7C3300B9D7F7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				DSTROOT = /tmp/FOX_iOS.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FOX-iOS/FOX-iOS-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(BUILT_PRODUCTS_DIR)/include/**",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LIBRARY_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				USER_HEADER_SEARCH_PATHS = "";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -813,6 +853,7 @@
 				8920A41D198B7C1C00B9D7F7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8920A41E198B7C1C00B9D7F7 /* Build configuration list for PBXNativeTarget "FOXTests" */ = {
 			isa = XCConfigurationList;
@@ -821,6 +862,7 @@
 				8920A420198B7C1C00B9D7F7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8920A443198B7C3300B9D7F7 /* Build configuration list for PBXNativeTarget "FOX-iOS" */ = {
 			isa = XCConfigurationList;
@@ -829,6 +871,7 @@
 				8920A445198B7C3300B9D7F7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8920A446198B7C3300B9D7F7 /* Build configuration list for PBXNativeTarget "FOX-iOSTests" */ = {
 			isa = XCConfigurationList;
@@ -837,6 +880,7 @@
 				8920A448198B7C3300B9D7F7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
