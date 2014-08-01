@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:HOUND/HOUND.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:FOX/FOX.xcodeproj">
    </FileRef>
 </Workspace>

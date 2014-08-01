@@ -24,8 +24,8 @@
 		8920A43A198B7C3300B9D7F7 /* libFOX-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8920A425198B7C3300B9D7F7 /* libFOX-iOS.a */; };
 		8920A440198B7C3300B9D7F7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8920A43E198B7C3300B9D7F7 /* InfoPlist.strings */; };
 		8920A442198B7C3300B9D7F7 /* FOX_iOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8920A441198B7C3300B9D7F7 /* FOX_iOSTests.m */; };
-		8920A45A198B7C5600B9D7F7 /* Tourbillon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8920A451198B7C4800B9D7F7 /* Tourbillon.framework */; };
-		8920A45F198B7C6700B9D7F7 /* libTourbillon-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8920A455198B7C4800B9D7F7 /* libTourbillon-iOS.a */; };
+		8920A4E3198B823C00B9D7F7 /* libTourbillon-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8920A4DE198B822E00B9D7F7 /* libTourbillon-iOS.a */; };
+		8920A4E6198B825000B9D7F7 /* Tourbillon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8920A4DA198B822E00B9D7F7 /* Tourbillon.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,47 +43,47 @@
 			remoteGlobalIDString = 8920A424198B7C3300B9D7F7;
 			remoteInfo = "FOX-iOS";
 		};
-		8920A450198B7C4800B9D7F7 /* PBXContainerItemProxy */ = {
+		8920A4D9198B822E00B9D7F7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 8920A449198B7C4800B9D7F7 /* Tourbillon.xcodeproj */;
+			containerPortal = 8920A4D2198B822D00B9D7F7 /* Tourbillon.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 89E137401925B11000A3EFB7;
 			remoteInfo = Tourbillon;
 		};
-		8920A452198B7C4800B9D7F7 /* PBXContainerItemProxy */ = {
+		8920A4DB198B822E00B9D7F7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 8920A449198B7C4800B9D7F7 /* Tourbillon.xcodeproj */;
+			containerPortal = 8920A4D2198B822D00B9D7F7 /* Tourbillon.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 89E137571925B11000A3EFB7;
 			remoteInfo = TourbillonTests;
 		};
-		8920A454198B7C4800B9D7F7 /* PBXContainerItemProxy */ = {
+		8920A4DD198B822E00B9D7F7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 8920A449198B7C4800B9D7F7 /* Tourbillon.xcodeproj */;
+			containerPortal = 8920A4D2198B822D00B9D7F7 /* Tourbillon.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 89E137721925B13D00A3EFB7;
 			remoteInfo = "Tourbillon-iOS";
 		};
-		8920A456198B7C4800B9D7F7 /* PBXContainerItemProxy */ = {
+		8920A4DF198B822E00B9D7F7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 8920A449198B7C4800B9D7F7 /* Tourbillon.xcodeproj */;
+			containerPortal = 8920A4D2198B822D00B9D7F7 /* Tourbillon.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 89E137801925B13D00A3EFB7;
 			remoteInfo = "Tourbillon-iOSTests";
 		};
-		8920A458198B7C5100B9D7F7 /* PBXContainerItemProxy */ = {
+		8920A4E1198B823700B9D7F7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 8920A449198B7C4800B9D7F7 /* Tourbillon.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 89E1373F1925B11000A3EFB7;
-			remoteInfo = Tourbillon;
-		};
-		8920A45D198B7C6400B9D7F7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8920A449198B7C4800B9D7F7 /* Tourbillon.xcodeproj */;
+			containerPortal = 8920A4D2198B822D00B9D7F7 /* Tourbillon.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = 89E137711925B13D00A3EFB7;
 			remoteInfo = "Tourbillon-iOS";
+		};
+		8920A4E4198B824200B9D7F7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8920A4D2198B822D00B9D7F7 /* Tourbillon.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 89E1373F1925B11000A3EFB7;
+			remoteInfo = Tourbillon;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -126,7 +126,7 @@
 		8920A43D198B7C3300B9D7F7 /* FOX-iOSTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FOX-iOSTests-Info.plist"; sourceTree = "<group>"; };
 		8920A43F198B7C3300B9D7F7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8920A441198B7C3300B9D7F7 /* FOX_iOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FOX_iOSTests.m; sourceTree = "<group>"; };
-		8920A449198B7C4800B9D7F7 /* Tourbillon.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Tourbillon.xcodeproj; path = ../../Tourbillon/Tourbillon.xcodeproj; sourceTree = "<group>"; };
+		8920A4D2198B822D00B9D7F7 /* Tourbillon.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Tourbillon.xcodeproj; path = /Volumes/Data/Workspace/GitHub/BigBoss/FOX/../../Tourbillon/Tourbillon.xcodeproj; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,7 +134,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8920A45A198B7C5600B9D7F7 /* Tourbillon.framework in Frameworks */,
+				8920A4E6198B825000B9D7F7 /* Tourbillon.framework in Frameworks */,
 				8920A3F7198B7C1C00B9D7F7 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -153,7 +153,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8920A45F198B7C6700B9D7F7 /* libTourbillon-iOS.a in Frameworks */,
+				8920A4E3198B823C00B9D7F7 /* libTourbillon-iOS.a in Frameworks */,
 				8920A427198B7C3300B9D7F7 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -175,7 +175,7 @@
 		8920A3E9198B7C1C00B9D7F7 = {
 			isa = PBXGroup;
 			children = (
-				8920A449198B7C4800B9D7F7 /* Tourbillon.xcodeproj */,
+				8920A4D2198B822D00B9D7F7 /* Tourbillon.xcodeproj */,
 				8920A3FC198B7C1C00B9D7F7 /* FOX */,
 				8920A411198B7C1C00B9D7F7 /* FOXTests */,
 				8920A428198B7C3300B9D7F7 /* FOX-iOS */,
@@ -292,13 +292,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		8920A44A198B7C4800B9D7F7 /* Products */ = {
+		8920A4D3198B822D00B9D7F7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8920A451198B7C4800B9D7F7 /* Tourbillon.framework */,
-				8920A453198B7C4800B9D7F7 /* TourbillonTests.xctest */,
-				8920A455198B7C4800B9D7F7 /* libTourbillon-iOS.a */,
-				8920A457198B7C4800B9D7F7 /* Tourbillon-iOSTests.xctest */,
+				8920A4DA198B822E00B9D7F7 /* Tourbillon.framework */,
+				8920A4DC198B822E00B9D7F7 /* TourbillonTests.xctest */,
+				8920A4DE198B822E00B9D7F7 /* libTourbillon-iOS.a */,
+				8920A4E0198B822E00B9D7F7 /* Tourbillon-iOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -328,7 +328,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				8920A459198B7C5100B9D7F7 /* PBXTargetDependency */,
+				8920A4E5198B824200B9D7F7 /* PBXTargetDependency */,
 			);
 			name = FOX;
 			productName = FOX;
@@ -364,7 +364,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				8920A45E198B7C6400B9D7F7 /* PBXTargetDependency */,
+				8920A4E2198B823700B9D7F7 /* PBXTargetDependency */,
 			);
 			name = "FOX-iOS";
 			productName = "FOX-iOS";
@@ -418,8 +418,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 8920A44A198B7C4800B9D7F7 /* Products */;
-					ProjectRef = 8920A449198B7C4800B9D7F7 /* Tourbillon.xcodeproj */;
+					ProductGroup = 8920A4D3198B822D00B9D7F7 /* Products */;
+					ProjectRef = 8920A4D2198B822D00B9D7F7 /* Tourbillon.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -433,32 +433,32 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		8920A451198B7C4800B9D7F7 /* Tourbillon.framework */ = {
+		8920A4DA198B822E00B9D7F7 /* Tourbillon.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = Tourbillon.framework;
-			remoteRef = 8920A450198B7C4800B9D7F7 /* PBXContainerItemProxy */;
+			remoteRef = 8920A4D9198B822E00B9D7F7 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		8920A453198B7C4800B9D7F7 /* TourbillonTests.xctest */ = {
+		8920A4DC198B822E00B9D7F7 /* TourbillonTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = TourbillonTests.xctest;
-			remoteRef = 8920A452198B7C4800B9D7F7 /* PBXContainerItemProxy */;
+			remoteRef = 8920A4DB198B822E00B9D7F7 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		8920A455198B7C4800B9D7F7 /* libTourbillon-iOS.a */ = {
+		8920A4DE198B822E00B9D7F7 /* libTourbillon-iOS.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = "libTourbillon-iOS.a";
-			remoteRef = 8920A454198B7C4800B9D7F7 /* PBXContainerItemProxy */;
+			remoteRef = 8920A4DD198B822E00B9D7F7 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		8920A457198B7C4800B9D7F7 /* Tourbillon-iOSTests.xctest */ = {
+		8920A4E0198B822E00B9D7F7 /* Tourbillon-iOSTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = "Tourbillon-iOSTests.xctest";
-			remoteRef = 8920A456198B7C4800B9D7F7 /* PBXContainerItemProxy */;
+			remoteRef = 8920A4DF198B822E00B9D7F7 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -536,15 +536,15 @@
 			target = 8920A424198B7C3300B9D7F7 /* FOX-iOS */;
 			targetProxy = 8920A438198B7C3300B9D7F7 /* PBXContainerItemProxy */;
 		};
-		8920A459198B7C5100B9D7F7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Tourbillon;
-			targetProxy = 8920A458198B7C5100B9D7F7 /* PBXContainerItemProxy */;
-		};
-		8920A45E198B7C6400B9D7F7 /* PBXTargetDependency */ = {
+		8920A4E2198B823700B9D7F7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Tourbillon-iOS";
-			targetProxy = 8920A45D198B7C6400B9D7F7 /* PBXContainerItemProxy */;
+			targetProxy = 8920A4E1198B823700B9D7F7 /* PBXContainerItemProxy */;
+		};
+		8920A4E5198B824200B9D7F7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Tourbillon;
+			targetProxy = 8920A4E4198B824200B9D7F7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

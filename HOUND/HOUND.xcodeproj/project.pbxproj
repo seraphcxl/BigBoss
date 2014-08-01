@@ -1,0 +1,868 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8920A471198B81D800B9D7F7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8920A470198B81D800B9D7F7 /* Cocoa.framework */; };
+		8920A47B198B81D800B9D7F7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8920A479198B81D800B9D7F7 /* InfoPlist.strings */; };
+		8920A47F198B81D800B9D7F7 /* HOUND.m in Sources */ = {isa = PBXBuildFile; fileRef = 8920A47E198B81D800B9D7F7 /* HOUND.m */; };
+		8920A486198B81D800B9D7F7 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8920A485198B81D800B9D7F7 /* XCTest.framework */; };
+		8920A487198B81D800B9D7F7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8920A470198B81D800B9D7F7 /* Cocoa.framework */; };
+		8920A48A198B81D800B9D7F7 /* HOUND.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8920A46D198B81D800B9D7F7 /* HOUND.framework */; };
+		8920A490198B81D800B9D7F7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8920A48E198B81D800B9D7F7 /* InfoPlist.strings */; };
+		8920A492198B81D800B9D7F7 /* HOUNDTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8920A491198B81D800B9D7F7 /* HOUNDTests.m */; };
+		8920A4A1198B81F700B9D7F7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8920A4A0198B81F700B9D7F7 /* Foundation.framework */; };
+		8920A4A6198B81F700B9D7F7 /* HOUND_iOS.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8920A4A5198B81F700B9D7F7 /* HOUND_iOS.h */; };
+		8920A4A8198B81F700B9D7F7 /* HOUND_iOS.m in Sources */ = {isa = PBXBuildFile; fileRef = 8920A4A7198B81F700B9D7F7 /* HOUND_iOS.m */; };
+		8920A4AE198B81F700B9D7F7 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8920A485198B81D800B9D7F7 /* XCTest.framework */; };
+		8920A4AF198B81F700B9D7F7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8920A4A0198B81F700B9D7F7 /* Foundation.framework */; };
+		8920A4B1198B81F700B9D7F7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8920A4B0198B81F700B9D7F7 /* UIKit.framework */; };
+		8920A4B4198B81F700B9D7F7 /* libHOUND-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8920A49F198B81F700B9D7F7 /* libHOUND-iOS.a */; };
+		8920A4BA198B81F700B9D7F7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8920A4B8198B81F700B9D7F7 /* InfoPlist.strings */; };
+		8920A4BC198B81F700B9D7F7 /* HOUND_iOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8920A4BB198B81F700B9D7F7 /* HOUND_iOSTests.m */; };
+		8920A4FD198B82AE00B9D7F7 /* libFOX-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8920A4F6198B829A00B9D7F7 /* libFOX-iOS.a */; };
+		8920A4FF198B82B300B9D7F7 /* libTourbillon-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8920A4FE198B82B300B9D7F7 /* libTourbillon-iOS.a */; };
+		8920A501198B82BB00B9D7F7 /* Tourbillon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8920A500198B82BB00B9D7F7 /* Tourbillon.framework */; };
+		8920A502198B82BF00B9D7F7 /* FOX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8920A4F2198B829A00B9D7F7 /* FOX.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8920A488198B81D800B9D7F7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8920A464198B81D800B9D7F7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8920A46C198B81D800B9D7F7;
+			remoteInfo = HOUND;
+		};
+		8920A4B2198B81F700B9D7F7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8920A464198B81D800B9D7F7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8920A49E198B81F700B9D7F7;
+			remoteInfo = "HOUND-iOS";
+		};
+		8920A4F1198B829A00B9D7F7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8920A4EA198B829A00B9D7F7 /* FOX.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8920A3F3198B7C1C00B9D7F7;
+			remoteInfo = FOX;
+		};
+		8920A4F3198B829A00B9D7F7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8920A4EA198B829A00B9D7F7 /* FOX.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8920A40A198B7C1C00B9D7F7;
+			remoteInfo = FOXTests;
+		};
+		8920A4F5198B829A00B9D7F7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8920A4EA198B829A00B9D7F7 /* FOX.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8920A425198B7C3300B9D7F7;
+			remoteInfo = "FOX-iOS";
+		};
+		8920A4F7198B829A00B9D7F7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8920A4EA198B829A00B9D7F7 /* FOX.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8920A433198B7C3300B9D7F7;
+			remoteInfo = "FOX-iOSTests";
+		};
+		8920A4F9198B82A400B9D7F7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8920A4EA198B829A00B9D7F7 /* FOX.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8920A3F2198B7C1C00B9D7F7;
+			remoteInfo = FOX;
+		};
+		8920A4FB198B82A900B9D7F7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8920A4EA198B829A00B9D7F7 /* FOX.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8920A424198B7C3300B9D7F7;
+			remoteInfo = "FOX-iOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8920A49D198B81F700B9D7F7 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				8920A4A6198B81F700B9D7F7 /* HOUND_iOS.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		8920A46D198B81D800B9D7F7 /* HOUND.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HOUND.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8920A470198B81D800B9D7F7 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		8920A473198B81D800B9D7F7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		8920A474198B81D800B9D7F7 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		8920A475198B81D800B9D7F7 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		8920A478198B81D800B9D7F7 /* HOUND-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HOUND-Info.plist"; sourceTree = "<group>"; };
+		8920A47A198B81D800B9D7F7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8920A47C198B81D800B9D7F7 /* HOUND-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HOUND-Prefix.pch"; sourceTree = "<group>"; };
+		8920A47D198B81D800B9D7F7 /* HOUND.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HOUND.h; sourceTree = "<group>"; };
+		8920A47E198B81D800B9D7F7 /* HOUND.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HOUND.m; sourceTree = "<group>"; };
+		8920A484198B81D800B9D7F7 /* HOUNDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HOUNDTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8920A485198B81D800B9D7F7 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		8920A48D198B81D800B9D7F7 /* HOUNDTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HOUNDTests-Info.plist"; sourceTree = "<group>"; };
+		8920A48F198B81D800B9D7F7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8920A491198B81D800B9D7F7 /* HOUNDTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HOUNDTests.m; sourceTree = "<group>"; };
+		8920A49F198B81F700B9D7F7 /* libHOUND-iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libHOUND-iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8920A4A0198B81F700B9D7F7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		8920A4A4198B81F700B9D7F7 /* HOUND-iOS-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HOUND-iOS-Prefix.pch"; sourceTree = "<group>"; };
+		8920A4A5198B81F700B9D7F7 /* HOUND_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HOUND_iOS.h; sourceTree = "<group>"; };
+		8920A4A7198B81F700B9D7F7 /* HOUND_iOS.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HOUND_iOS.m; sourceTree = "<group>"; };
+		8920A4AD198B81F700B9D7F7 /* HOUND-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "HOUND-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8920A4B0198B81F700B9D7F7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		8920A4B7198B81F700B9D7F7 /* HOUND-iOSTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HOUND-iOSTests-Info.plist"; sourceTree = "<group>"; };
+		8920A4B9198B81F700B9D7F7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8920A4BB198B81F700B9D7F7 /* HOUND_iOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HOUND_iOSTests.m; sourceTree = "<group>"; };
+		8920A4EA198B829A00B9D7F7 /* FOX.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FOX.xcodeproj; path = ../FOX/FOX.xcodeproj; sourceTree = "<group>"; };
+		8920A4FE198B82B300B9D7F7 /* libTourbillon-iOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libTourbillon-iOS.a"; path = "../../Tourbillon/build/Debug-iphoneos/libTourbillon-iOS.a"; sourceTree = "<group>"; };
+		8920A500198B82BB00B9D7F7 /* Tourbillon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Tourbillon.framework; path = "../../../../../../Users/chenxiaoliang/Library/Developer/Xcode/DerivedData/BigBoss-byefwqemzxfcifbrahfhzlucdnzz/Build/Products/Debug/Tourbillon.framework"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8920A469198B81D800B9D7F7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8920A502198B82BF00B9D7F7 /* FOX.framework in Frameworks */,
+				8920A501198B82BB00B9D7F7 /* Tourbillon.framework in Frameworks */,
+				8920A471198B81D800B9D7F7 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8920A481198B81D800B9D7F7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8920A48A198B81D800B9D7F7 /* HOUND.framework in Frameworks */,
+				8920A487198B81D800B9D7F7 /* Cocoa.framework in Frameworks */,
+				8920A486198B81D800B9D7F7 /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8920A49C198B81F700B9D7F7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8920A4FD198B82AE00B9D7F7 /* libFOX-iOS.a in Frameworks */,
+				8920A4FF198B82B300B9D7F7 /* libTourbillon-iOS.a in Frameworks */,
+				8920A4A1198B81F700B9D7F7 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8920A4AA198B81F700B9D7F7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8920A4AE198B81F700B9D7F7 /* XCTest.framework in Frameworks */,
+				8920A4B1198B81F700B9D7F7 /* UIKit.framework in Frameworks */,
+				8920A4B4198B81F700B9D7F7 /* libHOUND-iOS.a in Frameworks */,
+				8920A4AF198B81F700B9D7F7 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8920A463198B81D800B9D7F7 = {
+			isa = PBXGroup;
+			children = (
+				8920A4EA198B829A00B9D7F7 /* FOX.xcodeproj */,
+				8920A476198B81D800B9D7F7 /* HOUND */,
+				8920A48B198B81D800B9D7F7 /* HOUNDTests */,
+				8920A4A2198B81F700B9D7F7 /* HOUND-iOS */,
+				8920A4B5198B81F700B9D7F7 /* HOUND-iOSTests */,
+				8920A46F198B81D800B9D7F7 /* Frameworks */,
+				8920A46E198B81D800B9D7F7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8920A46E198B81D800B9D7F7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8920A46D198B81D800B9D7F7 /* HOUND.framework */,
+				8920A484198B81D800B9D7F7 /* HOUNDTests.xctest */,
+				8920A49F198B81F700B9D7F7 /* libHOUND-iOS.a */,
+				8920A4AD198B81F700B9D7F7 /* HOUND-iOSTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8920A46F198B81D800B9D7F7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8920A500198B82BB00B9D7F7 /* Tourbillon.framework */,
+				8920A4FE198B82B300B9D7F7 /* libTourbillon-iOS.a */,
+				8920A470198B81D800B9D7F7 /* Cocoa.framework */,
+				8920A485198B81D800B9D7F7 /* XCTest.framework */,
+				8920A4A0198B81F700B9D7F7 /* Foundation.framework */,
+				8920A4B0198B81F700B9D7F7 /* UIKit.framework */,
+				8920A472198B81D800B9D7F7 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8920A472198B81D800B9D7F7 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8920A473198B81D800B9D7F7 /* Foundation.framework */,
+				8920A474198B81D800B9D7F7 /* CoreData.framework */,
+				8920A475198B81D800B9D7F7 /* AppKit.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		8920A476198B81D800B9D7F7 /* HOUND */ = {
+			isa = PBXGroup;
+			children = (
+				8920A47D198B81D800B9D7F7 /* HOUND.h */,
+				8920A47E198B81D800B9D7F7 /* HOUND.m */,
+				8920A477198B81D800B9D7F7 /* Supporting Files */,
+			);
+			path = HOUND;
+			sourceTree = "<group>";
+		};
+		8920A477198B81D800B9D7F7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8920A478198B81D800B9D7F7 /* HOUND-Info.plist */,
+				8920A479198B81D800B9D7F7 /* InfoPlist.strings */,
+				8920A47C198B81D800B9D7F7 /* HOUND-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8920A48B198B81D800B9D7F7 /* HOUNDTests */ = {
+			isa = PBXGroup;
+			children = (
+				8920A491198B81D800B9D7F7 /* HOUNDTests.m */,
+				8920A48C198B81D800B9D7F7 /* Supporting Files */,
+			);
+			path = HOUNDTests;
+			sourceTree = "<group>";
+		};
+		8920A48C198B81D800B9D7F7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8920A48D198B81D800B9D7F7 /* HOUNDTests-Info.plist */,
+				8920A48E198B81D800B9D7F7 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8920A4A2198B81F700B9D7F7 /* HOUND-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				8920A4A5198B81F700B9D7F7 /* HOUND_iOS.h */,
+				8920A4A7198B81F700B9D7F7 /* HOUND_iOS.m */,
+				8920A4A3198B81F700B9D7F7 /* Supporting Files */,
+			);
+			path = "HOUND-iOS";
+			sourceTree = "<group>";
+		};
+		8920A4A3198B81F700B9D7F7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8920A4A4198B81F700B9D7F7 /* HOUND-iOS-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8920A4B5198B81F700B9D7F7 /* HOUND-iOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				8920A4BB198B81F700B9D7F7 /* HOUND_iOSTests.m */,
+				8920A4B6198B81F700B9D7F7 /* Supporting Files */,
+			);
+			path = "HOUND-iOSTests";
+			sourceTree = "<group>";
+		};
+		8920A4B6198B81F700B9D7F7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8920A4B7198B81F700B9D7F7 /* HOUND-iOSTests-Info.plist */,
+				8920A4B8198B81F700B9D7F7 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8920A4EB198B829A00B9D7F7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8920A4F2198B829A00B9D7F7 /* FOX.framework */,
+				8920A4F4198B829A00B9D7F7 /* FOXTests.xctest */,
+				8920A4F6198B829A00B9D7F7 /* libFOX-iOS.a */,
+				8920A4F8198B829A00B9D7F7 /* FOX-iOSTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		8920A46A198B81D800B9D7F7 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		8920A46C198B81D800B9D7F7 /* HOUND */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8920A495198B81D800B9D7F7 /* Build configuration list for PBXNativeTarget "HOUND" */;
+			buildPhases = (
+				8920A468198B81D800B9D7F7 /* Sources */,
+				8920A469198B81D800B9D7F7 /* Frameworks */,
+				8920A46A198B81D800B9D7F7 /* Headers */,
+				8920A46B198B81D800B9D7F7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8920A4FA198B82A400B9D7F7 /* PBXTargetDependency */,
+			);
+			name = HOUND;
+			productName = HOUND;
+			productReference = 8920A46D198B81D800B9D7F7 /* HOUND.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		8920A483198B81D800B9D7F7 /* HOUNDTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8920A498198B81D800B9D7F7 /* Build configuration list for PBXNativeTarget "HOUNDTests" */;
+			buildPhases = (
+				8920A480198B81D800B9D7F7 /* Sources */,
+				8920A481198B81D800B9D7F7 /* Frameworks */,
+				8920A482198B81D800B9D7F7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8920A489198B81D800B9D7F7 /* PBXTargetDependency */,
+			);
+			name = HOUNDTests;
+			productName = HOUNDTests;
+			productReference = 8920A484198B81D800B9D7F7 /* HOUNDTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		8920A49E198B81F700B9D7F7 /* HOUND-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8920A4BD198B81F800B9D7F7 /* Build configuration list for PBXNativeTarget "HOUND-iOS" */;
+			buildPhases = (
+				8920A49B198B81F700B9D7F7 /* Sources */,
+				8920A49C198B81F700B9D7F7 /* Frameworks */,
+				8920A49D198B81F700B9D7F7 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8920A4FC198B82A900B9D7F7 /* PBXTargetDependency */,
+			);
+			name = "HOUND-iOS";
+			productName = "HOUND-iOS";
+			productReference = 8920A49F198B81F700B9D7F7 /* libHOUND-iOS.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		8920A4AC198B81F700B9D7F7 /* HOUND-iOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8920A4C0198B81F800B9D7F7 /* Build configuration list for PBXNativeTarget "HOUND-iOSTests" */;
+			buildPhases = (
+				8920A4A9198B81F700B9D7F7 /* Sources */,
+				8920A4AA198B81F700B9D7F7 /* Frameworks */,
+				8920A4AB198B81F700B9D7F7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8920A4B3198B81F700B9D7F7 /* PBXTargetDependency */,
+			);
+			name = "HOUND-iOSTests";
+			productName = "HOUND-iOSTests";
+			productReference = 8920A4AD198B81F700B9D7F7 /* HOUND-iOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8920A464198B81D800B9D7F7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Derek Chen";
+				TargetAttributes = {
+					8920A483198B81D800B9D7F7 = {
+						TestTargetID = 8920A46C198B81D800B9D7F7;
+					};
+					8920A4AC198B81F700B9D7F7 = {
+						TestTargetID = 8920A46C198B81D800B9D7F7;
+					};
+				};
+			};
+			buildConfigurationList = 8920A467198B81D800B9D7F7 /* Build configuration list for PBXProject "HOUND" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 8920A463198B81D800B9D7F7;
+			productRefGroup = 8920A46E198B81D800B9D7F7 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 8920A4EB198B829A00B9D7F7 /* Products */;
+					ProjectRef = 8920A4EA198B829A00B9D7F7 /* FOX.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				8920A46C198B81D800B9D7F7 /* HOUND */,
+				8920A483198B81D800B9D7F7 /* HOUNDTests */,
+				8920A49E198B81F700B9D7F7 /* HOUND-iOS */,
+				8920A4AC198B81F700B9D7F7 /* HOUND-iOSTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		8920A4F2198B829A00B9D7F7 /* FOX.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = FOX.framework;
+			remoteRef = 8920A4F1198B829A00B9D7F7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8920A4F4198B829A00B9D7F7 /* FOXTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = FOXTests.xctest;
+			remoteRef = 8920A4F3198B829A00B9D7F7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8920A4F6198B829A00B9D7F7 /* libFOX-iOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libFOX-iOS.a";
+			remoteRef = 8920A4F5198B829A00B9D7F7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8920A4F8198B829A00B9D7F7 /* FOX-iOSTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "FOX-iOSTests.xctest";
+			remoteRef = 8920A4F7198B829A00B9D7F7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8920A46B198B81D800B9D7F7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8920A47B198B81D800B9D7F7 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8920A482198B81D800B9D7F7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8920A490198B81D800B9D7F7 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8920A4AB198B81F700B9D7F7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8920A4BA198B81F700B9D7F7 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8920A468198B81D800B9D7F7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8920A47F198B81D800B9D7F7 /* HOUND.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8920A480198B81D800B9D7F7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8920A492198B81D800B9D7F7 /* HOUNDTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8920A49B198B81F700B9D7F7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8920A4A8198B81F700B9D7F7 /* HOUND_iOS.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8920A4A9198B81F700B9D7F7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8920A4BC198B81F700B9D7F7 /* HOUND_iOSTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8920A489198B81D800B9D7F7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8920A46C198B81D800B9D7F7 /* HOUND */;
+			targetProxy = 8920A488198B81D800B9D7F7 /* PBXContainerItemProxy */;
+		};
+		8920A4B3198B81F700B9D7F7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8920A49E198B81F700B9D7F7 /* HOUND-iOS */;
+			targetProxy = 8920A4B2198B81F700B9D7F7 /* PBXContainerItemProxy */;
+		};
+		8920A4FA198B82A400B9D7F7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FOX;
+			targetProxy = 8920A4F9198B82A400B9D7F7 /* PBXContainerItemProxy */;
+		};
+		8920A4FC198B82A900B9D7F7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "FOX-iOS";
+			targetProxy = 8920A4FB198B82A900B9D7F7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8920A479198B81D800B9D7F7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8920A47A198B81D800B9D7F7 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		8920A48E198B81D800B9D7F7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8920A48F198B81D800B9D7F7 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		8920A4B8198B81F700B9D7F7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8920A4B9198B81F700B9D7F7 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8920A493198B81D800B9D7F7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		8920A494198B81D800B9D7F7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		8920A496198B81D800B9D7F7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/BigBoss-byefwqemzxfcifbrahfhzlucdnzz/Build/Products/Debug",
+				);
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HOUND/HOUND-Prefix.pch";
+				INFOPLIST_FILE = "HOUND/HOUND-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		8920A497198B81D800B9D7F7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/BigBoss-byefwqemzxfcifbrahfhzlucdnzz/Build/Products/Debug",
+				);
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HOUND/HOUND-Prefix.pch";
+				INFOPLIST_FILE = "HOUND/HOUND-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
+		8920A499198B81D800B9D7F7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/HOUND.framework/Versions/A/HOUND";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HOUND/HOUND-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "HOUNDTests/HOUNDTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		8920A49A198B81D800B9D7F7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/HOUND.framework/Versions/A/HOUND";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HOUND/HOUND-Prefix.pch";
+				INFOPLIST_FILE = "HOUNDTests/HOUNDTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+		8920A4BE198B81F800B9D7F7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/HOUND_iOS.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HOUND-iOS/HOUND-iOS-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Volumes/Data/Workspace/GitHub/Tourbillon/build/Debug-iphoneos",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		8920A4BF198B81F800B9D7F7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/HOUND_iOS.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HOUND-iOS/HOUND-iOS-Prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Volumes/Data/Workspace/GitHub/Tourbillon/build/Debug-iphoneos",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8920A4C1198B81F800B9D7F7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/HOUND.framework/Versions/A/HOUND";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HOUND-iOS/HOUND-iOS-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "HOUND-iOSTests/HOUND-iOSTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		8920A4C2198B81F800B9D7F7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/HOUND.framework/Versions/A/HOUND";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HOUND-iOS/HOUND-iOS-Prefix.pch";
+				INFOPLIST_FILE = "HOUND-iOSTests/HOUND-iOSTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8920A467198B81D800B9D7F7 /* Build configuration list for PBXProject "HOUND" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8920A493198B81D800B9D7F7 /* Debug */,
+				8920A494198B81D800B9D7F7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8920A495198B81D800B9D7F7 /* Build configuration list for PBXNativeTarget "HOUND" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8920A496198B81D800B9D7F7 /* Debug */,
+				8920A497198B81D800B9D7F7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		8920A498198B81D800B9D7F7 /* Build configuration list for PBXNativeTarget "HOUNDTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8920A499198B81D800B9D7F7 /* Debug */,
+				8920A49A198B81D800B9D7F7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		8920A4BD198B81F800B9D7F7 /* Build configuration list for PBXNativeTarget "HOUND-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8920A4BE198B81F800B9D7F7 /* Debug */,
+				8920A4BF198B81F800B9D7F7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		8920A4C0198B81F800B9D7F7 /* Build configuration list for PBXNativeTarget "HOUND-iOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8920A4C1198B81F800B9D7F7 /* Debug */,
+				8920A4C2198B81F800B9D7F7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8920A464198B81D800B9D7F7 /* Project object */;
+}
