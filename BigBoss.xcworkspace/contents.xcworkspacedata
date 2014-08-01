@@ -1,16 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workspace
    version = "1.0">
-   <FileRef
-      location = "group:HOUND_Mac/HOUND_Mac.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:HOUND_iOS/HOUND_iOS.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:FOX_Mac/FOX_Mac.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:FOX_iOS/FOX_iOS.xcodeproj">
-   </FileRef>
 </Workspace>
