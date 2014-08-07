@@ -1,0 +1,621 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8919127D19932197004ACB6F /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8919127C19932197004ACB6F /* libsqlite3.dylib */; };
+		8919127E199321C3004ACB6F /* DCCoreDataDiskCache.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 891DFA35199320010073385B /* DCCoreDataDiskCache.xcdatamodeld */; };
+		891DFA42199320010073385B /* DCCoreDataDiskCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 891DFA33199320010073385B /* DCCoreDataDiskCache.h */; };
+		891DFA43199320010073385B /* DCCoreDataDiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 891DFA34199320010073385B /* DCCoreDataDiskCache.m */; };
+		891DFA44199320010073385B /* DCCoreDataDiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 891DFA34199320010073385B /* DCCoreDataDiskCache.m */; };
+		891DFA45199320010073385B /* DCCoreDataDiskCache.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 891DFA35199320010073385B /* DCCoreDataDiskCache.xcdatamodeld */; };
+		891DFA46199320010073385B /* DCCoreDataDiskCache.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 891DFA35199320010073385B /* DCCoreDataDiskCache.xcdatamodeld */; };
+		891DFA47199320010073385B /* DCCoreDataDiskCacheEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = 891DFA37199320010073385B /* DCCoreDataDiskCacheEntity.h */; };
+		891DFA48199320010073385B /* DCCoreDataDiskCacheEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 891DFA38199320010073385B /* DCCoreDataDiskCacheEntity.m */; };
+		891DFA49199320010073385B /* DCCoreDataDiskCacheEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 891DFA38199320010073385B /* DCCoreDataDiskCacheEntity.m */; };
+		891DFA4A199320010073385B /* DCCoreDataDiskCacheIndex.h in Headers */ = {isa = PBXBuildFile; fileRef = 891DFA39199320010073385B /* DCCoreDataDiskCacheIndex.h */; };
+		891DFA4B199320010073385B /* DCCoreDataDiskCacheIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = 891DFA3A199320010073385B /* DCCoreDataDiskCacheIndex.m */; };
+		891DFA4C199320010073385B /* DCCoreDataDiskCacheIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = 891DFA3A199320010073385B /* DCCoreDataDiskCacheIndex.m */; };
+		891DFA4D199320010073385B /* DCDiskCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 891DFA3C199320010073385B /* DCDiskCache.h */; };
+		891DFA4E199320010073385B /* DCDiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 891DFA3D199320010073385B /* DCDiskCache.m */; };
+		891DFA4F199320010073385B /* DCDiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 891DFA3D199320010073385B /* DCDiskCache.m */; };
+		891DFA50199320010073385B /* DCDiskCacheEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = 891DFA3E199320010073385B /* DCDiskCacheEntity.h */; };
+		891DFA51199320010073385B /* DCDiskCacheEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 891DFA3F199320010073385B /* DCDiskCacheEntity.m */; };
+		891DFA52199320010073385B /* DCDiskCacheEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 891DFA3F199320010073385B /* DCDiskCacheEntity.m */; };
+		891DFA53199320010073385B /* DCDiskCacheIndex.h in Headers */ = {isa = PBXBuildFile; fileRef = 891DFA40199320010073385B /* DCDiskCacheIndex.h */; };
+		891DFA54199320010073385B /* DCDiskCacheIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = 891DFA41199320010073385B /* DCDiskCacheIndex.m */; };
+		891DFA55199320010073385B /* DCDiskCacheIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = 891DFA41199320010073385B /* DCDiskCacheIndex.m */; };
+		891DFA57199320170073385B /* DCBigBoss.h in Headers */ = {isa = PBXBuildFile; fileRef = 891DFA56199320170073385B /* DCBigBoss.h */; };
+		89EB629719931F750022FB12 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89BB710619931EE80064B9C4 /* Cocoa.framework */; };
+		89EB629D19931F750022FB12 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 89EB629B19931F750022FB12 /* InfoPlist.strings */; };
+		89EB62A719931F750022FB12 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89BB711B19931EE90064B9C4 /* XCTest.framework */; };
+		89EB62A819931F750022FB12 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89BB710619931EE80064B9C4 /* Cocoa.framework */; };
+		89EB62AB19931F750022FB12 /* BigBoss-OSX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89EB629619931F740022FB12 /* BigBoss-OSX.framework */; };
+		89EB62B119931F750022FB12 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 89EB62AF19931F750022FB12 /* InfoPlist.strings */; };
+		89EB62B319931F750022FB12 /* BigBoss_OSXTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EB62B219931F750022FB12 /* BigBoss_OSXTests.m */; };
+		BEFD76254F7D42E498E44E12 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 28A36A79CCCC4A0EBB933EA0 /* libPods.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		89EB62A919931F750022FB12 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 89BB70FA19931EE80064B9C4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 89EB629519931F740022FB12;
+			remoteInfo = "BigBoss-OSX";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		28A36A79CCCC4A0EBB933EA0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8919127C19932197004ACB6F /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		891DFA33199320010073385B /* DCCoreDataDiskCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCCoreDataDiskCache.h; sourceTree = "<group>"; };
+		891DFA34199320010073385B /* DCCoreDataDiskCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCCoreDataDiskCache.m; sourceTree = "<group>"; };
+		891DFA36199320010073385B /* DCCoreDataDiskCache.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DCCoreDataDiskCache.xcdatamodel; sourceTree = "<group>"; };
+		891DFA37199320010073385B /* DCCoreDataDiskCacheEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCCoreDataDiskCacheEntity.h; sourceTree = "<group>"; };
+		891DFA38199320010073385B /* DCCoreDataDiskCacheEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCCoreDataDiskCacheEntity.m; sourceTree = "<group>"; };
+		891DFA39199320010073385B /* DCCoreDataDiskCacheIndex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCCoreDataDiskCacheIndex.h; sourceTree = "<group>"; };
+		891DFA3A199320010073385B /* DCCoreDataDiskCacheIndex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCCoreDataDiskCacheIndex.m; sourceTree = "<group>"; };
+		891DFA3C199320010073385B /* DCDiskCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCDiskCache.h; sourceTree = "<group>"; };
+		891DFA3D199320010073385B /* DCDiskCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCDiskCache.m; sourceTree = "<group>"; };
+		891DFA3E199320010073385B /* DCDiskCacheEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCDiskCacheEntity.h; sourceTree = "<group>"; };
+		891DFA3F199320010073385B /* DCDiskCacheEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCDiskCacheEntity.m; sourceTree = "<group>"; };
+		891DFA40199320010073385B /* DCDiskCacheIndex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCDiskCacheIndex.h; sourceTree = "<group>"; };
+		891DFA41199320010073385B /* DCDiskCacheIndex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCDiskCacheIndex.m; sourceTree = "<group>"; };
+		891DFA56199320170073385B /* DCBigBoss.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCBigBoss.h; sourceTree = "<group>"; };
+		89BB710619931EE80064B9C4 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		89BB710919931EE80064B9C4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		89BB710A19931EE80064B9C4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		89BB710B19931EE80064B9C4 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		89BB711B19931EE90064B9C4 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		89EB629619931F740022FB12 /* BigBoss-OSX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "BigBoss-OSX.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		89EB629A19931F750022FB12 /* BigBoss-OSX-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BigBoss-OSX-Info.plist"; sourceTree = "<group>"; };
+		89EB629C19931F750022FB12 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		89EB629E19931F750022FB12 /* BigBoss-OSX-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BigBoss-OSX-Prefix.pch"; sourceTree = "<group>"; };
+		89EB62A619931F750022FB12 /* BigBoss-OSXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "BigBoss-OSXTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		89EB62AE19931F750022FB12 /* BigBoss-OSXTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BigBoss-OSXTests-Info.plist"; sourceTree = "<group>"; };
+		89EB62B019931F750022FB12 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		89EB62B219931F750022FB12 /* BigBoss_OSXTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BigBoss_OSXTests.m; sourceTree = "<group>"; };
+		D2621519E9964D3D868FE492 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		89EB629219931F740022FB12 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8919127D19932197004ACB6F /* libsqlite3.dylib in Frameworks */,
+				89EB629719931F750022FB12 /* Cocoa.framework in Frameworks */,
+				BEFD76254F7D42E498E44E12 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		89EB62A319931F750022FB12 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89EB62A819931F750022FB12 /* Cocoa.framework in Frameworks */,
+				89EB62A719931F750022FB12 /* XCTest.framework in Frameworks */,
+				89EB62AB19931F750022FB12 /* BigBoss-OSX.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		891DFA32199320010073385B /* HOUND */ = {
+			isa = PBXGroup;
+			children = (
+				891DFA33199320010073385B /* DCCoreDataDiskCache.h */,
+				891DFA34199320010073385B /* DCCoreDataDiskCache.m */,
+				891DFA35199320010073385B /* DCCoreDataDiskCache.xcdatamodeld */,
+				891DFA37199320010073385B /* DCCoreDataDiskCacheEntity.h */,
+				891DFA38199320010073385B /* DCCoreDataDiskCacheEntity.m */,
+				891DFA39199320010073385B /* DCCoreDataDiskCacheIndex.h */,
+				891DFA3A199320010073385B /* DCCoreDataDiskCacheIndex.m */,
+			);
+			path = HOUND;
+			sourceTree = "<group>";
+		};
+		891DFA3B199320010073385B /* FOX */ = {
+			isa = PBXGroup;
+			children = (
+				891DFA3C199320010073385B /* DCDiskCache.h */,
+				891DFA3D199320010073385B /* DCDiskCache.m */,
+				891DFA3E199320010073385B /* DCDiskCacheEntity.h */,
+				891DFA3F199320010073385B /* DCDiskCacheEntity.m */,
+				891DFA40199320010073385B /* DCDiskCacheIndex.h */,
+				891DFA41199320010073385B /* DCDiskCacheIndex.m */,
+			);
+			path = FOX;
+			sourceTree = "<group>";
+		};
+		89BB70F919931EE80064B9C4 = {
+			isa = PBXGroup;
+			children = (
+				89BB710C19931EE80064B9C4 /* BigBoss */,
+				89EB629819931F750022FB12 /* BigBoss-OSX */,
+				89EB62AC19931F750022FB12 /* BigBoss-OSXTests */,
+				89BB710519931EE80064B9C4 /* Frameworks */,
+				89BB710419931EE80064B9C4 /* Products */,
+				D2621519E9964D3D868FE492 /* Pods.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		89BB710419931EE80064B9C4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				89EB629619931F740022FB12 /* BigBoss-OSX.framework */,
+				89EB62A619931F750022FB12 /* BigBoss-OSXTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		89BB710519931EE80064B9C4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8919127C19932197004ACB6F /* libsqlite3.dylib */,
+				89BB710619931EE80064B9C4 /* Cocoa.framework */,
+				89BB711B19931EE90064B9C4 /* XCTest.framework */,
+				89BB710819931EE80064B9C4 /* Other Frameworks */,
+				28A36A79CCCC4A0EBB933EA0 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		89BB710819931EE80064B9C4 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				89BB710919931EE80064B9C4 /* Foundation.framework */,
+				89BB710A19931EE80064B9C4 /* CoreData.framework */,
+				89BB710B19931EE80064B9C4 /* AppKit.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		89BB710C19931EE80064B9C4 /* BigBoss */ = {
+			isa = PBXGroup;
+			children = (
+				891DFA56199320170073385B /* DCBigBoss.h */,
+				891DFA32199320010073385B /* HOUND */,
+				891DFA3B199320010073385B /* FOX */,
+			);
+			path = BigBoss;
+			sourceTree = "<group>";
+		};
+		89EB629819931F750022FB12 /* BigBoss-OSX */ = {
+			isa = PBXGroup;
+			children = (
+				89EB629919931F750022FB12 /* Supporting Files */,
+			);
+			path = "BigBoss-OSX";
+			sourceTree = "<group>";
+		};
+		89EB629919931F750022FB12 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				89EB629A19931F750022FB12 /* BigBoss-OSX-Info.plist */,
+				89EB629B19931F750022FB12 /* InfoPlist.strings */,
+				89EB629E19931F750022FB12 /* BigBoss-OSX-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		89EB62AC19931F750022FB12 /* BigBoss-OSXTests */ = {
+			isa = PBXGroup;
+			children = (
+				89EB62B219931F750022FB12 /* BigBoss_OSXTests.m */,
+				89EB62AD19931F750022FB12 /* Supporting Files */,
+			);
+			path = "BigBoss-OSXTests";
+			sourceTree = "<group>";
+		};
+		89EB62AD19931F750022FB12 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				89EB62AE19931F750022FB12 /* BigBoss-OSXTests-Info.plist */,
+				89EB62AF19931F750022FB12 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		89EB629319931F740022FB12 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				891DFA50199320010073385B /* DCDiskCacheEntity.h in Headers */,
+				891DFA42199320010073385B /* DCCoreDataDiskCache.h in Headers */,
+				891DFA53199320010073385B /* DCDiskCacheIndex.h in Headers */,
+				891DFA4D199320010073385B /* DCDiskCache.h in Headers */,
+				891DFA47199320010073385B /* DCCoreDataDiskCacheEntity.h in Headers */,
+				891DFA57199320170073385B /* DCBigBoss.h in Headers */,
+				891DFA4A199320010073385B /* DCCoreDataDiskCacheIndex.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		89EB629519931F740022FB12 /* BigBoss-OSX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 89EB62B819931F750022FB12 /* Build configuration list for PBXNativeTarget "BigBoss-OSX" */;
+			buildPhases = (
+				C41BD360A74F4057B8E3B3D4 /* Check Pods Manifest.lock */,
+				89EB629119931F740022FB12 /* Sources */,
+				89EB629219931F740022FB12 /* Frameworks */,
+				89EB629319931F740022FB12 /* Headers */,
+				89EB629419931F740022FB12 /* Resources */,
+				B7D70E303F294710A2924F93 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "BigBoss-OSX";
+			productName = "BigBoss-OSX";
+			productReference = 89EB629619931F740022FB12 /* BigBoss-OSX.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		89EB62A519931F750022FB12 /* BigBoss-OSXTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 89EB62B919931F750022FB12 /* Build configuration list for PBXNativeTarget "BigBoss-OSXTests" */;
+			buildPhases = (
+				89EB62A219931F750022FB12 /* Sources */,
+				89EB62A319931F750022FB12 /* Frameworks */,
+				89EB62A419931F750022FB12 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				89EB62AA19931F750022FB12 /* PBXTargetDependency */,
+			);
+			name = "BigBoss-OSXTests";
+			productName = "BigBoss-OSXTests";
+			productReference = 89EB62A619931F750022FB12 /* BigBoss-OSXTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		89BB70FA19931EE80064B9C4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Derek Chen";
+				TargetAttributes = {
+					89EB62A519931F750022FB12 = {
+						TestTargetID = 89EB629519931F740022FB12;
+					};
+				};
+			};
+			buildConfigurationList = 89BB70FD19931EE80064B9C4 /* Build configuration list for PBXProject "BigBoss" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 89BB70F919931EE80064B9C4;
+			productRefGroup = 89BB710419931EE80064B9C4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				89EB629519931F740022FB12 /* BigBoss-OSX */,
+				89EB62A519931F750022FB12 /* BigBoss-OSXTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		89EB629419931F740022FB12 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8919127E199321C3004ACB6F /* DCCoreDataDiskCache.xcdatamodeld in Resources */,
+				89EB629D19931F750022FB12 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		89EB62A419931F750022FB12 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89EB62B119931F750022FB12 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B7D70E303F294710A2924F93 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C41BD360A74F4057B8E3B3D4 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		89EB629119931F740022FB12 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				891DFA48199320010073385B /* DCCoreDataDiskCacheEntity.m in Sources */,
+				891DFA4E199320010073385B /* DCDiskCache.m in Sources */,
+				891DFA45199320010073385B /* DCCoreDataDiskCache.xcdatamodeld in Sources */,
+				891DFA51199320010073385B /* DCDiskCacheEntity.m in Sources */,
+				891DFA4B199320010073385B /* DCCoreDataDiskCacheIndex.m in Sources */,
+				891DFA43199320010073385B /* DCCoreDataDiskCache.m in Sources */,
+				891DFA54199320010073385B /* DCDiskCacheIndex.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		89EB62A219931F750022FB12 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				891DFA4C199320010073385B /* DCCoreDataDiskCacheIndex.m in Sources */,
+				891DFA49199320010073385B /* DCCoreDataDiskCacheEntity.m in Sources */,
+				891DFA52199320010073385B /* DCDiskCacheEntity.m in Sources */,
+				891DFA55199320010073385B /* DCDiskCacheIndex.m in Sources */,
+				89EB62B319931F750022FB12 /* BigBoss_OSXTests.m in Sources */,
+				891DFA46199320010073385B /* DCCoreDataDiskCache.xcdatamodeld in Sources */,
+				891DFA4F199320010073385B /* DCDiskCache.m in Sources */,
+				891DFA44199320010073385B /* DCCoreDataDiskCache.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		89EB62AA19931F750022FB12 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 89EB629519931F740022FB12 /* BigBoss-OSX */;
+			targetProxy = 89EB62A919931F750022FB12 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		89EB629B19931F750022FB12 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				89EB629C19931F750022FB12 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		89EB62AF19931F750022FB12 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				89EB62B019931F750022FB12 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		89BB712919931EE90064B9C4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		89BB712A19931EE90064B9C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		89EB62B419931F750022FB12 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D2621519E9964D3D868FE492 /* Pods.xcconfig */;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BigBoss-OSX/BigBoss-OSX-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "BigBoss-OSX/BigBoss-OSX-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		89EB62B519931F750022FB12 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D2621519E9964D3D868FE492 /* Pods.xcconfig */;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BigBoss-OSX/BigBoss-OSX-Prefix.pch";
+				INFOPLIST_FILE = "BigBoss-OSX/BigBoss-OSX-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
+		89EB62B619931F750022FB12 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BigBoss-OSX.framework/Versions/A/BigBoss-OSX";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BigBoss-OSX/BigBoss-OSX-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "BigBoss-OSXTests/BigBoss-OSXTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		89EB62B719931F750022FB12 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BigBoss-OSX.framework/Versions/A/BigBoss-OSX";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BigBoss-OSX/BigBoss-OSX-Prefix.pch";
+				INFOPLIST_FILE = "BigBoss-OSXTests/BigBoss-OSXTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		89BB70FD19931EE80064B9C4 /* Build configuration list for PBXProject "BigBoss" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				89BB712919931EE90064B9C4 /* Debug */,
+				89BB712A19931EE90064B9C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		89EB62B819931F750022FB12 /* Build configuration list for PBXNativeTarget "BigBoss-OSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				89EB62B419931F750022FB12 /* Debug */,
+				89EB62B519931F750022FB12 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		89EB62B919931F750022FB12 /* Build configuration list for PBXNativeTarget "BigBoss-OSXTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				89EB62B619931F750022FB12 /* Debug */,
+				89EB62B719931F750022FB12 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		891DFA35199320010073385B /* DCCoreDataDiskCache.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				891DFA36199320010073385B /* DCCoreDataDiskCache.xcdatamodel */,
+			);
+			currentVersion = 891DFA36199320010073385B /* DCCoreDataDiskCache.xcdatamodel */;
+			path = DCCoreDataDiskCache.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 89BB70FA19931EE80064B9C4 /* Project object */;
+}
