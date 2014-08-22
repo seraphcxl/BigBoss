@@ -106,7 +106,7 @@ DEFINE_SINGLETON_FOR_CLASS(DCCoreDataDiskCache)
 - (NSUInteger)memoryCacheSize {
     NSUInteger result = 0;
     do {
-        @synchronized(self) {
+        @synchronized(_inMemoryCache) {
             if (_inMemoryCache) {
                 result = _inMemoryCache.totalCostLimit;
             }
@@ -117,7 +117,7 @@ DEFINE_SINGLETON_FOR_CLASS(DCCoreDataDiskCache)
 
 - (void)setMemoryCacheSize:(NSUInteger)memoryCacheSize {
     do {
-        @synchronized(self) {
+        @synchronized(_inMemoryCache) {
             if (_inMemoryCache) {
                 NSUInteger maxAllowSize = [self diskCacheSize] / 10;
                 if (memoryCacheSize > maxAllowSize) {
@@ -133,7 +133,7 @@ DEFINE_SINGLETON_FOR_CLASS(DCCoreDataDiskCache)
 - (NSUInteger)diskCacheSize {
     NSUInteger result = 0;
     do {
-        @synchronized(self) {
+        @synchronized(_cacheIndex) {
             if (_cacheIndex) {
                 result = _cacheIndex.diskCapacity;
             }
@@ -144,7 +144,7 @@ DEFINE_SINGLETON_FOR_CLASS(DCCoreDataDiskCache)
 
 - (void)setDiskCacheSize:(NSUInteger)diskCacheSize {
     do {
-        @synchronized(self) {
+        @synchronized(_cacheIndex) {
             if (_cacheIndex) {
                 _cacheIndex.diskCapacity = diskCacheSize;
             }
@@ -155,7 +155,7 @@ DEFINE_SINGLETON_FOR_CLASS(DCCoreDataDiskCache)
 - (float)trimDiskCacheLevel {
     float result = 0;
     do {
-        @synchronized(self) {
+        @synchronized(_cacheIndex) {
             if (_cacheIndex) {
                 result = _cacheIndex.trimLevel;
             }
@@ -166,7 +166,7 @@ DEFINE_SINGLETON_FOR_CLASS(DCCoreDataDiskCache)
 
 - (void)setTrimDiskCacheLevel:(float)trimDiskCacheLevel {
     do {
-        @synchronized(self) {
+        @synchronized(_cacheIndex) {
             if (_cacheIndex) {
                 _cacheIndex.trimLevel = trimDiskCacheLevel;
             }
@@ -180,48 +180,51 @@ DEFINE_SINGLETON_FOR_CLASS(DCCoreDataDiskCache)
         if (!dataURL) {
             break;
         }
-        @synchronized(self) {
-            if (!_inMemoryCache || !_cacheIndex || !_dataCachePath) {
-                break;
-            }
-            // TODO: Synchronize this across threads
-            @try {
+        if (!_inMemoryCache || !_cacheIndex || !_dataCachePath) {
+            break;
+        }
+        // TODO: Synchronize this across threads
+        @try {
+            @synchronized(_inMemoryCache) {
                 result = (NSData *)[_inMemoryCache objectForKey:dataURL];
-                
-                if (result == nil) {
-                    DCCoreDataDiskCacheIndexInfo *indexInfo = [_cacheIndex dataIndexInfoForKey:dataURL.absoluteString];
-                    if (!indexInfo || indexInfo.uuid == nil) {
-                        break;
-                    }
-                    // Not in-memory, on-disk only, read in
-                    if ([self _doesFileExist:indexInfo.uuid]) {
-                        NSString *cachePath = [_dataCachePath stringByAppendingPathComponent:indexInfo.uuid];
-                        
-                        NSData *tmpData = [NSData dataWithContentsOfFile:cachePath options:(NSDataReadingMappedAlways | NSDataReadingUncached) error:nil];
-                        
-                        if (indexInfo.isCompressed) {
-                            NSError *err = nil;
-                            result = [tmpData decompressByGZipWithError:&err];
-                            if (err) {
-                                NSLog(@"%@", [err localizedDescription]);
-                                break;
-                            }
-                        } else {
-                            result = tmpData;
+            }
+            
+            
+            if (result == nil) {
+                DCCoreDataDiskCacheIndexInfo *indexInfo = [_cacheIndex dataIndexInfoForKey:dataURL.absoluteString];
+                if (!indexInfo || indexInfo.uuid == nil) {
+                    break;
+                }
+                // Not in-memory, on-disk only, read in
+                if ([self _doesFileExist:indexInfo.uuid]) {
+                    NSString *cachePath = [_dataCachePath stringByAppendingPathComponent:indexInfo.uuid];
+                    
+                    NSData *tmpData = [NSData dataWithContentsOfFile:cachePath options:(NSDataReadingMappedAlways | NSDataReadingUncached) error:nil];
+                    
+                    if (indexInfo.isCompressed) {
+                        NSError *err = nil;
+                        result = [tmpData decompressByGZipWithError:&err];
+                        if (err) {
+                            NSLog(@"%@", [err localizedDescription]);
+                            break;
                         }
-                        
-                        if (result) {
-                            // It is possible that the file doesn't exist
+                    } else {
+                        result = tmpData;
+                    }
+                    
+                    if (result) {
+                        // It is possible that the file doesn't exist
+                        @synchronized(_inMemoryCache) {
                             [_inMemoryCache setObject:result forKey:dataURL cost:result.length];
                         }
                     }
                 }
-            } @catch (NSException *exception) {
-                result = nil;
-                DCLog_Error(@"DCCoreDataDiskCache error: %@", exception.reason);
-            } @finally {
-                ;
             }
+        } @catch (NSException *exception) {
+            result = nil;
+            DCLog_Error(@"DCCoreDataDiskCache error: %@", exception.reason);
+        } @finally {
+            ;
         }
     } while (NO);
     return result;
@@ -232,19 +235,18 @@ DEFINE_SINGLETON_FOR_CLASS(DCCoreDataDiskCache)
         if (!data || !url) {
             break;
         }
-        @synchronized(self) {
-            if (!_inMemoryCache || !_cacheIndex) {
-                break;
-            }
-            // TODO: Synchronize this across threads
-            @try {
-                NSString *uuid = [_cacheIndex storeData:data forKey:url.absoluteString];
-                DCLog_Debug(@"DCCoreDataDiskCache setData:forURL: uuid:%@", uuid);
-                
+        if (!_inMemoryCache || !_cacheIndex) {
+            break;
+        }
+        // TODO: Synchronize this across threads
+        @try {
+            NSString *uuid = [_cacheIndex storeData:data forKey:url.absoluteString];
+            DCLog_Debug(@"DCCoreDataDiskCache setData:forURL: uuid:%@", uuid);
+            @synchronized(_inMemoryCache) {
                 [_inMemoryCache setObject:data forKey:url cost:data.length];
-            } @catch (NSException *exception) {
-                DCLog_Error(@"DCCoreDataDiskCache error: %@", exception.reason);
             }
+        } @catch (NSException *exception) {
+            DCLog_Error(@"DCCoreDataDiskCache error: %@", exception.reason);
         }
     } while (NO);
 }
@@ -254,29 +256,28 @@ DEFINE_SINGLETON_FOR_CLASS(DCCoreDataDiskCache)
         if (!dataArray || !urlArray || [dataArray count] != [urlArray count] || [urlArray count] == 0) {
             break;
         }
-        @synchronized(self) {
-            if (!_inMemoryCache || !_cacheIndex) {
-                break;
+        if (!_inMemoryCache || !_cacheIndex) {
+            break;
+        }
+        // TODO: Synchronize this across threads
+        @try {
+            NSMutableArray *urlStrAry = [NSMutableArray array];
+            for (NSURL *url in urlArray) {
+                [urlStrAry addObject:url.absoluteString];
             }
-            // TODO: Synchronize this across threads
-            @try {
-                NSMutableArray *urlStrAry = [NSMutableArray array];
-                for (NSURL *url in urlArray) {
-                    [urlStrAry addObject:url.absoluteString];
-                }
-                NSArray *uuidAry = [_cacheIndex storeDataArray:dataArray forKeyArray:urlStrAry];
-                DCLog_Debug(@"DCCoreDataDiskCache storeDataArray:forKeyArray: uuidAry:%@", uuidAry);
-                
-                NSUInteger count = [urlArray count];
-                for (NSUInteger idx = 0; idx < count; ++idx) {
-                    NSData *data = [dataArray objectAtIndex:idx];
-                    NSURL *url = [urlArray objectAtIndex:idx];
-                    
+            NSArray *uuidAry = [_cacheIndex storeDataArray:dataArray forKeyArray:urlStrAry];
+            DCLog_Debug(@"DCCoreDataDiskCache storeDataArray:forKeyArray: uuidAry:%@", uuidAry);
+            
+            NSUInteger count = [urlArray count];
+            for (NSUInteger idx = 0; idx < count; ++idx) {
+                NSData *data = [dataArray objectAtIndex:idx];
+                NSURL *url = [urlArray objectAtIndex:idx];
+                @synchronized(_inMemoryCache) {
                     [_inMemoryCache setObject:data forKey:url cost:data.length];
                 }
-            } @catch (NSException *exception) {
-                DCLog_Error(@"DCCoreDataDiskCache error: %@", exception.reason);
             }
+        } @catch (NSException *exception) {
+            DCLog_Error(@"DCCoreDataDiskCache error: %@", exception.reason);
         }
     } while (NO);
 }
@@ -286,17 +287,17 @@ DEFINE_SINGLETON_FOR_CLASS(DCCoreDataDiskCache)
         if (!url) {
             break;
         }
-        @synchronized(self) {
-            if (!_inMemoryCache || !_cacheIndex) {
-                break;
-            }
-            // TODO: Synchronize this across threads
-            @try {
+        if (!_inMemoryCache || !_cacheIndex) {
+            break;
+        }
+        // TODO: Synchronize this across threads
+        @try {
+            @synchronized(_inMemoryCache) {
                 [_inMemoryCache removeObjectForKey:url];
-                [_cacheIndex removeEntryForKey:url.absoluteString];
-            } @catch (NSException *exception) {
-                DCLog_Error(@"DCCoreDataDiskCache error: %@", exception.reason);
             }
+            [_cacheIndex removeEntryForKey:url.absoluteString];
+        } @catch (NSException *exception) {
+            DCLog_Error(@"DCCoreDataDiskCache error: %@", exception.reason);
         }
     } while (NO);
 }
@@ -306,22 +307,22 @@ DEFINE_SINGLETON_FOR_CLASS(DCCoreDataDiskCache)
         if (!urlArray || [urlArray count] == 0) {
             break;
         }
-        @synchronized(self) {
-            if (!_inMemoryCache || !_cacheIndex) {
-                break;
-            }
-            // TODO: Synchronize this across threads
-            @try {
-                NSMutableArray *urlStrAry = [NSMutableArray array];
-                for (NSURL *url in urlArray) {
+        if (!_inMemoryCache || !_cacheIndex) {
+            break;
+        }
+        // TODO: Synchronize this across threads
+        @try {
+            NSMutableArray *urlStrAry = [NSMutableArray array];
+            for (NSURL *url in urlArray) {
+                @synchronized(_inMemoryCache) {
                     [_inMemoryCache removeObjectForKey:url];
-                    [urlStrAry addObject:url.absoluteString];
                 }
-                
-                [_cacheIndex removeEntryForKeyArray:urlStrAry];
-            } @catch (NSException *exception) {
-                DCLog_Error(@"DCCoreDataDiskCache error: %@", exception.reason);
+                [urlStrAry addObject:url.absoluteString];
             }
+            
+            [_cacheIndex removeEntryForKeyArray:urlStrAry];
+        } @catch (NSException *exception) {
+            DCLog_Error(@"DCCoreDataDiskCache error: %@", exception.reason);
         }
     } while (NO);
 }
@@ -333,13 +334,11 @@ DEFINE_SINGLETON_FOR_CLASS(DCCoreDataDiskCache)
         if (!uuid || uuid.length == 0) {
             break;
         }
-        @synchronized(self) {
-            if (!_dataCachePath) {
-                break;
-            }
-            NSString *filePath = [_dataCachePath stringByAppendingPathComponent:uuid];
-            result = [[NSFileManager defaultManager] fileExistsAtPath:filePath];
+        if (!_dataCachePath) {
+            break;
         }
+        NSString *filePath = [_dataCachePath stringByAppendingPathComponent:uuid];
+        result = [[NSFileManager defaultManager] fileExistsAtPath:filePath];
     } while (NO);
     return result;
 }
@@ -359,15 +358,13 @@ DEFINE_SINGLETON_FOR_CLASS(DCCoreDataDiskCache)
                 break;
             }
         }
-        @synchronized(self) {
-            if (!_fileQueue || !_dataCachePath) {
-                break;
-            }
-            NSString *filePath = [_dataCachePath stringByAppendingPathComponent:uuid];
-            dispatch_async(_fileQueue, ^{
-                [tmpData writeToFile:filePath atomically:YES];
-            });
+        if (!_fileQueue || !_dataCachePath) {
+            break;
         }
+        NSString *filePath = [_dataCachePath stringByAppendingPathComponent:uuid];
+        dispatch_async(_fileQueue, ^{
+            [tmpData writeToFile:filePath atomically:YES];
+        });
     } while (NO);
 }
 
@@ -376,18 +373,16 @@ DEFINE_SINGLETON_FOR_CLASS(DCCoreDataDiskCache)
         if (!cacheIndex || !uuid || uuid.length == 0) {
             break;
         }
-        @synchronized(self) {
-            if (!_fileQueue || !_dataCachePath) {
-                break;
-            }
-            NSString *filePath = [_dataCachePath stringByAppendingPathComponent:uuid];
-            dispatch_async(_fileQueue, ^{
-                NSError *err = nil;
-                if (![[NSFileManager defaultManager] removeItemAtPath:filePath error:&err]) {
-                    DCLog_Error(@"Remove file error. FilePath:%@ Errpr:%@", filePath, [err localizedDescription]);
-                }
-            });
+        if (!_fileQueue || !_dataCachePath) {
+            break;
         }
+        NSString *filePath = [_dataCachePath stringByAppendingPathComponent:uuid];
+        dispatch_async(_fileQueue, ^{
+            NSError *err = nil;
+            if (![[NSFileManager defaultManager] removeItemAtPath:filePath error:&err]) {
+                DCLog_Error(@"Remove file error. FilePath:%@ Errpr:%@", filePath, [err localizedDescription]);
+            }
+        });
     } while (NO);
 }
 
