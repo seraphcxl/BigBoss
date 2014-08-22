@@ -187,9 +187,12 @@ DEFINE_SINGLETON_FOR_CLASS(DCCoreDataDiskCache)
             // TODO: Synchronize this across threads
             @try {
                 result = (NSData *)[_inMemoryCache objectForKey:dataURL];
-                DCCoreDataDiskCacheIndexInfo *indexInfo = [_cacheIndex dataIndexInfoForKey:dataURL.absoluteString];
                 
-                if (result == nil && indexInfo.uuid != nil) {
+                if (result == nil) {
+                    DCCoreDataDiskCacheIndexInfo *indexInfo = [_cacheIndex dataIndexInfoForKey:dataURL.absoluteString];
+                    if (!indexInfo || indexInfo.uuid == nil) {
+                        break;
+                    }
                     // Not in-memory, on-disk only, read in
                     if ([self _doesFileExist:indexInfo.uuid]) {
                         NSString *cachePath = [_dataCachePath stringByAppendingPathComponent:indexInfo.uuid];

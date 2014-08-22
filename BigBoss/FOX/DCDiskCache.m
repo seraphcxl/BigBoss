@@ -186,9 +186,13 @@ DEFINE_SINGLETON_FOR_CLASS(DCDiskCache)
             // TODO: Synchronize this across threads
             @try {
                 result = (NSData *)[_inMemoryCache objectForKey:dataURL];
-                DCDiskCacheEntity *entity = [_cacheIndex entryForKey:dataURL.absoluteString];
-                NSString *fileName = entity.uuid;
-                if (result == nil && fileName != nil) {
+                
+                if (result == nil) {
+                    DCDiskCacheEntity *entity = [_cacheIndex entryForKey:dataURL.absoluteString];
+                    if (!entity || entity.uuid == nil) {
+                        break;
+                    }
+                    NSString *fileName = entity.uuid;
                     // Not in-memory, on-disk only, read in
                     if ([self _doesFileExist:fileName]) {
                         NSString *cachePath = [_dataCachePath stringByAppendingPathComponent:fileName];
