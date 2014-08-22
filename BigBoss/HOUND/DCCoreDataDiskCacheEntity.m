@@ -12,6 +12,7 @@
 @implementation DCCoreDataDiskCacheEntity
 
 @dynamic accessTime;
+@dynamic compressed;
 @dynamic dataSize;
 @dynamic key;
 @dynamic uuid;

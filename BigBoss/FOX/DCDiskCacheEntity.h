@@ -10,21 +10,16 @@
 #import "DCSafeARC.h"
 
 @interface DCDiskCacheEntity : NSObject {
-@private
-    NSString *_uuid;
-    NSString *_key;
-    CFTimeInterval _accessTime;
-    NSUInteger _fileSize;
-    BOOL _dirty;
 }
 
-- (id)initWithKey:(NSString *)key uuid:(NSString *)uuid accessTime:(CFTimeInterval)accessTime fileSize:(NSUInteger)fileSize;
+- (id)initWithKey:(NSString *)key uuid:(NSString *)uuid accessTime:(CFTimeInterval)accessTime fileSize:(NSUInteger)fileSize compressed:(BOOL)compressed;
 
-@property (copy, readonly) NSString *key;
-@property (copy, readonly) NSString *uuid;
-@property (assign, readonly) CFTimeInterval accessTime;
-@property (assign, readonly) NSUInteger fileSize;
-@property (assign, getter = isDirty) BOOL dirty;
+@property (nonatomic, copy, readonly) NSString *key;
+@property (nonatomic, copy, readonly) NSString *uuid;
+@property (nonatomic, assign, readonly) CFTimeInterval accessTime;
+@property (nonatomic, assign, readonly) NSUInteger fileSize;
+@property (nonatomic, assign, readonly, getter = isCompressed) BOOL compressed;
+@property (nonatomic, assign, getter = isDirty) BOOL dirty;
 
 - (void)registerAccess;
 

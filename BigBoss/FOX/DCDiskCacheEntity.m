@@ -8,23 +8,36 @@
 
 #import "DCDiskCacheEntity.h"
 
+@interface DCDiskCacheEntity () {
+}
+
+@property (nonatomic, copy) NSString *key;
+@property (nonatomic, copy) NSString *uuid;
+@property (nonatomic, assign) CFTimeInterval accessTime;
+@property (nonatomic, assign) NSUInteger fileSize;
+@property (nonatomic, assign, getter = isCompressed) BOOL compressed;
+
+@end
+
 @implementation DCDiskCacheEntity
 
 @synthesize accessTime = _accessTime;
 @synthesize uuid = _uuid;
 @synthesize fileSize = _fileSize;
 @synthesize key = _key;
+@synthesize compressed = _compressed;
 @synthesize dirty = _dirty;
 
 #pragma mark - DCDiskCacheEntity - Public method
-- (id)initWithKey:(NSString *)key uuid:(NSString *)uuid accessTime:(CFTimeInterval)accessTime fileSize:(NSUInteger)fileSize {
+- (id)initWithKey:(NSString *)key uuid:(NSString *)uuid accessTime:(CFTimeInterval)accessTime fileSize:(NSUInteger)fileSize compressed:(BOOL)compressed {
     @synchronized(self) {
         self = [super init];
         if (self) {
-            _key = [key copy];
-            _uuid = [uuid copy];
-            _accessTime = accessTime;
-            _fileSize = fileSize;
+            self.key = key;
+            self.uuid = uuid;
+            self.accessTime = accessTime;
+            self.fileSize = fileSize;
+            self.compressed = compressed;
         }
         return self;
     }
@@ -33,8 +46,8 @@
 - (void)dealloc {
     do {
         @synchronized(self) {
-            SAFE_ARC_SAFERELEASE(_uuid);
-            SAFE_ARC_SAFERELEASE(_key);
+            self.uuid = nil;
+            self.key = nil;
         }
         SAFE_ARC_SUPER_DEALLOC();
     } while (NO);
@@ -43,8 +56,8 @@
 - (void)registerAccess {
     do {
         @synchronized(self) {
-            _accessTime = CFAbsoluteTimeGetCurrent();
-            _dirty = YES;
+            self.accessTime = CFAbsoluteTimeGetCurrent();
+            self.dirty = YES;
         }
     } while (NO);
 }

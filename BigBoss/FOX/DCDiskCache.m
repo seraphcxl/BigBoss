@@ -8,18 +8,23 @@
 
 #import "DCDiskCache.h"
 #import "DCDiskCacheIndex.h"
+#import "DCDiskCacheEntity.h"
 #import "DCCommonConstants.h"
 #import "DCLogger.h"
 
-static const NSUInteger kMaxDataInMemorySize = DC_MEMSIZE_MB(1);  // 1MB
-static const NSUInteger kMaxDiskCacheSize = DC_MEMSIZE_MB(10);  // 10MB
+static const NSUInteger kMaxDataInMemorySize = DC_MEMSIZE_MB(2);  // 2MB
+static const NSUInteger kMaxDiskCacheSize = DC_MEMSIZE_MB(20);  // 20MB
 
 static NSString * const kDiskCachePath = @"DCDiskCache";
 
 @interface DCDiskCache () <DCDiskCacheIndexFileDelegate> {
 }
 
+@property (nonatomic, assign, getter = isReady) BOOL ready;
+@property (nonatomic) dispatch_queue_t fileQueue;
 @property (nonatomic, copy) NSString *dataCachePath;
+@property (nonatomic, strong) DCDiskCacheIndex *cacheIndex;
+@property (nonatomic, strong) NSCache *inMemoryCache;
 
 - (BOOL)_doesFileExist:(NSString *)name;
 
@@ -28,8 +33,11 @@ static NSString * const kDiskCachePath = @"DCDiskCache";
 @implementation DCDiskCache
 
 @synthesize ready = _ready;
+@synthesize compressed = _compressed;
 @synthesize dataCachePath = _dataCachePath;
 @synthesize fileQueue = _fileQueue;
+@synthesize cacheIndex = _cacheIndex;
+@synthesize inMemoryCache = _inMemoryCache;
 
 #pragma mark - DCDiskCache - Public method
 DEFINE_SINGLETON_FOR_CLASS(DCDiskCache)
@@ -38,7 +46,8 @@ DEFINE_SINGLETON_FOR_CLASS(DCDiskCache)
     @synchronized(self) {
         self = [super init];
         if (self) {
-            _ready = NO;
+            self.ready = NO;
+            self.compressed = NO;
         }
         return self;
     }
@@ -47,15 +56,16 @@ DEFINE_SINGLETON_FOR_CLASS(DCDiskCache)
 - (void)dealloc {
     do {
         @synchronized(self) {
-            if (self.fileQueue) {
+            if (_fileQueue) {
                 SAFE_ARC_DISPATCHQUEUERELEASE(_fileQueue);
             }
+            self.fileQueue = nil;
             
-            SAFE_ARC_SAFERELEASE(_cacheIndex);
-            SAFE_ARC_SAFERELEASE(_dataCachePath);
-            SAFE_ARC_SAFERELEASE(_inMemoryCache);
-            
-            _ready = NO;
+            self.cacheIndex = nil;
+            self.dataCachePath = nil;
+            self.inMemoryCache = nil;
+            self.compressed = NO;
+            self.ready = NO;
         }
         SAFE_ARC_SUPER_DEALLOC();
     } while (NO);
@@ -65,28 +75,29 @@ DEFINE_SINGLETON_FOR_CLASS(DCDiskCache)
     do {
         @synchronized(self) {
             if (cachePath && cachePath.length > 0) {
-                _dataCachePath = [cachePath copy];
+                self.dataCachePath = cachePath;
             } else {
                 NSArray *cacheList = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
                 NSString *defaultCacheFolderPath = [cacheList objectAtIndex:0];
-                _dataCachePath = [[defaultCacheFolderPath stringByAppendingPathComponent:kDiskCachePath] copy];
+                self.dataCachePath = [defaultCacheFolderPath stringByAppendingPathComponent:kDiskCachePath];
             }
             
             [[NSFileManager defaultManager] createDirectoryAtPath:_dataCachePath withIntermediateDirectories:YES attributes:nil error:nil];
             
             dispatch_queue_t bgPriQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0);
-            _fileQueue = dispatch_queue_create("DCDiskCacheFileQueue", DISPATCH_QUEUE_SERIAL);
-            dispatch_set_target_queue(self.fileQueue, bgPriQueue);
+            NSString *queueName = [NSString stringWithFormat:@"DCDiskCacheFileQueue_%@", [NSObject createMemoryID:self]];
+            self.fileQueue = dispatch_queue_create([queueName UTF8String], DISPATCH_QUEUE_SERIAL);
+            dispatch_set_target_queue(_fileQueue, bgPriQueue);
             
-            _cacheIndex = [[DCDiskCacheIndex alloc] initWithCacheFolder:_dataCachePath];
+            self.cacheIndex = [[DCDiskCacheIndex alloc] initWithCacheFolder:_dataCachePath];
             _cacheIndex.diskCapacity = kMaxDiskCacheSize;
             _cacheIndex.trimLevel = DCDiskCacheIndexTrimLevel_Middle;
             _cacheIndex.delegate = self;
             
-            _inMemoryCache = [[NSCache alloc] init];
+            self.inMemoryCache = [[NSCache alloc] init];
             _inMemoryCache.totalCostLimit = kMaxDataInMemorySize;
             
-            _ready = YES;
+            self.ready = YES;
         }
     } while (NO);
 }
@@ -169,17 +180,31 @@ DEFINE_SINGLETON_FOR_CLASS(DCDiskCache)
             break;
         }
         @synchronized(self) {
+            if (!_inMemoryCache || !_cacheIndex || !_dataCachePath) {
+                break;
+            }
             // TODO: Synchronize this across threads
             @try {
                 result = (NSData *)[_inMemoryCache objectForKey:dataURL];
-                NSString *fileName = [_cacheIndex fileNameForKey:dataURL.absoluteString];
-                
+                DCDiskCacheEntity *entity = [_cacheIndex entryForKey:dataURL.absoluteString];
+                NSString *fileName = entity.uuid;
                 if (result == nil && fileName != nil) {
                     // Not in-memory, on-disk only, read in
                     if ([self _doesFileExist:fileName]) {
-                        NSString *cachePath = [self.dataCachePath stringByAppendingPathComponent:fileName];
+                        NSString *cachePath = [_dataCachePath stringByAppendingPathComponent:fileName];
                         
-                        result = [NSData dataWithContentsOfFile:cachePath options:(NSDataReadingMappedAlways | NSDataReadingUncached) error:nil];
+                        NSData *tmpData = [NSData dataWithContentsOfFile:cachePath options:(NSDataReadingMappedAlways | NSDataReadingUncached) error:nil];
+                        
+                        if (entity.isCompressed) {
+                            NSError *err = nil;
+                            result = [tmpData decompressByGZipWithError:&err];
+                            if (err) {
+                                NSLog(@"%@", [err localizedDescription]);
+                                break;
+                            }
+                        } else {
+                            result = tmpData;
+                        }
                         
                         if (result) {
                             // It is possible that the file doesn't exist
@@ -204,6 +229,9 @@ DEFINE_SINGLETON_FOR_CLASS(DCDiskCache)
             break;
         }
         @synchronized(self) {
+            if (!_inMemoryCache || !_cacheIndex) {
+                break;
+            }
             // TODO: Synchronize this across threads
             @try {
                 [_inMemoryCache removeObjectForKey:url];
@@ -221,6 +249,9 @@ DEFINE_SINGLETON_FOR_CLASS(DCDiskCache)
             break;
         }
         @synchronized(self) {
+            if (!_inMemoryCache || !_cacheIndex) {
+                break;
+            }
             // TODO: Synchronize this across threads
             @try {
                 [_cacheIndex storeFileForKey:url.absoluteString withData:data];
@@ -241,7 +272,10 @@ DEFINE_SINGLETON_FOR_CLASS(DCDiskCache)
             break;
         }
         @synchronized(self) {
-            NSString *filePath = [self.dataCachePath stringByAppendingPathComponent:name];
+            if (!_dataCachePath) {
+                break;
+            }
+            NSString *filePath = [_dataCachePath stringByAppendingPathComponent:name];
             result = [[NSFileManager defaultManager] fileExistsAtPath:filePath];
         }
     } while (NO);
@@ -249,15 +283,27 @@ DEFINE_SINGLETON_FOR_CLASS(DCDiskCache)
 }
 
 #pragma mark - DCDiskCache - DCDiskCacheIndexFileDelegate
-- (void)cacheIndex:(DCDiskCacheIndex *)cacheIndex writeFileWithName:(NSString *)name data:(NSData *)data {
+- (void)cacheIndex:(DCDiskCacheIndex *)cacheIndex writeFileWithName:(NSString *)name data:(NSData *)data compress:(BOOL)shouldCompress {
     do {
         if (!cacheIndex || !name || name.length == 0 || !data) {
             break;
         }
+        NSData *tmpData = data;
+        if (shouldCompress) {
+            NSError *err = nil;
+            tmpData = [data compressByGZipWithError:&err];
+            if (err) {
+                NSLog(@"%@", [err localizedDescription]);
+                break;
+            }
+        }
         @synchronized(self) {
-            NSString *filePath = [self.dataCachePath stringByAppendingPathComponent:name];
-            dispatch_async(self.fileQueue, ^{
-                [data writeToFile:filePath atomically:YES];
+            if (!_fileQueue || !_dataCachePath) {
+                break;
+            }
+            NSString *filePath = [_dataCachePath stringByAppendingPathComponent:name];
+            dispatch_async(_fileQueue, ^{
+                [tmpData writeToFile:filePath atomically:YES];
             });
         }
     } while (NO);
@@ -269,8 +315,11 @@ DEFINE_SINGLETON_FOR_CLASS(DCDiskCache)
             break;
         }
         @synchronized(self) {
-            NSString *filePath = [self.dataCachePath stringByAppendingPathComponent:name];
-            dispatch_async(self.fileQueue, ^{
+            if (!_fileQueue || !_dataCachePath) {
+                break;
+            }
+            NSString *filePath = [_dataCachePath stringByAppendingPathComponent:name];
+            dispatch_async(_fileQueue, ^{
                 NSError *err = nil;
                 if (![[NSFileManager defaultManager] removeItemAtPath:filePath error:&err]) {
                     DCLog_Error(@"Remove file error. FilePath:%@ Errpr:%@", filePath, [err localizedDescription]);
@@ -279,5 +328,16 @@ DEFINE_SINGLETON_FOR_CLASS(DCDiskCache)
         }
     } while (NO);
     
+}
+
+- (BOOL)cacheIndex:(DCDiskCacheIndex *)cacheIndex shouldCompressFileWithName:(NSString *)name {
+    BOOL result = NO;
+    do {
+        if (!cacheIndex || !name || name.length == 0) {
+            break;
+        }
+        result = _compressed;
+    } while (NO);
+    return result;
 }
 @end

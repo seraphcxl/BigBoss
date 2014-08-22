@@ -10,6 +10,7 @@
 #import "DCCoreDataDiskCacheEntity.h"
 #import "DCCoreDataStore.h"
 #import "DCCoreDataStoreManager.h"
+#import "DCCoreDataDiskCacheIndexInfo.h"
 
 const float DCCoreDataDiskCacheIndexTrimLevel_Low = 0.8f;
 const float DCCoreDataDiskCacheIndexTrimLevel_Middle = 0.6f;
@@ -17,6 +18,9 @@ const float DCCoreDataDiskCacheIndexTrimLevel_High = 0.4f;
 
 @interface DCCoreDataDiskCacheIndex () {
 }
+
+@property (nonatomic, assign) NSUInteger currentDiskUsage;
+@property (nonatomic, copy) NSString *dataStoreUUID;
 
 - (NSEntityDescription *)_dataDiskCacheEntity;
 - (DCCoreDataStore *)_dataStore;
@@ -41,14 +45,17 @@ const float DCCoreDataDiskCacheIndexTrimLevel_High = 0.4f;
         }
         self = [super init];
         if (self) {
-            _dataStoreUUID = [dataStoreUUID copy];
-            _fileDelegate = fileDelegate;
+            self.dataStoreUUID = dataStoreUUID;
+            self.fileDelegate = fileDelegate;
             self.trimLevel = DCCoreDataDiskCacheIndexTrimLevel_Middle;
             
             DCCoreDataStore *dataStore = [[DCCoreDataStore alloc] initWithQueryPSCURLBlock:^NSURL *{
                 NSURL *result = nil;
                 do {
-                    result = [NSURL fileURLWithPath:self.dataStoreUUID];
+                    if (!_dataStoreUUID) {
+                        break;
+                    }
+                    result = [NSURL fileURLWithPath:_dataStoreUUID];
                 } while (NO);
                 return result;
             } configureEntityBlock:^(NSManagedObjectModel *aModel) {
@@ -59,7 +66,6 @@ const float DCCoreDataDiskCacheIndexTrimLevel_High = 0.4f;
                     [aModel setEntities:[NSArray arrayWithObjects:[self _dataDiskCacheEntity], nil]];
                 } while (NO);
             } andContextCacheLimit:4];
-            SAFE_ARC_AUTORELEASE(dataStore);
             
             [[DCCoreDataStoreManager sharedDCCoreDataStoreManager] addDataStore:dataStore];
         }
@@ -70,18 +76,18 @@ const float DCCoreDataDiskCacheIndexTrimLevel_High = 0.4f;
 - (void)dealloc {
     do {
         @synchronized(self) {
-            [[DCCoreDataStoreManager sharedDCCoreDataStoreManager] removeDataStore:[self _dataStore]];
+            self.fileDelegate = nil;
             
-            SAFE_ARC_SAFERELEASE(_dataStoreUUID);
+            [[DCCoreDataStoreManager sharedDCCoreDataStoreManager] removeDataStoreByURL:_dataStoreUUID];
             
-            _fileDelegate = nil;
+            self.dataStoreUUID = nil;
         }
         SAFE_ARC_SUPER_DEALLOC();
     } while (NO);
 }
 
-- (NSString *)dataUUIDForKey:(NSString *)key {
-    __block NSString *result = nil;
+- (DCCoreDataDiskCacheIndexInfo *)dataIndexInfoForKey:(NSString *)key {
+    __block DCCoreDataDiskCacheIndexInfo *result = nil;
     do {
         if (!key || key.length == 0) {
             break;
@@ -102,9 +108,11 @@ const float DCCoreDataDiskCacheIndexTrimLevel_High = 0.4f;
                         NSAssert(0, @"[fetchResult count] != 1");
                     }
                     DCCoreDataDiskCacheEntity *dataEntity = [fetchResult objectAtIndex:0];
-                    result = [dataEntity.uuid copy];
+                    result = [[DCCoreDataDiskCacheIndexInfo alloc] init];
+                    result.uuid = dataEntity.uuid;
+                    result.compressed = [dataEntity.compressed boolValue];
                     
-                    (*shouldCacheContext) = NO;
+                    (*shouldCacheContext) = YES;
                     
                     taskResult = YES;
                 } while (NO);
@@ -132,14 +140,18 @@ const float DCCoreDataDiskCacheIndexTrimLevel_High = 0.4f;
         if (!data || !key || key.length == 0) {
             break;
         }
-        CFUUIDRef uuid = CFUUIDCreate(kCFAllocatorDefault);
-        NSString *uuidStr = (__bridge NSString *)CFUUIDCreateString(kCFAllocatorDefault, uuid);
-        CFRelease(uuid);
+        NSString *uuid = [NSObject createUniqueStrByUUID];
         @synchronized(self) {
             DCCoreDataStore *dataStore = [self _dataStore];
             if (!dataStore) {
                 break;
             }
+            
+            BOOL shouldCompressData = NO;
+            if (_fileDelegate && [_fileDelegate respondsToSelector:@selector(cacheIndexShouldCompressData:)]) {
+                shouldCompressData = [_fileDelegate cacheIndexShouldCompressData:self];
+            }
+            
             __block BOOL taskResult = NO;
             __block NSString *willDeleteUUIDStr = nil;
             __block NSUInteger willDeleteDataSize = 0;
@@ -155,17 +167,18 @@ const float DCCoreDataDiskCacheIndexTrimLevel_High = 0.4f;
                         dataEntity = [fetchResult objectAtIndex:0];
                         
                         willDeleteUUIDStr = [dataEntity.uuid copy];
-                        SAFE_ARC_AUTORELEASE(willDeleteUUIDStr);
                         willDeleteDataSize = [dataEntity.dataSize unsignedIntegerValue];
                         
-                        dataEntity.uuid = uuidStr;
+                        dataEntity.uuid = uuid;
                         dataEntity.dataSize = [NSNumber numberWithUnsignedInteger:data.length];
+                        dataEntity.compressed = [NSNumber numberWithBool:shouldCompressData];
                         [dataEntity registerAccess];
                     } else if (fetchResultCount == 0) {
                         dataEntity = [NSEntityDescription insertNewObjectForEntityForName:@"DCDataDiskCacheEntity" inManagedObjectContext:moc];
-                        dataEntity.uuid = uuidStr;
+                        dataEntity.uuid = uuid;
                         dataEntity.key = key;
                         dataEntity.dataSize = [NSNumber numberWithUnsignedInteger:data.length];
+                        dataEntity.compressed = [NSNumber numberWithBool:shouldCompressData];
                         [dataEntity registerAccess];
                     } else {
                         NSAssert(0, @"[fetchResult count] > 1");
@@ -196,22 +209,21 @@ const float DCCoreDataDiskCacheIndexTrimLevel_High = 0.4f;
             }
             _currentDiskUsage -= willDeleteDataSize;
             
-            if (self.fileDelegate && [self.fileDelegate respondsToSelector:@selector(cacheIndex:deleteFileWithUUID:)]) {
-                [self.fileDelegate cacheIndex:self deleteFileWithUUID:willDeleteUUIDStr];
+            if (_fileDelegate && [_fileDelegate respondsToSelector:@selector(cacheIndex:deleteFileWithUUID:)]) {
+                [_fileDelegate cacheIndex:self deleteFileWithUUID:willDeleteUUIDStr];
             }
             
             _currentDiskUsage += data.length;
             
-            if (self.fileDelegate && [self.fileDelegate respondsToSelector:@selector(cacheIndex:writeFileWithUUID:data:)]) {
-                [self.fileDelegate cacheIndex:self writeFileWithUUID:uuidStr data:data];
+            if (_fileDelegate && [_fileDelegate respondsToSelector:@selector(cacheIndex:writeFileWithUUID:data:compress:)]) {
+                [_fileDelegate cacheIndex:self writeFileWithUUID:uuid data:data compress:shouldCompressData];
             }
             
-            if (self.currentDiskUsage > self.diskCapacity) {
+            if (_currentDiskUsage > _diskCapacity) {
                 [self _trimDataStore];
             }
             
-            result = uuidStr;
-            SAFE_ARC_AUTORELEASE(result);
+            result = [uuid copy];
         }
     } while (NO);
     return result;
@@ -228,6 +240,12 @@ const float DCCoreDataDiskCacheIndexTrimLevel_High = 0.4f;
             if (!dataStore) {
                 break;
             }
+            
+            BOOL shouldCompressData = NO;
+            if (_fileDelegate && [_fileDelegate respondsToSelector:@selector(cacheIndexShouldCompressData:)]) {
+                shouldCompressData = [_fileDelegate cacheIndexShouldCompressData:self];
+            }
+
             __block BOOL taskResult = NO;
             __block NSMutableArray *tmpUUIDAry = [NSMutableArray array];
             __block NSMutableArray *willDeleteUUIDStrAry = [NSMutableArray array];
@@ -248,10 +266,7 @@ const float DCCoreDataDiskCacheIndexTrimLevel_High = 0.4f;
                         if (!data || !key || key.length == 0) {
                             break;
                         }
-                        CFUUIDRef uuid = CFUUIDCreate(kCFAllocatorDefault);
-                        NSString *uuidStr = (__bridge NSString *)CFUUIDCreateString(kCFAllocatorDefault, uuid);
-                        CFRelease(uuid);
-                        
+                        NSString *uuid = [NSObject createUniqueStrByUUID];
                         DCCoreDataDiskCacheEntity *dataEntity = nil;
                         NSArray *fetchResult = [self fetchEntitiesFormContext:moc model:model forKey:key];
                         NSInteger fetchResultCount = [fetchResult count];
@@ -261,14 +276,16 @@ const float DCCoreDataDiskCacheIndexTrimLevel_High = 0.4f;
                             [willDeleteUUIDStrAry addObject:dataEntity.uuid];
                             willDeleteDataSize += [dataEntity.dataSize unsignedIntegerValue];
                             
-                            dataEntity.uuid = uuidStr;
+                            dataEntity.uuid = uuid;
                             dataEntity.dataSize = [NSNumber numberWithUnsignedInteger:data.length];
+                            dataEntity.compressed = [NSNumber numberWithBool:shouldCompressData];
                             [dataEntity registerAccess];
                         } else if (fetchResultCount == 0) {
                             dataEntity = [NSEntityDescription insertNewObjectForEntityForName:@"DCDataDiskCacheEntity" inManagedObjectContext:moc];
-                            dataEntity.uuid = uuidStr;
+                            dataEntity.uuid = uuid;
                             dataEntity.key = key;
                             dataEntity.dataSize = [NSNumber numberWithUnsignedInteger:data.length];
+                            dataEntity.compressed = [NSNumber numberWithBool:shouldCompressData];
                             [dataEntity registerAccess];
                         } else {
                             NSAssert(0, @"[fetchResult count] > 1");
@@ -276,8 +293,7 @@ const float DCCoreDataDiskCacheIndexTrimLevel_High = 0.4f;
                         }
                         
                         willAddDataSize += data.length;
-                        [tmpUUIDAry addObject:uuidStr];
-                        SAFE_ARC_AUTORELEASE(uuidStr);
+                        [tmpUUIDAry addObject:uuid];
                         
                         taskResult = YES;
                     }
@@ -306,25 +322,25 @@ const float DCCoreDataDiskCacheIndexTrimLevel_High = 0.4f;
             }
             _currentDiskUsage -= willDeleteDataSize;
             
-            if (self.fileDelegate && [self.fileDelegate respondsToSelector:@selector(cacheIndex:deleteFileWithUUID:)]) {
+            if (_fileDelegate && [_fileDelegate respondsToSelector:@selector(cacheIndex:deleteFileWithUUID:)]) {
                 for (NSString *willDeleteUUIDStr in willDeleteUUIDStrAry) {
-                    [self.fileDelegate cacheIndex:self deleteFileWithUUID:willDeleteUUIDStr];
+                    [_fileDelegate cacheIndex:self deleteFileWithUUID:willDeleteUUIDStr];
                 }
             }
             
             _currentDiskUsage += willAddDataSize;
             
-            if (self.fileDelegate && [self.fileDelegate respondsToSelector:@selector(cacheIndex:writeFileWithUUID:data:)]) {
+            if (_fileDelegate && [_fileDelegate respondsToSelector:@selector(cacheIndex:writeFileWithUUID:data:compress:)]) {
                 NSUInteger count = [keyArray count];
                 for (NSUInteger idx = 0; idx < count; ++idx) {                    
                     NSData *data = [dataArray objectAtIndex:idx];
                     NSString *uuidStr = [tmpUUIDAry objectAtIndex:idx];
                     
-                    [self.fileDelegate cacheIndex:self writeFileWithUUID:uuidStr data:data];
+                    [_fileDelegate cacheIndex:self writeFileWithUUID:uuidStr data:data compress:shouldCompressData];
                 }
             }
             
-            if (self.currentDiskUsage > self.diskCapacity) {
+            if (_currentDiskUsage > _diskCapacity) {
                 [self _trimDataStore];
             }
             
@@ -359,7 +375,6 @@ const float DCCoreDataDiskCacheIndexTrimLevel_High = 0.4f;
                     DCCoreDataDiskCacheEntity *dataEntity = [fetchResult objectAtIndex:0];
                     dataSize = [dataEntity.dataSize unsignedIntegerValue];
                     willDeleteUUIDStr = [dataEntity.uuid copy];
-                    SAFE_ARC_AUTORELEASE(willDeleteUUIDStr);
                     [moc deleteObject:dataEntity];
                     NSError *err = nil;
                     if (![moc save:&err]) {
@@ -384,11 +399,11 @@ const float DCCoreDataDiskCacheIndexTrimLevel_High = 0.4f;
                 break;
             }
             
-            if (self.fileDelegate && [self.fileDelegate respondsToSelector:@selector(cacheIndex:deleteFileWithUUID:)]) {
-                [self.fileDelegate cacheIndex:self deleteFileWithUUID:willDeleteUUIDStr];
+            if (_fileDelegate && [_fileDelegate respondsToSelector:@selector(cacheIndex:deleteFileWithUUID:)]) {
+                [_fileDelegate cacheIndex:self deleteFileWithUUID:willDeleteUUIDStr];
             }
             
-            NSAssert(self.currentDiskUsage - dataSize >= 0, @"self.currentDiskUsage - dataSize < 0");
+            NSAssert(_currentDiskUsage - dataSize >= 0, @"_currentDiskUsage - dataSize < 0");
             _currentDiskUsage -= dataSize;
         }
     } while (NO);
@@ -454,13 +469,13 @@ const float DCCoreDataDiskCacheIndexTrimLevel_High = 0.4f;
                 break;
             }
             
-            if (self.fileDelegate && [self.fileDelegate respondsToSelector:@selector(cacheIndex:deleteFileWithUUID:)]) {
+            if (_fileDelegate && [_fileDelegate respondsToSelector:@selector(cacheIndex:deleteFileWithUUID:)]) {
                 for (NSString *willDeleteUUIDStr in willDeleteUUIDStrAry) {
-                    [self.fileDelegate cacheIndex:self deleteFileWithUUID:willDeleteUUIDStr];
+                    [_fileDelegate cacheIndex:self deleteFileWithUUID:willDeleteUUIDStr];
                 }
             }
             
-            NSAssert(self.currentDiskUsage - dataSize >= 0, @"self.currentDiskUsage - dataSize < 0");
+            NSAssert(_currentDiskUsage - dataSize >= 0, @"_currentDiskUsage - dataSize < 0");
             _currentDiskUsage -= dataSize;
         }
     } while (NO);
@@ -472,32 +487,32 @@ const float DCCoreDataDiskCacheIndexTrimLevel_High = 0.4f;
     do {
         @synchronized(self) {
             NSAttributeDescription *uuidAttrDesc = [[NSAttributeDescription alloc] init];
-            SAFE_ARC_AUTORELEASE(uuidAttrDesc);
             [uuidAttrDesc setName:@"uuid"];
             [uuidAttrDesc setAttributeType:NSStringAttributeType];
             [uuidAttrDesc setOptional:NO];
             
             NSAttributeDescription *keyAttrDesc = [[NSAttributeDescription alloc] init];
-            SAFE_ARC_AUTORELEASE(keyAttrDesc);
             [keyAttrDesc setName:@"key"];
             [keyAttrDesc setAttributeType:NSStringAttributeType];
             [keyAttrDesc setOptional:NO];
             
             NSAttributeDescription *accessTimeAttrDesc = [[NSAttributeDescription alloc] init];
-            SAFE_ARC_AUTORELEASE(accessTimeAttrDesc);
             [accessTimeAttrDesc setName:@"accessTime"];
             [accessTimeAttrDesc setAttributeType:NSDateAttributeType];
             [accessTimeAttrDesc setOptional:NO];
             
             NSAttributeDescription *dataSizeAttrDesc = [[NSAttributeDescription alloc] init];
-            SAFE_ARC_AUTORELEASE(dataSizeAttrDesc);
             [dataSizeAttrDesc setName:@"dataSize"];
             [dataSizeAttrDesc setAttributeType:NSInteger64AttributeType];
             [dataSizeAttrDesc setOptional:NO];
             
-            NSArray *properties = [NSArray arrayWithObjects:uuidAttrDesc, keyAttrDesc, accessTimeAttrDesc, dataSizeAttrDesc, nil];
+            NSAttributeDescription *compressedAttrDesc = [[NSAttributeDescription alloc] init];
+            [compressedAttrDesc setName:@"compressed"];
+            [compressedAttrDesc setAttributeType:NSInteger64AttributeType];
+            [compressedAttrDesc setOptional:NO];
+            
+            NSArray *properties = [NSArray arrayWithObjects:uuidAttrDesc, keyAttrDesc, accessTimeAttrDesc, dataSizeAttrDesc, compressedAttrDesc, nil];
             result = [[NSEntityDescription alloc] init];
-            SAFE_ARC_AUTORELEASE(result);
             [result setName:@"DCDataDiskCacheEntity"];
             [result setManagedObjectClassName:@"DCDataDiskCacheEntity"];
             [result setProperties:properties];
@@ -509,10 +524,10 @@ const float DCCoreDataDiskCacheIndexTrimLevel_High = 0.4f;
 - (DCCoreDataStore *)_dataStore {
     DCCoreDataStore *result = nil;
     do {
-        if (!self.dataStoreUUID) {
+        if (!_dataStoreUUID) {
             break;
         }
-        result = [[DCCoreDataStoreManager sharedDCCoreDataStoreManager] getDataSource:self.dataStoreUUID];
+        result = [[DCCoreDataStoreManager sharedDCCoreDataStoreManager] getDataSource:_dataStoreUUID];
     } while (NO);
     return result;
 }
@@ -520,16 +535,16 @@ const float DCCoreDataDiskCacheIndexTrimLevel_High = 0.4f;
 - (void)_trimDataStore {
     do {
         @synchronized(self) {
-            NSAssert(self.currentDiskUsage > self.diskCapacity, @"self.currentDiskUsage <= self.diskCapacity in _trimDataStore");
-            if (self.currentDiskUsage <= self.diskCapacity) {
+            NSAssert(_currentDiskUsage > _diskCapacity, @"_currentDiskUsage <= _diskCapacity in _trimDataStore");
+            if (_currentDiskUsage <= _diskCapacity) {
                 break;
             }
             DCCoreDataStore *dataStore = [self _dataStore];
             if (!dataStore) {
                 break;
             }
-            NSUInteger targetDiskCapacity = self.diskCapacity * self.trimLevel;
-            __block NSUInteger currentDiskUsageForBlock = self.currentDiskUsage;
+            NSUInteger targetDiskCapacity = _diskCapacity * _trimLevel;
+            __block NSUInteger currentDiskUsageForBlock = _currentDiskUsage;
             __block NSMutableArray *willDeleteUUIDAry = [NSMutableArray array];
             __block BOOL taskResult = NO;
             [dataStore syncAction:^(NSManagedObjectModel *model, NSManagedObjectContext *moc, BOOL *shouldCacheContext, NSError *__autoreleasing *err) {
@@ -551,7 +566,6 @@ const float DCCoreDataDiskCacheIndexTrimLevel_High = 0.4f;
                         return [left compare:right];
                     }];
                     NSFetchRequest *fetch = [[NSFetchRequest alloc] init];
-                    SAFE_ARC_AUTORELEASE(fetch);
                     [fetch setEntity:entity];
                     [fetch setPredicate:predicate];
                     [fetch setSortDescriptors:[NSArray arrayWithObjects:accessTimeSortDesc, dataSizeSortDesc, nil]];
@@ -564,7 +578,6 @@ const float DCCoreDataDiskCacheIndexTrimLevel_High = 0.4f;
                         DCCoreDataDiskCacheEntity *dataEntity = [fetchResult objectAtIndex:idx];
                         currentDiskUsageForBlock -= [dataEntity.dataSize unsignedIntegerValue];
                         NSString *willDeleteUUIDStr = [dataEntity.uuid copy];
-                        SAFE_ARC_AUTORELEASE(willDeleteUUIDStr);
                         [willDeleteUUIDAry addObject:willDeleteUUIDStr];
                         [moc deleteObject:dataEntity];
                     } while (currentDiskUsageForBlock > targetDiskCapacity);
@@ -591,9 +604,9 @@ const float DCCoreDataDiskCacheIndexTrimLevel_High = 0.4f;
                 break;
             }
             
-            if (self.fileDelegate && [self.fileDelegate respondsToSelector:@selector(cacheIndex:deleteFileWithUUID:)]) {
+            if (_fileDelegate && [_fileDelegate respondsToSelector:@selector(cacheIndex:deleteFileWithUUID:)]) {
                 for (NSString *willDeleteUUIDStr in willDeleteUUIDAry) {
-                    [self.fileDelegate cacheIndex:self deleteFileWithUUID:willDeleteUUIDStr];
+                    [_fileDelegate cacheIndex:self deleteFileWithUUID:willDeleteUUIDStr];
                 }
             }
             _currentDiskUsage = currentDiskUsageForBlock;
@@ -612,7 +625,6 @@ const float DCCoreDataDiskCacheIndexTrimLevel_High = 0.4f;
             NSDictionary *entities = [model entitiesByName];
             NSEntityDescription *entity = [entities valueForKey:@"DCDataDiskCacheEntity"];
             NSFetchRequest *fetch = [[NSFetchRequest alloc] init];
-            SAFE_ARC_AUTORELEASE(fetch);
             [fetch setEntity:entity];
             [fetch setPredicate:predicate];
             result = [context executeFetchRequest:fetch error:nil];

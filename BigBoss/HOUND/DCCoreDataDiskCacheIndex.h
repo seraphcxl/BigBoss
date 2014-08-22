@@ -15,27 +15,28 @@ extern const float DCCoreDataDiskCacheIndexTrimLevel_Middle;
 extern const float DCCoreDataDiskCacheIndexTrimLevel_High;
 
 @class DCCoreDataDiskCacheIndex;
+@class DCCoreDataDiskCacheIndexInfo;
 
 @protocol DCCoreDataDiskCacheIndexFileDelegate <NSObject>
 
 @required
-- (void)cacheIndex:(DCCoreDataDiskCacheIndex *)cacheIndex writeFileWithUUID:(NSString *)uuid data:(NSData *)data;
+- (void)cacheIndex:(DCCoreDataDiskCacheIndex *)cacheIndex writeFileWithUUID:(NSString *)uuid data:(NSData *)data compress:(BOOL)shouldCompress;
 - (void)cacheIndex:(DCCoreDataDiskCacheIndex *)cacheIndex deleteFileWithUUID:(NSString *)uuid;
-
+- (BOOL)cacheIndexShouldCompressData:(DCCoreDataDiskCacheIndex *)cacheIndex;
 @end
 
 @interface DCCoreDataDiskCacheIndex : NSObject {
 }
 
-@property (unsafe_unretained, readonly) id<DCCoreDataDiskCacheIndexFileDelegate> fileDelegate;
-@property (atomic, assign, readonly) NSUInteger currentDiskUsage;
-@property (atomic, assign) NSUInteger diskCapacity;
+@property (nonatomic, weak) id<DCCoreDataDiskCacheIndexFileDelegate> fileDelegate;
+@property (nonatomic, assign, readonly) NSUInteger currentDiskUsage;
+@property (nonatomic, assign) NSUInteger diskCapacity;
 @property (nonatomic, assign) float trimLevel;
 @property (nonatomic, copy, readonly) NSString *dataStoreUUID;
 
 - (id)initWithDataStoreUUID:(NSString *)dataStoreUUID andFileDelegate:(id<DCCoreDataDiskCacheIndexFileDelegate>)fileDelegate;
 
-- (NSString *)dataUUIDForKey:(NSString *)key;
+- (DCCoreDataDiskCacheIndexInfo *)dataIndexInfoForKey:(NSString *)key;
 
 - (NSString *)storeData:(NSData *)data forKey:(NSString *)key;
 - (NSArray *)storeDataArray:(NSArray *)dataArray forKeyArray:(NSArray *)keyArray;

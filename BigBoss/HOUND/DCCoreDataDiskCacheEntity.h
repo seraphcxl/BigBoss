@@ -13,6 +13,7 @@
 @interface DCCoreDataDiskCacheEntity : NSManagedObject
 
 @property (nonatomic, retain) NSDate * accessTime;
+@property (nonatomic, retain) NSNumber * compressed;
 @property (nonatomic, retain) NSNumber * dataSize;
 @property (nonatomic, retain) NSString * key;
 @property (nonatomic, retain) NSString * uuid;

@@ -34,24 +34,24 @@ static const NSInteger kDefaultCacheCountLimit = 500;
 static NSString* const cacheFilename = @"DiskCacheIndex.db";
 static const char* schema =
 "CREATE TABLE IF NOT EXISTS cache_index "
-"(uuid TEXT, key TEXT PRIMARY KEY, access_time REAL, file_size INTEGER)";
+"(uuid TEXT, key TEXT PRIMARY KEY, access_time REAL, file_size INTEGER, compressed INTEGER)";
 
 static const char* insertQuery =
-"INSERT INTO cache_index VALUES (?, ?, ?, ?)";
+"INSERT INTO cache_index VALUES (?, ?, ?, ?, ?)";
 
 static const char* updateQuery =
 "UPDATE cache_index "
-"SET uuid=?, access_time=?, file_size=? "
+"SET uuid=?, access_time=?, file_size=?, compressed=?"
 "WHERE key=?";
 
 static const char* selectByKeyQuery =
-"SELECT uuid, key, access_time, file_size FROM cache_index WHERE key = ?";
+"SELECT uuid, key, access_time, file_size, compressed FROM cache_index WHERE key = ?";
 
 static const char* selectByKeyFragmentQuery =
-"SELECT uuid, key, access_time, file_size FROM cache_index WHERE key LIKE ?";
+"SELECT uuid, key, access_time, file_size, compressed FROM cache_index WHERE key LIKE ?";
 
 static const char* selectExcludingKeyFragmentQuery =
-"SELECT uuid, key, access_time, file_size FROM cache_index WHERE key NOT LIKE ?";
+"SELECT uuid, key, access_time, file_size, compressed FROM cache_index WHERE key NOT LIKE ?";
 
 static const char* selectStorageSizeQuery =
 "SELECT SUM(file_size) FROM cache_index";
@@ -91,6 +91,10 @@ static void releaseStatement(sqlite3_stmt *statement, sqlite3 *database)
 @interface DCDiskCacheIndex() <NSCacheDelegate> {
 }
 
+@property (nonatomic, assign) NSUInteger currentDiskUsage;
+@property (nonatomic) dispatch_queue_t databaseQueue;
+@property (nonatomic, strong) NSCache *cachedEntries;
+
 - (DCDiskCacheEntity *)_entryForKey:(NSString *)key;
 - (void)_fetchCurrentDiskUsage;
 - (DCDiskCacheEntity *)_readEntryFromDatabase:(NSString *)key;
@@ -110,6 +114,7 @@ static void releaseStatement(sqlite3_stmt *statement, sqlite3 *database)
 @synthesize diskCapacity = _diskCapacity;
 @synthesize databaseQueue = _databaseQueue;
 @synthesize trimLevel = _trimLevel;
+@synthesize cachedEntries = _cachedEntries;
 
 #pragma mark - DCDiskCacheIndex - Public method
 - (id)initWithCacheFolder:(NSString *)folderPath {
@@ -149,7 +154,7 @@ static void releaseStatement(sqlite3_stmt *statement, sqlite3 *database)
                 }
             });
             
-            _cachedEntries = [[NSCache alloc] init];
+            self.cachedEntries = [[NSCache alloc] init];
             _cachedEntries.delegate = self;
             _cachedEntries.countLimit = kDefaultCacheCountLimit;
             
@@ -189,9 +194,10 @@ static void releaseStatement(sqlite3_stmt *statement, sqlite3 *database)
                 
                 SAFE_ARC_DISPATCHQUEUERELEASE(_databaseQueue);
             }
+            self.databaseQueue = nil;
             
             _cachedEntries.delegate = nil;
-            SAFE_ARC_SAFERELEASE(_cachedEntries);
+            self.cachedEntries = nil;
         }
         SAFE_ARC_SUPER_DEALLOC();
     } while (NO);
@@ -219,6 +225,20 @@ static void releaseStatement(sqlite3_stmt *statement, sqlite3 *database)
     } while (NO);
 }
 
+- (DCDiskCacheEntity *)entryForKey:(NSString *)key {
+    DCDiskCacheEntity *result = nil;
+    do {
+        if (!key || key.length == 0) {
+            break;
+        }
+        @synchronized(self) {
+            result = [self _entryForKey:key];
+            [result registerAccess];
+        }
+    } while (NO);
+    return result;
+}
+
 - (NSString *)fileNameForKey:(NSString *)key {
     NSString *result = nil;
     do {
@@ -229,9 +249,7 @@ static void releaseStatement(sqlite3_stmt *statement, sqlite3 *database)
             DCDiskCacheEntity *entryInfo = [self _entryForKey:key];
             [entryInfo registerAccess];
             if (entryInfo) {
-                result = entryInfo.uuid;
-                SAFE_ARC_RETAIN(result);
-                SAFE_ARC_AUTORELEASE(result);
+                result = [entryInfo.uuid copy];
             }
         }
     } while (NO);
@@ -244,13 +262,14 @@ static void releaseStatement(sqlite3_stmt *statement, sqlite3 *database)
         if (!key || key.length == 0 || !data) {
             break;
         }
-        
-        CFUUIDRef uuid = CFUUIDCreate(kCFAllocatorDefault);
-        NSString *uuidString = (__bridge NSString *)CFUUIDCreateString(kCFAllocatorDefault, uuid);
-        CFRelease(uuid);
-        
+        NSString *uuid = [NSObject createUniqueStrByUUID];
         @synchronized(self) {
-            DCDiskCacheEntity *entry = [[DCDiskCacheEntity alloc] initWithKey:key uuid:uuidString accessTime:0 fileSize:data.length];
+            BOOL shouldCompressFile = NO;
+            if (_delegate && [_delegate respondsToSelector:@selector(cacheIndex:shouldCompressFileWithName:)]) {
+                shouldCompressFile = [_delegate cacheIndex:self shouldCompressFileWithName:uuid];
+            }
+            
+            DCDiskCacheEntity *entry = [[DCDiskCacheEntity alloc] initWithKey:key uuid:uuid accessTime:0 fileSize:data.length compressed:shouldCompressFile];
             [entry registerAccess];
             dispatch_async(_databaseQueue, ^{
                 @synchronized(self) {
@@ -263,13 +282,13 @@ static void releaseStatement(sqlite3_stmt *statement, sqlite3 *database)
                 }
             });
             
-            [self.delegate cacheIndex:self writeFileWithName:uuidString data:data];
+            if (_delegate && [_delegate respondsToSelector:@selector(cacheIndex:writeFileWithName:data:compress:)]) {
+                [_delegate cacheIndex:self writeFileWithName:uuid data:data compress:shouldCompressFile];
+            }
             
             [_cachedEntries setObject:entry forKey:key];
-            SAFE_ARC_AUTORELEASE(entry);
             
-            result = uuidString;
-            SAFE_ARC_AUTORELEASE(result);
+            result = [uuid copy];
         }
     } while (NO);
     return result;
@@ -298,7 +317,9 @@ static void releaseStatement(sqlite3_stmt *statement, sqlite3 *database)
                         [self _fetchCurrentDiskUsage];
                     };
                     
-                    [self.delegate cacheIndex:self deleteFileWithName:entry.uuid];
+                    if (_delegate && [_delegate respondsToSelector:@selector(cacheIndex:deleteFileWithName:)]) {
+                        [_delegate cacheIndex:self deleteFileWithName:entry.uuid];
+                    }
                 }
             });
         }
@@ -336,6 +357,30 @@ static void releaseStatement(sqlite3_stmt *statement, sqlite3 *database)
 }
 
 #pragma mark - DCDiskCacheIndex - Private method
+- (DCDiskCacheEntity *)_entryForKey:(NSString *)key {
+    __block DCDiskCacheEntity *result = nil;
+    do {
+        if (!key || key.length == 0) {
+            break;
+        }
+        @synchronized(self) {
+            result = [_cachedEntries objectForKey:key];
+            if (result == nil) {
+                // TODO: This is really bad if higher layers are going to be
+                // multi-threaded.  And this has to be unblocked.
+                dispatch_sync(_databaseQueue, ^{
+                    result = [self _readEntryFromDatabase:key];
+                });
+                
+                if (result) {
+                    [_cachedEntries setObject:result forKey:key];
+                }
+            }
+        }
+    } while (NO);
+    return result;
+}
+
 - (void)_updateEntryInDatabaseForKey:(NSString *)key entry:(DCDiskCacheEntity *)entry {
     do {
         if (!key || key.length == 0 || !entry) {
@@ -350,7 +395,9 @@ static void releaseStatement(sqlite3_stmt *statement, sqlite3 *database)
             
             CHECK_SQLITE_SUCCESS(sqlite3_bind_int(_updateStatement, 3, (int)entry.fileSize), _database);
             
-            CHECK_SQLITE_SUCCESS(sqlite3_bind_text(_updateStatement, 4, entry.key.UTF8String, (int)entry.key.length, nil), _database);
+            CHECK_SQLITE_SUCCESS(sqlite3_bind_int(_updateStatement, 4, (int)entry.isCompressed), _database);
+            
+            CHECK_SQLITE_SUCCESS(sqlite3_bind_text(_updateStatement, 5, entry.key.UTF8String, (int)entry.key.length, nil), _database);
             
             CHECK_SQLITE_DONE(sqlite3_step(_updateStatement), _database);
             
@@ -373,7 +420,9 @@ static void releaseStatement(sqlite3_stmt *statement, sqlite3 *database)
                 
                 if (![existing.uuid isEqualToString:entry.uuid]) {
                     // The files have changed.  Schedule a delete for existing file
-                    [self.delegate cacheIndex:self deleteFileWithName:existing.uuid];
+                    if (_delegate && [_delegate respondsToSelector:@selector(cacheIndex:deleteFileWithName:)]) {
+                        [_delegate cacheIndex:self deleteFileWithName:existing.uuid];
+                    }
                 }
                 break;
             }
@@ -386,6 +435,8 @@ static void releaseStatement(sqlite3_stmt *statement, sqlite3 *database)
             CHECK_SQLITE_SUCCESS(sqlite3_bind_double(_insertStatement, 3, entry.accessTime), _database);
             
             CHECK_SQLITE_SUCCESS(sqlite3_bind_int(_insertStatement, 4, (int)entry.fileSize), _database);
+            
+            CHECK_SQLITE_SUCCESS(sqlite3_bind_int(_insertStatement, 5, (int)entry.isCompressed), _database);
             
             CHECK_SQLITE_DONE(sqlite3_step(_insertStatement), _database);
             
@@ -461,8 +512,9 @@ static void releaseStatement(sqlite3_stmt *statement, sqlite3 *database)
             const unsigned char *key = sqlite3_column_text(selectStatement, 1);
             CFTimeInterval accessTime = sqlite3_column_double(selectStatement, 2);
             NSUInteger fileSize = sqlite3_column_int(selectStatement, 3);
+            BOOL compressed = sqlite3_column_int(selectStatement, 4);
             
-            result = [[DCDiskCacheEntity alloc] initWithKey:[NSString stringWithCString:(const char *)key encoding:NSUTF8StringEncoding] uuid:[NSString stringWithCString:(const char *)uuidStr encoding:NSUTF8StringEncoding] accessTime:accessTime fileSize:fileSize];
+            result = [[DCDiskCacheEntity alloc] initWithKey:[NSString stringWithCString:(const char *)key encoding:NSUTF8StringEncoding] uuid:[NSString stringWithCString:(const char *)uuidStr encoding:NSUTF8StringEncoding] accessTime:accessTime fileSize:fileSize compressed:compressed];
             SAFE_ARC_AUTORELEASE(result);
         }
     } while (NO);
@@ -480,30 +532,6 @@ static void releaseStatement(sqlite3_stmt *statement, sqlite3 *database)
             releaseStatement(sizeStatement, _database);
         }
     } while (NO);
-}
-
-- (DCDiskCacheEntity *)_entryForKey:(NSString *)key {
-    __block DCDiskCacheEntity *result = nil;
-    do {
-        if (!key || key.length == 0) {
-            break;
-        }
-        @synchronized(self) {
-            result = [_cachedEntries objectForKey:key];
-            if (result == nil) {
-                // TODO: This is really bad if higher layers are going to be
-                // multi-threaded.  And this has to be unblocked.
-                dispatch_sync(_databaseQueue, ^{
-                    result = [self _readEntryFromDatabase:key];
-                });
-                
-                if (result) {
-                    [_cachedEntries setObject:result forKey:key];
-                }
-            }
-        }
-    } while (NO);
-    return result;
 }
 
 - (void)_removeEntryFromDatabaseForKey:(NSString *)key {
@@ -556,7 +584,7 @@ static void releaseStatement(sqlite3_stmt *statement, sqlite3 *database)
             
             [self _dropTrimmingTable];
             initializeStatement(_database, &_trimStatement, trimQuery);
-            CHECK_SQLITE_SUCCESS(sqlite3_bind_int(_trimStatement, 1, _currentDiskUsage - _diskCapacity * self.trimLevel), _database);
+            CHECK_SQLITE_SUCCESS(sqlite3_bind_int(_trimStatement, 1, _currentDiskUsage - _diskCapacity * _trimLevel), _database);
             
             CHECK_SQLITE_DONE(sqlite3_step(_trimStatement), _database);
             
@@ -583,7 +611,9 @@ static void releaseStatement(sqlite3_stmt *statement, sqlite3 *database)
                 [_cachedEntries removeObjectForKey:key];
                 
                 // Delete the file
-                [self.delegate cacheIndex:self deleteFileWithName:uuid];
+                if (_delegate && [_delegate respondsToSelector:@selector(cacheIndex:deleteFileWithName:)]) {
+                    [_delegate cacheIndex:self deleteFileWithName:uuid];
+                }
             }
             
             releaseStatement(trimSelectStatement, _database);

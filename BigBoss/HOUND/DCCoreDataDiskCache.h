@@ -13,16 +13,13 @@
 @class DCCoreDataDiskCacheIndex;
 
 @interface DCCoreDataDiskCache : NSObject {
-@protected
-    NSCache *_inMemoryCache;
 }
 
-@property (atomic, assign, readonly, getter = isReady) BOOL ready;
-@property (nonatomic, assign) NSUInteger memoryCacheSize;
-@property (nonatomic, assign) NSUInteger diskCacheSize;
-@property (nonatomic, assign) float trimDiskCacheLevel;
+@property (nonatomic, assign, readonly, getter = isReady) BOOL ready;
+@property (nonatomic, assign, getter = isCompressed) BOOL compressed;
 @property (nonatomic, readonly) dispatch_queue_t fileQueue;
-@property (nonatomic, SAFE_ARC_PROP_STRONG, readonly) DCCoreDataDiskCacheIndex *cacheIndex;
+@property (nonatomic, strong, readonly) DCCoreDataDiskCacheIndex *cacheIndex;
+@property (nonatomic, strong, readonly) NSCache *inMemoryCache;
 
 DEFINE_SINGLETON_FOR_HEADER(DCCoreDataDiskCache)
 
@@ -35,5 +32,14 @@ DEFINE_SINGLETON_FOR_HEADER(DCCoreDataDiskCache)
 
 - (void)removeDataForUrl:(NSURL *)url;
 - (void)removeDataForURLArray:(NSArray *)urlArray;
+
+- (NSUInteger)memoryCacheSize;
+- (void)setMemoryCacheSize:(NSUInteger)memoryCacheSize;
+
+- (NSUInteger)diskCacheSize;
+- (void)setDiskCacheSize:(NSUInteger)diskCacheSize;
+
+- (float)trimDiskCacheLevel;
+- (void)setTrimDiskCacheLevel:(float)trimDiskCacheLevel;
 
 @end

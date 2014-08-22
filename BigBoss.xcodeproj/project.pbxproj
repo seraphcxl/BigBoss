@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		8919127D19932197004ACB6F /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8919127C19932197004ACB6F /* libsqlite3.dylib */; };
 		8919127E199321C3004ACB6F /* DCCoreDataDiskCache.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 891DFA35199320010073385B /* DCCoreDataDiskCache.xcdatamodeld */; };
+		891D850419A757910050A0AA /* DCCoreDataDiskCacheIndexInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 891D850219A757910050A0AA /* DCCoreDataDiskCacheIndexInfo.h */; };
+		891D850519A757910050A0AA /* DCCoreDataDiskCacheIndexInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 891D850319A757910050A0AA /* DCCoreDataDiskCacheIndexInfo.m */; };
+		891D850619A757910050A0AA /* DCCoreDataDiskCacheIndexInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 891D850319A757910050A0AA /* DCCoreDataDiskCacheIndexInfo.m */; };
 		891DFA42199320010073385B /* DCCoreDataDiskCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 891DFA33199320010073385B /* DCCoreDataDiskCache.h */; };
 		891DFA43199320010073385B /* DCCoreDataDiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 891DFA34199320010073385B /* DCCoreDataDiskCache.m */; };
 		891DFA44199320010073385B /* DCCoreDataDiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 891DFA34199320010073385B /* DCCoreDataDiskCache.m */; };
@@ -53,6 +56,8 @@
 /* Begin PBXFileReference section */
 		28A36A79CCCC4A0EBB933EA0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8919127C19932197004ACB6F /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		891D850219A757910050A0AA /* DCCoreDataDiskCacheIndexInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCCoreDataDiskCacheIndexInfo.h; sourceTree = "<group>"; };
+		891D850319A757910050A0AA /* DCCoreDataDiskCacheIndexInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCCoreDataDiskCacheIndexInfo.m; sourceTree = "<group>"; };
 		891DFA33199320010073385B /* DCCoreDataDiskCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCCoreDataDiskCache.h; sourceTree = "<group>"; };
 		891DFA34199320010073385B /* DCCoreDataDiskCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCCoreDataDiskCache.m; sourceTree = "<group>"; };
 		891DFA36199320010073385B /* DCCoreDataDiskCache.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DCCoreDataDiskCache.xcdatamodel; sourceTree = "<group>"; };
@@ -117,6 +122,8 @@
 				891DFA38199320010073385B /* DCCoreDataDiskCacheEntity.m */,
 				891DFA39199320010073385B /* DCCoreDataDiskCacheIndex.h */,
 				891DFA3A199320010073385B /* DCCoreDataDiskCacheIndex.m */,
+				891D850219A757910050A0AA /* DCCoreDataDiskCacheIndexInfo.h */,
+				891D850319A757910050A0AA /* DCCoreDataDiskCacheIndexInfo.m */,
 			);
 			path = HOUND;
 			sourceTree = "<group>";
@@ -231,6 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				891DFA50199320010073385B /* DCDiskCacheEntity.h in Headers */,
+				891D850419A757910050A0AA /* DCCoreDataDiskCacheIndexInfo.h in Headers */,
 				891DFA42199320010073385B /* DCCoreDataDiskCache.h in Headers */,
 				891DFA53199320010073385B /* DCDiskCacheIndex.h in Headers */,
 				891DFA4D199320010073385B /* DCDiskCache.h in Headers */,
@@ -377,6 +385,7 @@
 				891DFA51199320010073385B /* DCDiskCacheEntity.m in Sources */,
 				891DFA4B199320010073385B /* DCCoreDataDiskCacheIndex.m in Sources */,
 				891DFA43199320010073385B /* DCCoreDataDiskCache.m in Sources */,
+				891D850519A757910050A0AA /* DCCoreDataDiskCacheIndexInfo.m in Sources */,
 				891DFA54199320010073385B /* DCDiskCacheIndex.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -392,6 +401,7 @@
 				89EB62B319931F750022FB12 /* BigBoss_OSXTests.m in Sources */,
 				891DFA46199320010073385B /* DCCoreDataDiskCache.xcdatamodeld in Sources */,
 				891DFA4F199320010073385B /* DCDiskCache.m in Sources */,
+				891D850619A757910050A0AA /* DCCoreDataDiskCacheIndexInfo.m in Sources */,
 				891DFA44199320010073385B /* DCCoreDataDiskCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

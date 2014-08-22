@@ -7,5 +7,6 @@
 #ifdef __OBJC__
     #import <Cocoa/Cocoa.h>
 
+    #import <Tourbillon/DCTourbillon.h>
     #import <Clockwork/DCClockwork.h>
 #endif
