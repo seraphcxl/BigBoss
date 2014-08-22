@@ -111,9 +111,9 @@ DEFINE_SINGLETON_FOR_CLASS(DCCoreDataDiskCache)
             if (_inMemoryCache) {
                 NSUInteger maxAllowSize = [self diskCacheSize] / 10;
                 if (memoryCacheSize > maxAllowSize) {
-                    _inMemoryCache.countLimit = maxAllowSize;
+                    _inMemoryCache.totalCostLimit = maxAllowSize;
                 } else {
-                    _inMemoryCache.countLimit = memoryCacheSize;
+                    _inMemoryCache.totalCostLimit = memoryCacheSize;
                 }
             }
         }

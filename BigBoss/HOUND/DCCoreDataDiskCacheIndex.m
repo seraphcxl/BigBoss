@@ -51,14 +51,14 @@ const float DCCoreDataDiskCacheIndexTrimLevel_High = 0.4f;
                     result = [NSURL fileURLWithPath:self.dataStoreUUID];
                 } while (NO);
                 return result;
-            } andConfigureEntityBlock:^(NSManagedObjectModel *aModel) {
+            } configureEntityBlock:^(NSManagedObjectModel *aModel) {
                 do {
                     if (!aModel) {
                         break;
                     }
                     [aModel setEntities:[NSArray arrayWithObjects:[self _dataDiskCacheEntity], nil]];
                 } while (NO);
-            }];
+            } andContextCacheLimit:4];
             SAFE_ARC_AUTORELEASE(dataStore);
             
             [[DCCoreDataStoreManager sharedDCCoreDataStoreManager] addDataStore:dataStore];
@@ -92,7 +92,7 @@ const float DCCoreDataDiskCacheIndexTrimLevel_High = 0.4f;
                 break;
             }
             __block BOOL taskResult = NO;
-            [dataStore syncAction:^(NSManagedObjectModel *model, NSManagedObjectContext *moc, BOOL *stop) {
+            [dataStore syncAction:^(NSManagedObjectModel *model, NSManagedObjectContext *moc, BOOL *shouldCacheContext, NSError *__autoreleasing *err) {
                 do {
                     if (!model || !moc) {
                         break;
@@ -103,15 +103,17 @@ const float DCCoreDataDiskCacheIndexTrimLevel_High = 0.4f;
                     }
                     DCCoreDataDiskCacheEntity *dataEntity = [fetchResult objectAtIndex:0];
                     result = [dataEntity.uuid copy];
-                    SAFE_ARC_AUTORELEASE(result);
+                    
+                    (*shouldCacheContext) = NO;
+                    
                     taskResult = YES;
                 } while (NO);
-            } withConfigureBlock:^(NSManagedObjectContext *moc, BOOL *stop) {
+            } withConfigureBlock:^(NSManagedObjectContext *moc, NSError *__autoreleasing *err) {
                 do {
                     if (!moc) {
                         break;
                     }
-                    [[moc undoManager] disableUndoRegistration];
+//                    [[moc undoManager] disableUndoRegistration];
                 } while (NO);
             }];
 
@@ -141,7 +143,7 @@ const float DCCoreDataDiskCacheIndexTrimLevel_High = 0.4f;
             __block BOOL taskResult = NO;
             __block NSString *willDeleteUUIDStr = nil;
             __block NSUInteger willDeleteDataSize = 0;
-            [dataStore syncAction:^(NSManagedObjectModel *model, NSManagedObjectContext *moc, BOOL *stop) {
+            [dataStore syncAction:^(NSManagedObjectModel *model, NSManagedObjectContext *moc, BOOL *shouldCacheContext, NSError *__autoreleasing *err) {
                 do {
                     if (!model || !moc) {
                         break;
@@ -175,14 +177,17 @@ const float DCCoreDataDiskCacheIndexTrimLevel_High = 0.4f;
                         DCLog_Error(@"[writer syncSave:&err] err:%@", [err localizedDescription]);
                         break;
                     }
+                    
+                    (*shouldCacheContext) = NO;
+                    
                     taskResult = YES;
                 } while (NO);
-            } withConfigureBlock:^(NSManagedObjectContext *moc, BOOL *stop) {
+            } withConfigureBlock:^(NSManagedObjectContext *moc, NSError *__autoreleasing *err) {
                 do {
                     if (!moc) {
                         break;
                     }
-                    [[moc undoManager] disableUndoRegistration];
+//                    [[moc undoManager] disableUndoRegistration];
                 } while (NO);
             }];
             
@@ -228,7 +233,7 @@ const float DCCoreDataDiskCacheIndexTrimLevel_High = 0.4f;
             __block NSMutableArray *willDeleteUUIDStrAry = [NSMutableArray array];
             __block NSUInteger willAddDataSize = 0;
             __block NSUInteger willDeleteDataSize = 0;
-            [dataStore syncAction:^(NSManagedObjectModel *model, NSManagedObjectContext *moc, BOOL *stop) {
+            [dataStore syncAction:^(NSManagedObjectModel *model, NSManagedObjectContext *moc, BOOL *shouldCacheContext, NSError *__autoreleasing *err) {
                 do {
                     if (!model || !moc) {
                         break;
@@ -283,13 +288,16 @@ const float DCCoreDataDiskCacheIndexTrimLevel_High = 0.4f;
                             break;
                         }
                     }
+                    
+                    (*shouldCacheContext) = NO;
+                    
                 } while (NO);
-            } withConfigureBlock:^(NSManagedObjectContext *moc, BOOL *stop) {
+            } withConfigureBlock:^(NSManagedObjectContext *moc, NSError *__autoreleasing *err) {
                 do {
                     if (!moc) {
                         break;
                     }
-                    [[moc undoManager] disableUndoRegistration];
+//                    [[moc undoManager] disableUndoRegistration];
                 } while (NO);
             }];
             
@@ -339,7 +347,7 @@ const float DCCoreDataDiskCacheIndexTrimLevel_High = 0.4f;
             __block NSUInteger dataSize = 0;
             __block NSString *willDeleteUUIDStr = nil;
             __block BOOL taskResult = NO;
-            [dataStore syncAction:^(NSManagedObjectModel *model, NSManagedObjectContext *moc, BOOL *stop) {
+            [dataStore syncAction:^(NSManagedObjectModel *model, NSManagedObjectContext *moc, BOOL *shouldCacheContext, NSError *__autoreleasing *err) {
                 do {
                     if (!model || !moc) {
                         break;
@@ -358,14 +366,17 @@ const float DCCoreDataDiskCacheIndexTrimLevel_High = 0.4f;
                         DCLog_Error(@"[writer syncSave:&err] err:%@", [err localizedDescription]);
                         break;
                     }
+                    
+                    (*shouldCacheContext) = NO;
+                    
                     taskResult = YES;
                 } while (NO);
-            } withConfigureBlock:^(NSManagedObjectContext *moc, BOOL *stop) {
+            } withConfigureBlock:^(NSManagedObjectContext *moc, NSError *__autoreleasing *err) {
                 do {
                     if (!moc) {
                         break;
                     }
-                    [[moc undoManager] disableUndoRegistration];
+//                    [[moc undoManager] disableUndoRegistration];
                 } while (NO);
             }];
             
@@ -396,7 +407,7 @@ const float DCCoreDataDiskCacheIndexTrimLevel_High = 0.4f;
             __block NSUInteger dataSize = 0;
             __block NSMutableArray *willDeleteUUIDStrAry = [NSMutableArray array];
             __block BOOL taskResult = NO;
-            [dataStore syncAction:^(NSManagedObjectModel *model, NSManagedObjectContext *moc, BOOL *stop) {
+            [dataStore syncAction:^(NSManagedObjectModel *model, NSManagedObjectContext *moc, BOOL *shouldCacheContext, NSError *__autoreleasing *err) {
                 do {
                     if (!model || !moc) {
                         break;
@@ -426,13 +437,16 @@ const float DCCoreDataDiskCacheIndexTrimLevel_High = 0.4f;
                             break;
                         }
                     }
+                    
+                    (*shouldCacheContext) = NO;
+                    
                 } while (NO);
-            } withConfigureBlock:^(NSManagedObjectContext *moc, BOOL *stop) {
+            } withConfigureBlock:^(NSManagedObjectContext *moc, NSError *__autoreleasing *err) {
                 do {
                     if (!moc) {
                         break;
                     }
-                    [[moc undoManager] disableUndoRegistration];
+//                    [[moc undoManager] disableUndoRegistration];
                 } while (NO);
             }];
             
@@ -518,7 +532,7 @@ const float DCCoreDataDiskCacheIndexTrimLevel_High = 0.4f;
             __block NSUInteger currentDiskUsageForBlock = self.currentDiskUsage;
             __block NSMutableArray *willDeleteUUIDAry = [NSMutableArray array];
             __block BOOL taskResult = NO;
-            [dataStore syncAction:^(NSManagedObjectModel *model, NSManagedObjectContext *moc, BOOL *stop) {
+            [dataStore syncAction:^(NSManagedObjectModel *model, NSManagedObjectContext *moc, BOOL *shouldCacheContext, NSError *__autoreleasing *err) {
                 do {
                     if (!model || !moc) {
                         break;
@@ -559,14 +573,17 @@ const float DCCoreDataDiskCacheIndexTrimLevel_High = 0.4f;
                         DCLog_Error(@"[writer syncSave:&err] err:%@", [err localizedDescription]);
                         break;
                     }
+                    
+                    (*shouldCacheContext) = NO;
+                    
                     taskResult = YES;
                 } while (NO);
-            } withConfigureBlock:^(NSManagedObjectContext *moc, BOOL *stop) {
+            } withConfigureBlock:^(NSManagedObjectContext *moc, NSError *__autoreleasing *err) {
                 do {
                     if (!moc) {
                         break;
                     }
-                    [[moc undoManager] disableUndoRegistration];
+//                    [[moc undoManager] disableUndoRegistration];
                 } while (NO);
             }];
             

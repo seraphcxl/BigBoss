@@ -1,1 +1,1 @@
-pod 'Clockwork', '~> 0.9.0'
+pod 'Clockwork', '~> 0.9.4'
