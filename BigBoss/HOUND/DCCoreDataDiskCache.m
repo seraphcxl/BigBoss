@@ -12,9 +12,10 @@
 #import "DCCoreDataDiskCacheIndex.h"
 #import "DCCoreDataDiskCacheIndexInfo.h"
 
-static NSString* const defaultDataStoreUUID = @"CDDiskCacheIndex.db";
-static const NSUInteger kMaxCDDataInMemorySize = DC_MEMSIZE_MB(1);  // 1MB
-static const NSUInteger kMaxCDDiskCacheSize = DC_MEMSIZE_MB(10);  // 10MB
+static NSString* const kDCCoreDataDiskCache_DefaultDataStoreUUID = @"CDDiskCacheIndex.db";
+static const NSUInteger kDCCoreDataDiskCache_InMemorySizeToDoskSizeFactor = 10;
+static const NSUInteger kDCCoreDataDiskCache_MaxCDDataInMemorySize = DC_MEMSIZE_MB(2);  // 2MB
+static const NSUInteger kDCCoreDataDiskCache_MaxCDDiskCacheSize = DC_MEMSIZE_MB(kDCCoreDataDiskCache_MaxCDDataInMemorySize * 10);  // 20MB
 
 static NSString * const kCDDiskCachePath = @"DCCDDiskCache";
 
@@ -90,13 +91,13 @@ DEFINE_SINGLETON_FOR_CLASS(DCCoreDataDiskCache)
             self.fileQueue = dispatch_queue_create("DCCoreDataDiskCacheFileQueue", DISPATCH_QUEUE_SERIAL);
             dispatch_set_target_queue(_fileQueue, bgPriQueue);
             
-            NSString *cacheIndexPath = [self.dataCachePath stringByAppendingPathComponent:defaultDataStoreUUID];
+            NSString *cacheIndexPath = [self.dataCachePath stringByAppendingPathComponent:kDCCoreDataDiskCache_DefaultDataStoreUUID];
             self.cacheIndex = [[DCCoreDataDiskCacheIndex alloc] initWithDataStoreUUID:cacheIndexPath andFileDelegate:self];
-            _cacheIndex.diskCapacity = kMaxCDDiskCacheSize;
+            _cacheIndex.diskCapacity = kDCCoreDataDiskCache_MaxCDDiskCacheSize;
             _cacheIndex.trimLevel = DCCoreDataDiskCacheIndexTrimLevel_Middle;
             
             self.inMemoryCache = [[NSCache alloc] init];
-            _inMemoryCache.totalCostLimit = kMaxCDDataInMemorySize;
+            _inMemoryCache.totalCostLimit = kDCCoreDataDiskCache_MaxCDDataInMemorySize;
             
             self.ready = YES;
         }
@@ -119,7 +120,7 @@ DEFINE_SINGLETON_FOR_CLASS(DCCoreDataDiskCache)
     do {
         @synchronized(_inMemoryCache) {
             if (_inMemoryCache) {
-                NSUInteger maxAllowSize = [self diskCacheSize] / 10;
+                NSUInteger maxAllowSize = [self diskCacheSize] / kDCCoreDataDiskCache_InMemorySizeToDoskSizeFactor;
                 if (memoryCacheSize > maxAllowSize) {
                     _inMemoryCache.totalCostLimit = maxAllowSize;
                 } else {

@@ -12,8 +12,9 @@
 #import "DCCommonConstants.h"
 #import "DCLogger.h"
 
-static const NSUInteger kMaxDataInMemorySize = DC_MEMSIZE_MB(2);  // 2MB
-static const NSUInteger kMaxDiskCacheSize = DC_MEMSIZE_MB(20);  // 20MB
+static const NSUInteger kDCDiskCache_InMemorySizeToDoskSizeFactor = 10;
+static const NSUInteger kDCDiskCache_MaxDataInMemorySize = DC_MEMSIZE_MB(2);  // 2MB
+static const NSUInteger kDCDiskCache_MaxDiskCacheSize = DC_MEMSIZE_MB(kDCDiskCache_MaxDataInMemorySize * 10);  // 20MB
 
 static NSString * const kDiskCachePath = @"DCDiskCache";
 
@@ -90,12 +91,12 @@ DEFINE_SINGLETON_FOR_CLASS(DCDiskCache)
             dispatch_set_target_queue(_fileQueue, bgPriQueue);
             
             self.cacheIndex = [[DCDiskCacheIndex alloc] initWithCacheFolder:_dataCachePath];
-            _cacheIndex.diskCapacity = kMaxDiskCacheSize;
+            _cacheIndex.diskCapacity = kDCDiskCache_MaxDiskCacheSize;
             _cacheIndex.trimLevel = DCDiskCacheIndexTrimLevel_Middle;
             _cacheIndex.delegate = self;
             
             self.inMemoryCache = [[NSCache alloc] init];
-            _inMemoryCache.totalCostLimit = kMaxDataInMemorySize;
+            _inMemoryCache.totalCostLimit = kDCDiskCache_MaxDataInMemorySize;
             
             self.ready = YES;
         }
@@ -118,7 +119,7 @@ DEFINE_SINGLETON_FOR_CLASS(DCDiskCache)
     do {
         @synchronized(self) {
             if (_inMemoryCache) {
-                NSUInteger maxAllowSize = [self diskCacheSize] / 10;
+                NSUInteger maxAllowSize = [self diskCacheSize] / kDCDiskCache_InMemorySizeToDoskSizeFactor;
                 if (memoryCacheSize > maxAllowSize) {
                     _inMemoryCache.totalCostLimit = maxAllowSize;
                 } else {
